@@ -1,0 +1,127 @@
+/* // One Dark Colors
+
+// Default
+$plain: #abb2bf;
+
+// Caret
+$caret: #528bff;
+
+// Function params
+$pink: #e06c75;
+
+// Class name Identifiers,
+$cyan: #56b6c2;
+
+// String
+$lime: #98c379;
+
+// Keywords
+$purple: #c678dd;
+
+// Numbers, Constants, Markup attributes
+$brown: #d19a66;
+
+// Class name, Namespaces
+$gold: #e5c07b;
+
+// Method definitions, Function names
+$blue: #61afef;
+
+// Comments
+$comment: #5c6370; */
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #282c34;
+  color: #ddd;
+}
+
+.hljs-tag {
+  color: #f92672;
+}
+
+.hljs-keyword {
+  color: #56b6c2;
+}
+
+.hljs-selector-tag {
+  color: #f92672;
+}
+
+.hljs-literal {
+  color: #56b6c2;
+}
+
+.hljs-strong {
+  color: #f92672;
+}
+
+.hljs-name {
+  color: #f92672;
+}
+
+.hljs-code {
+  color: #56b6c2;
+}
+
+.hljs-class {
+  color: white;
+} 
+
+.hljs-title {
+  color: white;
+}
+
+.hljs-attribute {
+  color: #bf79db;
+}
+
+.hljs-symbol {
+  color: #bf79db;
+}
+
+.hljs-regexp {
+  color: #e5c07b;
+}
+
+.hljs-link {
+  color: #bf79db;
+}
+
+.hljs-string,
+.hljs-bullet,
+.hljs-subst,
+.hljs-title,
+.hljs-section,
+.hljs-emphasis,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #98c379;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  color: #5c6370;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag,
+.hljs-title,
+.hljs-section,
+.hljs-type,
+.hljs-selector-id {
+  font-weight: bold;
+}
