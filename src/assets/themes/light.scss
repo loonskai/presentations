@@ -1,0 +1,20 @@
+@import "reveal.js/css/theme/template/mixins";
+@import "reveal.js/css/theme/template/settings";
+
+// $mainFontSize: 26px;
+// $headingFont: "Montserrat", sans-serif;
+// $headingTextShadow: none;
+// $headingLetterSpacing: normal;
+// $headingTextTransform: normal;
+// $headingFontWeight: 500;
+$linkColor: #42affa;
+$linkColorHover: lighten( $linkColor, 15%);
+$selectionBackgroundColor: rgba($linkColor, 0.75);
+
+// Change text colors against light slide backgrounds
+@include light-bg-text-color(#222);
+
+// Theme template ------------------------------
+// Tailwind is used instead
+@import "reveal.js/css/theme/template/theme";
+// ---------------------------------------------

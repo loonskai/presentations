@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
-import { WebPerf } from "./decks/WebPerf";
+import { WebPerf } from "./decks/webperf";
 import { Home } from "./Home";
 import "./App.css";
 

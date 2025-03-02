@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import url(./assets/fonts/Montserrat/montserrat.css);
+@import url(./assets/fonts/Open_Sans/open-sans.css);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+  --font-montserrat: Montserrat, sans-serif;
+  --font-opensans: Open Sans, sans-serif;
+}

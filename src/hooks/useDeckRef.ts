@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import Reveal, { type Options } from "reveal.js";
 import "reveal.js/dist/reveal.css";
-import "reveal.js/dist/theme/black.css"; // "black" theme is just an example
 
 export function useDeckRef(
   options: Options = { transition: "slide", controls: true }
