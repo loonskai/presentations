@@ -3,7 +3,13 @@ import Reveal, { type Options } from "reveal.js";
 import "reveal.js/dist/reveal.css";
 
 export function useDeckRef(
-  options: Options = { transition: "slide", controls: true }
+  options: Options = {
+    transition: "slide",
+    controls: true,
+    autoAnimateEasing: "ease-out",
+    autoAnimateDuration: 1.5,
+    autoAnimateUnmatched: true,
+  }
 ) {
   const deckDivRef = useRef<HTMLDivElement>(null);
   const deckRef = useRef<Reveal.Api | null>(null);
