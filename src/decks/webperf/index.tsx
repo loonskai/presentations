@@ -8,7 +8,7 @@ export function WebPerf() {
   return (
     <div className="reveal-container">
       <div className="reveal" ref={deckDivRef}>
-        <div className="slides">
+        <div className="slides font-opensans">
           <Front />
           <Overview />
           <section data-auto-animate>

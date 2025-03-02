@@ -64,7 +64,7 @@ const Banners = ({ children }: PropsWithChildren) => {
       {/* Cookie Banner */}
       {showCookieBanner && (
         <div className="fixed bottom-0 left-0 w-full bg-white shadow-md p-4 flex flex-col items-center justify-center z-40">
-          <div className="text-black font-montserrat text-sm md:text-base text-center">
+          <div className="text-black text-sm md:text-base text-center">
             <strong>Cookie Privacy Statement</strong>
             <p className="mt-1 text-gray-500">
               We use cookies to improve your experience. By clicking "Accept,"
@@ -94,7 +94,7 @@ const Banners = ({ children }: PropsWithChildren) => {
       {/* Notification Alert */}
       {showNotificationAlert && (
         <div className="fixed top-1/4 left-1/2 transform -translate-x-1/2 bg-white shadow-lg p-4 rounded-md w-96 z-50 flex flex-col items-center">
-          <p className="text-black font-montserrat text-sm md:text-base text-center">
+          <p className="text-black text-sm md:text-base text-center">
             We'd like to send you notifications with the latest news and updates
             from our site.
           </p>
@@ -123,7 +123,7 @@ const Banners = ({ children }: PropsWithChildren) => {
       {/* Congrats Alert */}
       {showCongratsAlert && (
         <div className="fixed top-1/4 left-1/2 transform -translate-x-1/2 bg-white shadow-lg p-4 rounded-md w-96 z-50 flex flex-col items-center">
-          <p className="text-green-600 font-montserrat text-lg font-bold text-center">
+          <p className="text-green-600 text-lg font-bold text-center">
             🎉 Congrats! You're subscribed! 🎉
           </p>
           <button
@@ -162,10 +162,10 @@ const Banners = ({ children }: PropsWithChildren) => {
       {/* Adblock Detected Popup */}
       {showAdblockPopup && (
         <div className="fixed top-1/4 left-1/2 transform -translate-x-1/2 bg-white shadow-lg p-4 rounded-md w-96 z-50 flex flex-col items-center">
-          <p className="text-red-600 font-montserrat text-lg font-bold text-center">
+          <p className="text-red-600 text-lg font-bold text-center">
             🚫 Adblock Detected! 🚫
           </p>
-          <p className="text-black font-montserrat text-sm text-center mt-2">
+          <p className="text-black text-sm text-center mt-2">
             Please disable your ad blocker to support our website.
           </p>
           <button

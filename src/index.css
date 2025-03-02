@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@import url(./assets/fonts/Montserrat/montserrat.css);
-@import url(./assets/fonts/Open_Sans/open-sans.css);
+@import url(./assets/fonts/montserrat.css);
+@import url(./assets/fonts/open-sans.css);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

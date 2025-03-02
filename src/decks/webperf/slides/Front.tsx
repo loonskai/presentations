@@ -6,20 +6,16 @@ export function Front() {
   return (
     <section data-auto-animate>
       <div className="flex flex-col items-center text-center p-6 md:p-12 max-w-4xl mx-auto">
-        <div className="flex flex-col items-center">
+        <div className="font-montserrat flex flex-col items-center">
           <BlurEffect
             src={warsawJSImg}
             alt="WarsawJS Logo"
             className="w-46 h-auto mx-auto my-4"
           />
-          <h2 className="font-montserrat font-semibold text-5xl">
-            The Red Pill
-          </h2>
-          <h3 className="font-montserrat text-2xl">of the</h3>
-          <h1 className="font-montserrat font-black text-4xl">
-            Web Application
-          </h1>
-          <h3 className="font-montserrat text-2xl">performance</h3>
+          <h2 className="font-semibold text-5xl">The Red Pill</h2>
+          <h3 className="text-2xl">of the</h3>
+          <h1 className="font-semibold text-5xl">Web Application</h1>
+          <h3 className="text-4xl">performance</h3>
         </div>
         <div className="flex flex-col items-center mt-8 text-center">
           <img
