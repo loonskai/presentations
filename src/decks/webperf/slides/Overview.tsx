@@ -1,4 +1,4 @@
-import Banners from "../webperf/Banners";
+import Banners from "../Banners";
 
 export function Overview() {
   return (

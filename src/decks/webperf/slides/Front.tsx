@@ -1,4 +1,6 @@
-import BlurEffect from "../webperf/BlurEffect";
+import BlurEffect from "../BlurEffect";
+import avatarImg from "../images/avatar.jpg";
+import warsawJSImg from "../images/warsawjs-logo.png";
 
 export function Front() {
   return (
@@ -6,7 +8,7 @@ export function Front() {
       <div className="flex flex-col items-center text-center p-6 md:p-12 max-w-4xl mx-auto">
         <div className="flex flex-col items-center">
           <BlurEffect
-            src="src/assets/images/warsawjs-logo.png"
+            src={warsawJSImg}
             alt="WarsawJS Logo"
             className="w-46 h-auto mx-auto my-4"
           />
@@ -21,7 +23,7 @@ export function Front() {
         </div>
         <div className="flex flex-col items-center mt-8 text-center">
           <img
-            src="src/assets/images/avatar.jpg"
+            src={avatarImg}
             alt="Siarhei Lunski"
             className="w-20 h-20 rounded-full object-cover shadow-lg mb-4"
           />

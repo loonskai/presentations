@@ -1,6 +1,6 @@
 import { useDeckRef } from "../../hooks/useDeckRef";
-import { Front } from "../slides/Front";
-import { Overview } from "../slides/Overview";
+import { Front } from "./slides/Front";
+import { Overview } from "./slides/Overview";
 
 export function WebPerf() {
   const { deckDivRef } = useDeckRef();
