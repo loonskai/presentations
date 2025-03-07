@@ -1,15 +1,17 @@
-import avatarImg from "./images/avatar.jpg";
-import warsawJSImg from "./images/warsawjs-logo.png";
-import cruxLatinImg from "./images/crux-latin.png";
-import prettySureItDoesntGif from "./images/pretty-sure-it-doesnt.gif";
-import toolsGif from "./images/tools.gif";
-import catGif from "./images/cat.gif";
-import gitlabCriticalCssImg from "./images/gitlab-critical-css.png";
-import pudelkoAiImg from "./images/pudelko-ai.png";
-import checkThisOutGif from "./images/check-this-out.gif";
-import stateOfJsPainPointsImg from "./images/state-of-js-pain-points.png";
+import avatarImg from "./avatar.jpg";
+import warsawJSImg from "./warsawjs-logo.png";
+import cruxLatinImg from "./crux-latin.png";
+import prettySureItDoesntGif from "./pretty-sure-it-doesnt.gif";
+import toolsGif from "./tools.gif";
+import catGif from "./cat.gif";
+import gitlabCriticalCssImg from "./gitlab-critical-css.png";
+import pudelkoAiImg from "./pudelko-ai.png";
+import checkThisOutGif from "./check-this-out.gif";
+import stateOfJsPainPointsImg from "./state-of-js-pain-points.png";
+import rumMoney from "./rum-money.avif";
 
 export default {
+  rumMoney,
   avatarImg,
   warsawJSImg,
   cruxLatinImg,

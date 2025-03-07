@@ -2,6 +2,7 @@ import { useDeckRef } from "../../hooks/useDeckRef";
 import Banners from "./Banners";
 import BlurEffect from "./BlurEffect";
 import images from "./images";
+import { Quote } from "./Quote";
 
 export function WebPerf() {
   const { deckDivRef } = useDeckRef();
@@ -11,35 +12,31 @@ export function WebPerf() {
       <div className="reveal" ref={deckDivRef}>
         <div className="slides font-opensans">
           <section id="intro" data-auto-animate>
-            <div className="flex flex-col items-center text-center p-6 md:p-12 max-w-4xl mx-auto">
+            <div className="flex flex-col items-center text-center p-4 md:p-6 max-w-4xl mx-auto">
               <div className="font-montserrat flex flex-col items-center">
                 <BlurEffect
                   src={images.warsawJSImg}
                   alt="WarsawJS Logo"
-                  className="w-46 h-auto mx-auto my-4"
+                  className="w-30 h-auto mx-auto my-2"
                 />
-                <h2 className="font-semibold text-5xl">The Red Pill</h2>
-                <h3 className="text-2xl">of the</h3>
-                <h1 className="font-semibold text-5xl">Web Application</h1>
-                <h3 className="text-4xl">performance</h3>
+                <h1 className="mb-0">The Red Pill</h1>
+                <h3 className="mb-0">of the</h3>
+                <h1 className="mb-0">Web Application</h1>
+                <h2 className="mb-0">performance</h2>
               </div>
               <div className="flex flex-col items-center mt-8 text-center">
                 <img
                   src={images.avatarImg}
                   alt="Siarhei Lunski"
-                  className="w-20 h-20 rounded-full object-cover shadow-lg mb-4"
+                  className="w-40 h-40 rounded-full object-cover shadow-lg mb-4"
                 />
-                <h2 className="font-montserrat font-semibold text-2xl">
-                  Siarhei Lunski
-                </h2>
-                <p className="font-montserrat text-lg text-gray-700">
-                  Software Engineer @ Box
-                </p>
+                <h3>Siarhei Lunski</h3>
+                <h4>Software Engineer @ Box</h4>
               </div>
             </div>
           </section>
 
-          <section id="overview" className="w-full h-full">
+          <section id="overview">
             <Banners>
               <h1>Web Performance</h1>
               <h2>Why?</h2>
@@ -47,13 +44,6 @@ export function WebPerf() {
               <h2>How?</h2>
             </Banners>
             <aside className="notes">Tell something about rage clicks</aside>
-          </section>
-
-          <section>
-            <h1>RUM</h1>
-            "Rum gets you through times of no money better than money gets you
-            through times of no rum." ―Jack Sparrow
-            <aside>How your users experience your application</aside>
           </section>
 
           <section>
@@ -66,10 +56,10 @@ export function WebPerf() {
             </p>
           </section>
           <section>
-            <h3>Psychological Impact</h3>
+            <h1>Psychological Impact</h1>
             <p>Rage clicks, frustration, cognitive overload.</p>
             <p>Example: Multiple popups appearing on site load.</p>
-            <aside className="note">
+            <aside className="notes">
               Psychology of waiting - kolejki w Polsce How people are tolerant.
               TODO: Read a paper around waiting The more important and unique
               service - the more users are ready to wait
@@ -78,19 +68,44 @@ export function WebPerf() {
           <section>
             <h1>Case scenarios</h1>
             <aside className="notes">
-              We hear a lot about improved performance As any product apect,
-              performance doesn't make sence in separation from business, unless
-              it's your personal stuff and you're learning
+              We hear a lot about improved performance. TODO add examples from
+              web.dev. As any product apect, performance doesn't make sence in
+              separation from business, unless it's your personal stuff and
+              you're learning
             </aside>
           </section>
+          <section></section>
           <section>
-            <h3>Survivorship Bias in Performance</h3>
+            <h1>Survivorship Bias in Performance</h1>
             <p>Example: GitLab spent 2 years on inline styles → removed it.</p>
             <aside className="notes">
+              However there are examples when performance improvements don't
+              improve anything. Here is an example from Gitlab, that spent
+              around 2 years trying to improve First Contentful Paint for the
+              first-time users. by adding inline CSS.
               https://gitlab.com/gitlab-org/gitlab/-/merge_requests/124406
             </aside>
           </section>
-
+          <section>
+            <h1>Is it worth?</h1>
+            <aside className="notes">
+              So now you may ask yourself: do I even need to spend the time and
+              money trying to improve the performance? No. If you don't have
+              data. And the best and most reliable data is RUM
+            </aside>
+          </section>
+          <section id="rum">
+            <h1>Real User Monitoring</h1>
+            <Quote
+              quote="RUM gets you through times of no money better than money gets
+                you through times of no RUM."
+              source="Jack Sparrow"
+              img={images.rumMoney}
+            />
+            <aside className="notes">
+              How your users experience your application
+            </aside>
+          </section>
           <section>
             <h1>What?</h1>
             <h2>Network vs Compute (c) Cost of Javascript Addy Osmani</h2>
@@ -116,11 +131,11 @@ export function WebPerf() {
             <h1>Compute</h1>
           </section>
           <section>
-            <h1>Javascript Pain Points</h1>
+            <h1>State of JS 2024</h1>
             <img
               src={images.stateOfJsPainPointsImg}
               alt="State of JS Pain Points"
-              className="w-full h-auto mt-4"
+              className="screenshot w-full h-auto mt-4"
             />
             <aside className="notes">
               1 out of 4 respondents mentioned performance as one of the main

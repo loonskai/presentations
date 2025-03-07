@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import Reveal, { type Options } from "reveal.js";
-import "reveal.js/dist/reveal.css";
 import RevealNotes from "reveal.js/plugin/notes/notes";
 
 export function useDeckRef(

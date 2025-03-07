@@ -1,11 +1,9 @@
+@import "reveal.js/dist/reveal.css";
 @import "tailwindcss";
-@import url(./assets/fonts/montserrat.css);
-@import url(./assets/fonts/open-sans.css);
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import './assets/themes/light.css';
 
-@theme {
-  --font-montserrat: Montserrat, sans-serif;
-  --font-opensans: Open Sans, sans-serif;
+#root, 
+.reveal-container {
+  height: 100vh;
+  width: 100vw;
 }
