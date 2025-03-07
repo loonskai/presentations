@@ -6,7 +6,6 @@ const Banners = ({ children }: PropsWithChildren) => {
   const [showCongratsAlert, setShowCongratsAlert] = useState(false);
   const [showNextPopup, setShowNextPopup] = useState(false);
   const [showAdblockPopup, setShowAdblockPopup] = useState(false);
-  const [showChatSimulation, setShowChatSimulation] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true); // Overlay visibility
   const [loading, setLoading] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
@@ -48,10 +47,6 @@ const Banners = ({ children }: PropsWithChildren) => {
     setShowNextPopup(false);
     setShowAdblockPopup(false);
     setShowOverlay(false);
-
-    setTimeout(() => {
-      setShowChatSimulation(true);
-    }, 5000); // Show chat simulation after 5 seconds
   };
 
   return (
@@ -174,26 +169,6 @@ const Banners = ({ children }: PropsWithChildren) => {
           >
             OK
           </button>
-        </div>
-      )}
-
-      {/* Chat Simulation Popup */}
-      {showChatSimulation && (
-        <div className="fixed bottom-0 right-0 h-1/2 w-1/2 bg-white shadow-lg p-4 rounded-tl-md z-50 border border-gray-300 flex flex-col">
-          <div className="flex justify-between items-center border-b pb-2">
-            <p className="text-black text-sm font-semibold">
-              💬 How can I help you?
-            </p>
-            <button
-              onClick={() => setShowChatSimulation(false)}
-              className="text-gray-500 hover:text-black"
-            >
-              ✖
-            </button>
-          </div>
-          <div className="flex-1 flex items-center justify-center text-gray-500 text-sm">
-            Type your message here...
-          </div>
         </div>
       )}
 
