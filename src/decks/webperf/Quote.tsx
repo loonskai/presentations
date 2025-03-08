@@ -4,13 +4,13 @@ export const Quote = ({
   source,
 }: {
   img?: string;
-  quote: string;
+  quote: React.ReactNode;
   source: string;
 }) => {
   return (
     <div className="font-montserrat relative flex items-center justify-center min-h-[300px] w-full">
       {/* Quote Card */}
-      <div className="relative max-w-2xl mx-auto pt-12 p-8 bg-[var(--gruvbox-dark-bg)] rounded-2xl shadow-2xl">
+      <div className="relative max-w-2xl mx-auto pt-12 p-8 bg-[var(--gruvbox-light0_hard)] rounded-2xl shadow-2xl">
         {/* Mac-style window controls */}
         <div className="absolute top-4 left-4 flex space-x-2">
           <span className="w-3 h-3 bg-[#cc241d] rounded-full"></span>{" "}
@@ -33,12 +33,10 @@ export const Quote = ({
         )}
 
         {/* Quote Content */}
-        <p className="leading-snug text-3xl text-[var(--gruvbox-dark-fg)]">
-          “{quote}”
-        </p>
+        <p className="text-3xl text-[var(--gruvbox-light-fg)]">“{quote}”</p>
 
         {/* Attribution */}
-        <p className="text-right mt-4 text-sm text-[#7c6f64] italic">
+        <p className="text-right mt-1 text-sm text-[#7c6f64] italic">
           — {source}
         </p>
       </div>

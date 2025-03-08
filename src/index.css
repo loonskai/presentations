@@ -1,9 +1,10 @@
 @import "reveal.js/dist/reveal.css";
 @import "tailwindcss";
-@import './assets/themes/light.css';
+@import "./assets/themes/light.css";
 
 #root, 
 .reveal-container {
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }

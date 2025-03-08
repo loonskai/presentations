@@ -6,9 +6,11 @@ const Banners = ({ children }: PropsWithChildren) => {
   const [showCongratsAlert, setShowCongratsAlert] = useState(false);
   const [showNextPopup, setShowNextPopup] = useState(false);
   const [showAdblockPopup, setShowAdblockPopup] = useState(false);
+  const [showAskAIPopup, setShowAskAIPopup] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true); // Overlay visibility
   const [loading, setLoading] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   const handleAccept = () => {
     setLoading(true);
@@ -40,6 +42,11 @@ const Banners = ({ children }: PropsWithChildren) => {
     setShowAdblockPopup(true);
   };
 
+  const handleAskAiPopup = () => {
+    setShowAdblockPopup(false);
+    setShowAskAIPopup(true);
+  };
+
   const dismissAll = () => {
     setShowCookieBanner(false);
     setShowNotificationAlert(false);
@@ -47,6 +54,8 @@ const Banners = ({ children }: PropsWithChildren) => {
     setShowNextPopup(false);
     setShowAdblockPopup(false);
     setShowOverlay(false);
+    setShowAskAIPopup(false);
+    setShowContent(true);
   };
 
   return (
@@ -164,7 +173,7 @@ const Banners = ({ children }: PropsWithChildren) => {
             Please disable your ad blocker to support our website.
           </p>
           <button
-            onClick={dismissAll}
+            onClick={handleAskAiPopup}
             className="mt-4 px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
           >
             OK
@@ -172,7 +181,36 @@ const Banners = ({ children }: PropsWithChildren) => {
         </div>
       )}
 
-      {children}
+      {/* Ask AI popup */}
+      {showAskAIPopup && (
+        <div className="fixed bottom-4 right-4 bg-white shadow-lg p-4 rounded-md w-80 z-50 flex flex-col items-start border border-gray-300">
+          <div className="flex justify-between w-full">
+            <p className="text-black text-lg font-bold">🤖 Ask AI 🤖</p>
+            <button
+              onClick={dismissAll}
+              className="text-gray-600 hover:text-gray-900"
+            >
+              ✖
+            </button>
+          </div>
+          <p className="text-black text-sm text-center mt-2">
+            How can I help you?
+          </p>
+          <input
+            type="text"
+            placeholder="Type your question..."
+            className="mt-2 w-full px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            onClick={dismissAll}
+            className="mt-2 px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 w-full"
+          >
+            Submit
+          </button>
+        </div>
+      )}
+
+      {showContent && children}
     </>
   );
 };
