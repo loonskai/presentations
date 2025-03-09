@@ -26,21 +26,20 @@ const BlurEffect: React.FC<BlurEffectProps> = ({ src, alt, className }) => {
   }, [speed]);
 
   return (
-    <div className={clsx(className, "relative overflow-hidden")}>
+    <div className={clsx(className, "tw:relative tw:overflow-hidden")}>
       {/* Image with blur effect */}
       <img
         src={src}
         alt={alt}
-        className="w-full h-full object-cover transition-all duration-500"
+        className="tw:w-full tw:h-full tw:object-cover tw:transition-all tw:duration-500"
         style={{
           filter: `blur(${blurLevels[blurStep]})`, // Apply blur dynamically
         }}
       />
-
       {/* Spinner Overlay (visible when blur is not 0px) */}
       {blurStep !== 3 && (
-        <div className="absolute inset-0 flex items-center justify-center bg-opacity-20">
-          <div className="w-10 h-10 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+        <div className="tw:absolute tw:inset-0 tw:flex tw:items-center tw:justify-center tw:bg-opacity-20">
+          <div className="tw:w-10 tw:h-10 tw:border-2 tw:border-white tw:border-t-transparent tw:rounded-full tw:animate-spin"></div>
         </div>
       )}
     </div>

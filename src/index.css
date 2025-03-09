@@ -1,5 +1,11 @@
+/* @import "tailwindcss" prefix(tw); */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme) prefix(tw);
+/* @import "tailwindcss/preflight.css" layer(base); Disable due to the confict with Reveal.js styles*/
+@import "./preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities) prefix(tw);
+
 @import "reveal.js/dist/reveal.css";
-@import "tailwindcss";
 @import "./assets/themes/light.css";
 
 #root, 

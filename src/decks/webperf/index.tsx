@@ -2,7 +2,7 @@ import { useDeckRef } from "../../hooks/useDeckRef";
 import Banners from "./Banners";
 import BlurEffect from "./BlurEffect";
 import images from "./images";
-// import { Quote } from "./Quote";
+import { Quote } from "./Quote";
 import { Video } from "./Video";
 import videos from "./videos";
 
@@ -13,24 +13,24 @@ export function WebPerf() {
     <div className="reveal-container">
       <div className="reveal" ref={deckDivRef}>
         <div className="slides">
-          <section id="intro" data-auto-animate>
-            <div className="flex flex-col items-center text-center p-4 md:p-6 max-w-4xl mx-auto">
-              <div className="font-montserrat flex flex-col items-center">
+          <section id="intro">
+            <div>
+              <div className="tw:flex! tw:flex-col! tw:items-center!">
                 <BlurEffect
                   src={images.warsawJSImg}
                   alt="WarsawJS Logo"
-                  className="w-30 h-auto mx-auto my-2"
+                  className="tw:w-30 tw:h-auto tw:mx-auto tw:my-2"
                 />
-                <h1 className="mb-0">The Red Pill</h1>
-                <h3 className="mb-0">of the</h3>
-                <h1 className="mb-0">Web Application</h1>
-                <h2 className="mb-0">performance</h2>
+                <h1 className="tw:mb-1!">The Red Pill</h1>
+                <h3 className="tw:mb-1!">of the</h3>
+                <h1 className="tw:m-0">Web Application</h1>
+                <h2 className="tw:m-0">performance</h2>
               </div>
-              <div className="flex flex-col items-center mt-8 text-center">
+              <div className="tw:flex tw:flex-col tw:items-center tw:mt-8 tw:text-center">
                 <img
                   src={images.avatarImg}
                   alt="Siarhei Lunski"
-                  className="w-40 h-40 rounded-full object-cover shadow-lg mb-4"
+                  className="tw:w-40 tw:h-40 tw:rounded-full tw:object-cover tw:shadow-lg tw:mb-4"
                 />
                 <h3>Siarhei Lunski</h3>
                 <h4>Software Engineer @ Box</h4>
@@ -38,12 +38,16 @@ export function WebPerf() {
             </div>
           </section>
           <section id="overview">
-            <h1>Web Performance</h1>
-            <img
-              src={images.whyWhatHow}
-              alt="Why, What, How"
-              className="screenshot"
-            />
+            <div className="container">
+              <h1>Web Performance</h1>
+              <div className="content">
+                <img
+                  src={images.whyWhatHow}
+                  alt="Why, What, How"
+                  className="screenshot max-h-[600px]!"
+                />
+              </div>
+            </div>
             <aside className="notes">
               Performance is a vast topic that is highly intertwined with
               everything related to product engineering. 20 minutes is
@@ -53,18 +57,22 @@ export function WebPerf() {
               topic.
             </aside>
           </section>
-          <section>
-            <h1>Question 1: Why?</h1>
-            <img
-              src={images.matrixPill}
-              alt="Matrix Pill"
-              className="screenshot"
-            />
+          <section id="question-1-why">
+            <div className="container">
+              <h1>Question 1: Why?</h1>
+              <div className="content">
+                <img
+                  src={images.matrixPill}
+                  alt="Matrix Pill"
+                  className="screenshot"
+                />
+              </div>
+            </div>
             <aside className="notes">
               Without further due, let's take the red pill and start with "Why?"
             </aside>
           </section>
-          <section>
+          <section id="psychological-impact">
             <Banners>
               <h1>Psychological Impact</h1>
               <img
@@ -89,14 +97,14 @@ export function WebPerf() {
               https://dl.acm.org/doi/pdf/10.1145/1476589.1476628 TODO: Read
             </aside>
           </section>
-          <section>
+          <section id="business-impact">
             <h1>Business Impact</h1>
             <aside className="notes">
               Impacts revenue & conversions TODO: Add excerpts from the book
               "Time Is Money: The Business Value of Web Performance"
             </aside>
           </section>
-          <section>
+          <section id="case-studies">
             <h1>Case Studies</h1>
             <img
               src={images.caseStudies}
@@ -115,7 +123,7 @@ export function WebPerf() {
               doesn't bring any value.
             </aside>
           </section>
-          <section>
+          <section id="survivorship-bias">
             <h1>Survivorship Bias?</h1>
             <img
               src={images.gitlabCriticalCssImg}
@@ -135,11 +143,11 @@ export function WebPerf() {
               https://gitlab.com/gitlab-org/gitlab/-/merge_requests/124406
             </aside>
           </section>
-          <section>
+          <section id="question-2-what">
             <h1>Question 2: What?</h1>
             <aside className="notes"></aside>
           </section>
-          <section>
+          <section id="real-user-monitoring">
             <h1>Real User Monitoring</h1>
             <img
               src={images.matrixRUM}
@@ -151,7 +159,7 @@ export function WebPerf() {
               your application
             </aside>
           </section>
-          <section>
+          <section id="crux">
             <h1>CrUX</h1>
             <aside className="notes">
               Only Chrome Chrome devtools - compare local with p75 CrUX TODO:
@@ -159,48 +167,80 @@ export function WebPerf() {
               - in Latin this is a tortue instrument. Pretty descriptive
             </aside>
           </section>
-          <section>
+          <section id="core-web-vitals">
             <h1>Core Web Vitals</h1>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <h2>TTFB</h2>
-                <h2>FCP</h2>
-                <h2>LCP</h2>
-              </div>
-              <div>
-                <h2>CLS</h2>
-                <h2>INP</h2>
-                <h2>TBT</h2>
-              </div>
-            </div>
+            <table className="tw:table-auto tw:w-full">
+              <thead>
+                <tr>
+                  <th className="tw:border-b">
+                    <h3>Loading Speed</h3>
+                  </th>
+                  <th className="tw:border-b">
+                    <h3>Interactivity</h3>
+                  </th>
+                  <th className="tw:border-b">
+                    <h3>Stability</h3>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="tw:p-4">
+                    <h2>TTFB</h2>
+                  </td>
+                  <td className="tw:p-4">
+                    <h2>INP</h2>
+                  </td>
+                  <td className="tw:p-4">
+                    <h2>CLS</h2>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="tw:p-4">
+                    <h2>FCP</h2>
+                  </td>
+                  <td className="tw:p-4">
+                    <h2>TBT</h2>
+                  </td>
+                  <td className="tw:p-4"></td>
+                </tr>
+                <tr>
+                  <td className="tw:p-4">
+                    <h2>LCP</h2>
+                  </td>
+                  <td className="tw:p-4"></td>
+                  <td className="tw:p-4"></td>
+                </tr>
+              </tbody>
+            </table>
             <aside className="notes">
               Existence of so many metrics highlights the common need* (read -
               Google) TODO: Add this quote but put google with * to the bottom
             </aside>
           </section>
-          <section>
+          <section id="network-compute">
             <h1>Network & Compute</h1>
             <h2>Network vs Compute (c) Cost of Javascript Addy Osmani</h2>
             <aside className="notes"></aside>
           </section>
-          <section>
+          <section id="network">
             <h1>Network</h1>
           </section>
-          <section>
+          <section id="network-panel">
             <h1>Network Panel</h1>
             <aside className="notes">
               TODO: How to read "Timing" in request
               https://developer.chrome.com/docs/devtools/network/reference/?utm_source=devtools#timing-explanation
             </aside>
           </section>
-          <section>
+          <section id="is-it-your-pain-only">
             <h1>Is it your pain only?</h1>
             <aside className="notes">
               Protecting the commons
               https://infrequently.org/2022/05/performance-management-maturity/#protecting-the-commons
             </aside>
           </section>
-          <section>
+          <section id="inp">
             <h1>INP</h1>
             <aside className="notes">
               Often misinterpreted as "Interaction to next PAIN". TODO: Display
@@ -217,7 +257,7 @@ export function WebPerf() {
               frame presented. <br />
             </aside>
           </section>
-          <section>
+          <section id="inp-hover">
             <h1>INP 🙅 Hover</h1>
             <div className="flex justify-center h-full">
               <img
@@ -231,7 +271,7 @@ export function WebPerf() {
               apps leverage hovers for some of their important user behavior.
             </aside>
           </section>
-          <section>
+          <section id="inp-scroll">
             <h1>INP 🙅 Scroll</h1>
             <div className="flex justify-center h-full">
               <img
@@ -250,7 +290,7 @@ export function WebPerf() {
               https://web.dev/articles/inp).
             </aside>
           </section>
-          <section>
+          <section id="inp-scheduler-yield">
             <h1>INP: scheduler.yield()</h1>
             <aside className="notes">
               There is currently 1 solution to improve this metric for 99% of
@@ -260,11 +300,11 @@ export function WebPerf() {
               https://calendar.perfplanet.com/2024/breaking-up-with-long-tasks-or-how-i-learned-to-group-loops-and-wield-the-yield/
             </aside>
           </section>
-          <section>
+          <section id="inp-loaf-api">
             <h1>INP: LoAF API</h1>
             <aside className="notes"></aside>
           </section>
-          <section>
+          <section id="metrics-future">
             <h1>Metrics future</h1>
             <aside className="notes">
               One interesting metric which is currently being discussed in AI
@@ -273,7 +313,7 @@ export function WebPerf() {
               consideration. https://github.com/bloomberg/container-timing
             </aside>
           </section>
-          <section>
+          <section id="javascript-pain-points">
             <h1>Javascript Pain Points</h1>
             <img
               src={images.stateOfJsPainPointsImg}
@@ -287,7 +327,7 @@ export function WebPerf() {
               point come from the ecosystem around the language?
             </aside>
           </section>
-          <section>
+          <section id="react-and-performance">
             <h1>React and Performance</h1>
             <img
               src={images.reactUseMemoText}
@@ -303,7 +343,7 @@ export function WebPerf() {
               https://dev.to/matfrana/react-where-are-you-going-5284
             </aside>
           </section>
-          <section>
+          <section id="react-vs-others">
             <h1>React vs. Others</h1>
             <aside className="notes">
               There are multiple attempts to solve performance issues. Qwik
@@ -315,7 +355,7 @@ export function WebPerf() {
               internal libraries and positively affect performance.
             </aside>
           </section>
-          <section>
+          <section id="react-no-signals">
             <img
               src={images.reactNoSignals}
               alt="React No Signals"
@@ -325,7 +365,7 @@ export function WebPerf() {
               TODO: Add that we'll see how it will play out.
             </aside>
           </section>
-          <section>
+          <section id="matrix-pill-reverse">
             <img
               src={images.matrixPillReverse}
               alt="Matrix Pill Reverse"
@@ -335,7 +375,7 @@ export function WebPerf() {
               I feel like the tone of the talk becomes somewhat pessimistic.
             </aside>
           </section>
-          <section>
+          <section id="frameworks-performance">
             <h1>Frameworks performance</h1>
             <aside className="notes">
               However, we're making tradeoffs. If we pick vanila JS just because
@@ -345,14 +385,14 @@ export function WebPerf() {
               https://krausest.github.io/js-framework-benchmark/2024/table_chrome_126.0.6478.55.html
             </aside>
           </section>
-          <section>
+          <section id="languages-quote">
             <aside className="notes">
               In the end, let's remember what was said a long time ago: "There
               are only two kinds of languages: the ones people complain about
               and the ones nobody uses." TODO: Add a screen of quote
             </aside>
           </section>
-          <section>
+          <section id="microoptimisations">
             <h1>Microoptimisations</h1>
             <aside className="notes">
               But frameworks and libraries choice isn't something we can do when
@@ -363,60 +403,47 @@ export function WebPerf() {
               https://www.measurethat.net/Benchmarks/Show/18532/0/jsonstringify-jsonparse-vs-structuredclone#latest_results_block
             </aside>
           </section>
-          <section>
+          <section id="how">
             <h1>How?</h1>
             <aside className="notes">FOMO</aside>
           </section>
-          <section>
+          <section id="tools">
             <h1>Tools</h1>
-            <img src="./" alt="" />
-            <h3>Tools for Performance Analysis</h3>
             <p>Lighthouse, WebPageTest, RUM tools.</p>
-            <aside className="notes">
-              Use a separate Chrome profile with no extensions Your laptop is
-              typically much faster than the median user’s phone. If you run
-              your test without throttling, you’ll get numbers that are too
-              good.
-            </aside>
+            <aside className="notes">We've already mentioned RUM</aside>
           </section>
-          <section>
-            <h1>Chrome DevTools Performance</h1>
+          <section id="chrome-devtools">
+            <h1>Chrome DevTools</h1>
             <aside className="notes">
-              You can label your performance trace. What you can try is also to
-              instruct LLM how to treat the specific trace
+              Chrome DevTools are activelly developed. You can label your
+              performance trace. Use a separate Chrome profile with no
+              extensions. Your laptop is typically much faster than the median
+              user's phone. If you run your test without throttling, you'll get
+              numbers that are too good. What you can try is also to instruct
+              LLM how to treat the specific trace.
               https://x.com/WebTwitr/status/1838571299381055752
             </aside>
           </section>
-          <section>
-            <h1>Speculation Rules API</h1>
-            <aside className="notes">
-              It's a new specification. For SPA it's not really valuable - this
-              is often done on a framework level, e.g., Next.js. TODO: Watch
-              https://www.youtube.com/watch?v=bSua9vMdrNM&t=1076s&ab_channel=ChromeforDevelopers
-            </aside>
+          <section id="quote-abraham-maslow">
+            <Quote
+              source="Abraham Maslow"
+              quote="If the only tool you have is a hammer, to treat everything as if it
+            were a nail"
+            />
           </section>
-          <section>
+          <section id="case-study-agentic-workflow">
             <h3>Case Study: Agentic Workflow</h3>
-            <p>
-              If the only tool you have is a hammer, to treat everything as if
-              it were a nail (c) Abraham Maslow
-              <br /> Automating performance investigations using AI & structured
-              data.
-            </p>
           </section>
-          <section>
+          <section id="video-did-you-do-that">
             <Video url={videos.didYouDoThat} />
             <aside className="notes">
               But in the end you will come to your upper management to show them
               what you've been working on the last quarter.
             </aside>
           </section>
-          <section>
+          <section id="qa">
             <h3>Q&A</h3>
             <p>Let's discuss!</p>
-          </section>
-          <section data-auto-animate>
-            <div>Sources: https://codepen.io/joshbader/pen/gONVYvN</div>
           </section>
         </div>
       </div>

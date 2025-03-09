@@ -62,31 +62,30 @@ const Banners = ({ children }: PropsWithChildren) => {
     <>
       {/* Overlay (Dimming Background) */}
       {showOverlay && (
-        <div className="fixed inset-0 bg-black opacity-70 transition-opacity z-30"></div>
+        <div className="tw:fixed tw:inset-0 tw:bg-black tw:opacity-70 tw:transition-opacity tw:z-30"></div>
       )}
-
       {/* Cookie Banner */}
       {showCookieBanner && (
-        <div className="fixed bottom-0 left-0 w-full bg-white shadow-md p-4 flex flex-col items-center justify-center z-40">
-          <div className="text-black text-sm md:text-base text-center">
+        <div className="tw:fixed tw:bottom-0 tw:left-0 tw:w-full tw:bg-white tw:shadow-md tw:p-4 tw:flex tw:flex-col tw:items-center tw:justify-center tw:z-40">
+          <div className="tw:text-black tw:text-sm md:tw:text-base tw:text-center">
             <strong>Cookie Privacy Statement</strong>
-            <p className="mt-1 text-gray-500">
+            <p className="tw:mt-1 tw:text-gray-500">
               We use cookies to improve your experience. By clicking "Accept,"
               you agree to our use of cookies.
             </p>
           </div>
 
-          <div className="mt-4 flex gap-4">
-            <button className="px-4 py-2 text-sm text-blue-600 border border-blue-600 rounded hover:bg-blue-50">
+          <div className="tw:mt-4 tw:flex tw:gap-4">
+            <button className="tw:px-4 tw:py-2 tw:text-sm tw:text-blue-600 tw:border tw:border-blue-600 tw:rounded tw:hover:bg-blue-50">
               Edit cookie preferences
             </button>
             <button
               onClick={handleAccept}
-              className="px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 flex items-center justify-center"
+              className="tw:px-4 tw:py-2 tw:text-sm tw:bg-blue-600 tw:text-white tw:rounded hover:tw:bg-blue-700 tw:flex tw:items-center tw:justify-center"
               disabled={loading}
             >
               {loading ? (
-                <span className="animate-spin w-5 h-5 border-4 border-white border-t-transparent rounded-full"></span>
+                <span className="tw:animate-spin tw:w-5 tw:h-5 tw:border-4 tw:border-white tw:border-t-transparent tw:rounded-full"></span>
               ) : (
                 "Accept"
               )}
@@ -97,26 +96,26 @@ const Banners = ({ children }: PropsWithChildren) => {
 
       {/* Notification Alert */}
       {showNotificationAlert && (
-        <div className="fixed top-1/4 left-1/2 transform -translate-x-1/2 bg-white shadow-lg p-4 rounded-md w-96 z-50 flex flex-col items-center">
-          <p className="text-black text-sm md:text-base text-center">
+        <div className="tw:fixed tw:top-1/4 tw:left-1/2 tw:transform tw:-translate-x-1/2 tw:bg-white tw:shadow-lg tw:p-4 tw:rounded-md tw:w-96 tw:z-50 tw:flex tw:flex-col tw:items-center">
+          <p className="tw:text-black tw:text-sm md:tw:text-base tw:text-center">
             We'd like to send you notifications with the latest news and updates
             from our site.
           </p>
           {showWarning && (
-            <p className="text-red-600 font-bold mt-2 transition-all">
+            <p className="tw:text-red-600 tw:font-bold tw:mt-2 tw:transition-all">
               Are you sure?
             </p>
           )}
-          <div className="mt-4 flex flex-col w-full gap-2">
+          <div className="tw:mt-4 tw:flex tw:flex-col tw:w-full tw:gap-2">
             <button
               onClick={handleAllow}
-              className="px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
+              className="tw:px-4 tw:py-2 tw:text-sm tw:bg-blue-600 tw:text-white tw:rounded hover:tw:bg-blue-700"
             >
               ALLOW
             </button>
             <button
               onClick={handleNoThanks}
-              className="px-4 py-2 text-sm text-gray-600 border border-gray-400 rounded hover:bg-gray-100"
+              className="tw:px-4 tw:py-2 tw:text-sm tw:text-gray-600 tw:border tw:border-gray-400 tw:rounded hover:tw:bg-gray-100"
             >
               NO THANKS
             </button>
@@ -126,13 +125,13 @@ const Banners = ({ children }: PropsWithChildren) => {
 
       {/* Congrats Alert */}
       {showCongratsAlert && (
-        <div className="fixed top-1/4 left-1/2 transform -translate-x-1/2 bg-white shadow-lg p-4 rounded-md w-96 z-50 flex flex-col items-center">
-          <p className="text-green-600 text-lg font-bold text-center">
+        <div className="tw:fixed tw:top-1/4 tw:left-1/2 tw:transform tw:-translate-x-1/2 tw:bg-white tw:shadow-lg tw:p-4 tw:rounded-md tw:w-96 tw:z-50 tw:flex tw:flex-col tw:items-center">
+          <p className="tw:text-green-600 tw:text-lg tw:font-bold tw:text-center">
             🎉 Congrats! You're subscribed! 🎉
           </p>
           <button
             onClick={handleNextPopup}
-            className="mt-4 px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="tw:mt-4 tw:px-4 tw:py-2 tw:text-sm tw:bg-blue-600 tw:text-white tw:rounded hover:tw:bg-blue-700"
           >
             OK
           </button>
@@ -141,21 +140,21 @@ const Banners = ({ children }: PropsWithChildren) => {
 
       {/* Next Popup */}
       {showNextPopup && (
-        <div className="fixed top-4 left-4 bg-white shadow-md p-3 rounded-md w-80 z-50 border border-gray-300 flex flex-col">
-          <p className="text-black text-sm font-semibold">
+        <div className="tw:fixed tw:top-4 tw:left-4 tw:bg-white tw:shadow-md tw:p-3 tw:rounded-md tw:w-80 tw:z-50 tw:border tw:border-gray-300 tw:flex tw:flex-col">
+          <p className="tw:text-black tw:text-sm tw:font-semibold">
             https://loonskai-decks.netlify.app/ wants to
           </p>
-          <p className="text-black text-sm">Show notifications</p>
-          <div className="mt-2 flex justify-end gap-2">
+          <p className="tw:text-black tw:text-sm">Show notifications</p>
+          <div className="tw:mt-2 tw:flex tw:justify-end tw:gap-2">
             <button
               onClick={handleAdblockPopup}
-              className="px-3 py-1 text-sm text-gray-700 border border-gray-400 rounded hover:bg-gray-100"
+              className="tw:px-3 tw:py-1 tw:text-sm tw:text-gray-700 tw:border tw:border-gray-400 tw:rounded hover:tw:bg-gray-100"
             >
               Block
             </button>
             <button
               onClick={handleAdblockPopup}
-              className="px-3 py-1 text-sm text-blue-600 border border-blue-600 rounded hover:bg-blue-50"
+              className="tw:px-3 tw:py-1 tw:text-sm tw:text-blue-600 tw:border tw:border-blue-600 tw:rounded hover:tw:bg-blue-50"
             >
               Allow
             </button>
@@ -165,16 +164,16 @@ const Banners = ({ children }: PropsWithChildren) => {
 
       {/* Adblock Detected Popup */}
       {showAdblockPopup && (
-        <div className="fixed top-1/4 left-1/2 transform -translate-x-1/2 bg-white shadow-lg p-4 rounded-md w-96 z-50 flex flex-col items-center">
-          <p className="text-red-600 text-lg font-bold text-center">
+        <div className="tw:fixed tw:top-1/4 tw:left-1/2 tw:transform tw:-translate-x-1/2 tw:bg-white tw:shadow-lg tw:p-4 tw:rounded-md tw:w-96 tw:z-50 tw:flex tw:flex-col tw:items-center">
+          <p className="tw:text-red-600 tw:text-lg tw:font-bold tw:text-center">
             🚫 Adblock Detected! 🚫
           </p>
-          <p className="text-black text-sm text-center mt-2">
+          <p className="tw:text-black tw:text-sm tw:text-center tw:mt-2">
             Please disable your ad blocker to support our website.
           </p>
           <button
             onClick={handleAskAiPopup}
-            className="mt-4 px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="tw:mt-4 tw:px-4 tw:py-2 tw:text-sm tw:bg-blue-600 tw:text-white tw:rounded hover:tw:bg-blue-700"
           >
             OK
           </button>
@@ -183,27 +182,29 @@ const Banners = ({ children }: PropsWithChildren) => {
 
       {/* Ask AI popup */}
       {showAskAIPopup && (
-        <div className="fixed bottom-4 right-4 bg-white shadow-lg p-4 rounded-md w-80 z-50 flex flex-col items-start border border-gray-300">
-          <div className="flex justify-between w-full">
-            <p className="text-black text-lg font-bold">🤖 Ask AI 🤖</p>
+        <div className="tw:fixed tw:bottom-4 tw:right-4 tw:bg-white tw:shadow-lg tw:p-4 tw:rounded-md tw:w-80 tw:z-50 tw:flex tw:flex-col tw:items-start tw:border tw:border-gray-300">
+          <div className="tw:flex tw:justify-between tw:w-full">
+            <p className="tw:text-black tw:text-lg tw:font-bold">
+              🤖 Ask AI 🤖
+            </p>
             <button
               onClick={dismissAll}
-              className="text-gray-600 hover:text-gray-900"
+              className="tw:text-gray-600 hover:tw:text-gray-900"
             >
               ✖
             </button>
           </div>
-          <p className="text-black text-sm text-center mt-2">
+          <p className="tw:text-black tw:text-sm tw:text-center tw:mt-2">
             How can I help you?
           </p>
           <input
             type="text"
             placeholder="Type your question..."
-            className="mt-2 w-full px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="tw:mt-2 tw:w-full tw:px-2 tw:py-1 tw:border tw:border-gray-300 tw:rounded-md focus:tw:outline-none focus:tw:ring-2 focus:tw:ring-blue-500"
           />
           <button
             onClick={dismissAll}
-            className="mt-2 px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 w-full"
+            className="tw:mt-2 tw:px-4 tw:py-2 tw:text-sm tw:bg-blue-600 tw:text-white tw:rounded hover:tw:bg-blue-700 tw:w-full"
           >
             Submit
           </button>

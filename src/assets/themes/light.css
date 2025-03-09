@@ -73,55 +73,66 @@
 
 :root {
   --r-background-color: var(--gruvbox-light-bg);
-  --r-heading-font: var(--font-montserrat);
-  --r-main-font: var(--font-opensans);
   --r-link-color: var(--gruvbox-light-link);
   --r-link-color-hover: var(--gruvbox-light-link-hover);
 }
 
-
 .reveal a {
-  @apply text-blue-500 transition-colors duration-150;
+  @apply tw:text-blue-500 tw:transition-colors tw:duration-150;
 }
 .reveal a:hover {
-  @apply text-blue-400;
+  @apply tw:text-blue-400;
 }
 
 .reveal h1,
 .reveal h2,
 .reveal h3,
 .reveal h4 {
-  @apply font-montserrat;
+  @apply tw:font-montserrat tw:m-0 tw:font-normal;
 }
-
 .reveal h1 {
-  @apply font-semibold text-6xl mb-4;
+  @apply tw:font-semibold tw:text-6xl tw:mb-4;
 }
-
 .reveal h2 {
-  @apply text-5xl;
+  @apply tw:text-5xl;
 }
-
 .reveal h3 {
-  @apply text-4xl;
+  @apply tw:text-4xl;
 }
-
 .reveal h4 {
-  @apply font-bold text-2xl;
+  @apply tw:font-bold tw:text-2xl;
 }
 
 .reveal blockquote {
-  @apply w-3/4 mx-auto italic bg-gray-50 p-4 border-l-4 border-blue-500;
+  @apply tw:w-3/4 tw:mx-auto tw:italic tw:bg-gray-50 tw:p-4 tw:border-l-4 tw:border-blue-500;
 }
 
 .reveal pre {
-  @apply w-11/12 mx-auto text-left text-sm font-mono bg-gray-900 text-gray-100 p-4 rounded-md shadow-md;
+  @apply tw:w-11/12 tw:mx-auto tw:text-left tw:text-sm tw:font-mono tw:bg-gray-900 tw:text-gray-100 tw:p-4 tw:rounded-md tw:shadow-md;
 }
 
 .reveal section {
-  @apply w-full h-full;
+  @apply tw:w-full tw:h-full;
 }
 
 .screenshot {
-  @apply max-w-full max-h-4/5 h-auto w-auto rounded-[1.5rem] shadow-sm mt-4 mx-auto block;
+  @apply tw:max-w-full tw:max-h-4/5 tw:h-auto tw:w-auto tw:rounded-[1.5rem] tw:shadow-sm tw:mt-4 tw:mx-auto tw:block;
+}
+
+.container {
+  @apply tw:h-full tw:w-full tw:gap-4 tw:flex tw:flex-col tw:items-center;
+}
+
+.content {
+  @apply tw:flex tw:flex-col tw:flex-1 tw:justify-items-start;
+}
+
+.tw\:animate-spin {
+  animation: spin 1s linear infinite; 
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

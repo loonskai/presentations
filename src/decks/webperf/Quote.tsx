@@ -8,7 +8,7 @@ export const Quote = ({
   source: string;
 }) => {
   return (
-    <div className="font-montserrat relative flex items-center justify-center min-h-[300px] w-full">
+    <div className="tw:font-montserrat relative flex items-center justify-center min-h-[300px] w-full">
       {/* Quote Card */}
       <div className="relative max-w-2xl mx-auto pt-12 p-8 bg-[var(--gruvbox-light0_hard)] rounded-2xl shadow-2xl">
         {/* Mac-style window controls */}
