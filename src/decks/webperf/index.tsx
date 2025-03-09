@@ -7,32 +7,39 @@ import { Video } from "./Video";
 import videos from "./videos";
 
 export function WebPerf() {
-  const { deckDivRef } = useDeckRef();
+  const { deckDivRef } = useDeckRef({
+    transition: "slide",
+    controls: true,
+    autoAnimateEasing: "ease-out",
+    autoAnimateDuration: 1.5,
+    autoAnimateUnmatched: true,
+  });
 
   return (
     <div className="reveal-container">
-      <div className="reveal" ref={deckDivRef}>
+      <div
+        className="reveal tw:bg-[linear-gradient(333deg,#ffe9d0_0%,#fff9f4_43%,rgb(255,255,255)_100%)]"
+        ref={deckDivRef}
+      >
         <div className="slides">
           <section id="intro">
-            <div>
-              <div className="tw:flex! tw:flex-col! tw:items-center!">
+            <div className="container tw:flex-row! tw:justify-evenly">
+              <div className="tw:flex tw:flex-col tw:items-center">
                 <BlurEffect
                   src={images.warsawJSImg}
                   alt="WarsawJS Logo"
                   className="tw:w-30 tw:h-auto tw:mx-auto tw:my-2"
                 />
-                <h1 className="tw:mb-1!">The Red Pill</h1>
-                <h3 className="tw:mb-1!">of the</h3>
-                <h1 className="tw:m-0">Web Application</h1>
-                <h2 className="tw:m-0">performance</h2>
+                <h4 className="">The Red Pill of the Web Application</h4>
+                <h1 className="">Performance</h1>
               </div>
-              <div className="tw:flex tw:flex-col tw:items-center tw:mt-8 tw:text-center">
+              <div className="tw:flex tw:flex-1 tw:flex-col tw:items-center tw:text-center">
                 <img
                   src={images.avatarImg}
                   alt="Siarhei Lunski"
                   className="tw:w-40 tw:h-40 tw:rounded-full tw:object-cover tw:shadow-lg tw:mb-4"
                 />
-                <h3>Siarhei Lunski</h3>
+                <h1>Siarhei Lunski</h1>
                 <h4>Software Engineer @ Box</h4>
               </div>
             </div>
@@ -60,13 +67,15 @@ export function WebPerf() {
           <section id="question-1-why">
             <div className="container">
               <h1>Question 1: Why?</h1>
-              <div className="content">
-                <img
-                  src={images.matrixPill}
-                  alt="Matrix Pill"
-                  className="screenshot"
-                />
-              </div>
+            </div>
+          </section>
+          <section>
+            <div className="content">
+              <img
+                src={images.matrixPill}
+                alt="Matrix Pill"
+                className="screenshot"
+              />
             </div>
             <aside className="notes">
               Without further due, let's take the red pill and start with "Why?"
@@ -143,9 +152,23 @@ export function WebPerf() {
               https://gitlab.com/gitlab-org/gitlab/-/merge_requests/124406
             </aside>
           </section>
+          <section>
+            <img
+              src={images.matrixPillReverse}
+              alt="Matrix Pill Reverse"
+              className="screenshot"
+            />
+            <aside className="notes">
+              Does it mean we should not care then? No. It means that we need
+              data.
+            </aside>
+          </section>
           <section id="question-2-what">
             <h1>Question 2: What?</h1>
-            <aside className="notes"></aside>
+            <aside className="notes">
+              Here arises the next question about web performance - "what" data
+              do we need?
+            </aside>
           </section>
           <section id="real-user-monitoring">
             <h1>Real User Monitoring</h1>
@@ -159,89 +182,92 @@ export function WebPerf() {
               your application
             </aside>
           </section>
-          <section id="crux">
-            <h1>CrUX</h1>
-            <aside className="notes">
-              Only Chrome Chrome devtools - compare local with p75 CrUX TODO:
-              Add a screenshot. https://www.merriam-webster.com/dictionary/crux
-              - in Latin this is a tortue instrument. Pretty descriptive
-            </aside>
-          </section>
           <section id="core-web-vitals">
             <h1>Core Web Vitals</h1>
-            <table className="tw:table-auto tw:w-full">
-              <thead>
-                <tr>
-                  <th className="tw:border-b">
-                    <h3>Loading Speed</h3>
-                  </th>
-                  <th className="tw:border-b">
-                    <h3>Interactivity</h3>
-                  </th>
-                  <th className="tw:border-b">
-                    <h3>Stability</h3>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="tw:p-4">
-                    <h2>TTFB</h2>
-                  </td>
-                  <td className="tw:p-4">
-                    <h2>INP</h2>
-                  </td>
-                  <td className="tw:p-4">
-                    <h2>CLS</h2>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="tw:p-4">
-                    <h2>FCP</h2>
-                  </td>
-                  <td className="tw:p-4">
-                    <h2>TBT</h2>
-                  </td>
-                  <td className="tw:p-4"></td>
-                </tr>
-                <tr>
-                  <td className="tw:p-4">
-                    <h2>LCP</h2>
-                  </td>
-                  <td className="tw:p-4"></td>
-                  <td className="tw:p-4"></td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="content tw:h-full tw:mt-20">
+              <table className="tw:table-auto tw:w-full">
+                <thead>
+                  <tr>
+                    <th className="tw:border-b">
+                      <h3>Loading Speed</h3>
+                    </th>
+                    <th className="tw:border-b">
+                      <h3>Interactivity</h3>
+                    </th>
+                    <th className="tw:border-b">
+                      <h3>Stability</h3>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="tw:p-4">
+                      <h2>TTFB</h2>
+                    </td>
+                    <td className="tw:p-4">
+                      <h2>INP</h2>
+                    </td>
+                    <td className="tw:p-4">
+                      <h2>CLS</h2>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="tw:p-4">
+                      <h2>FCP</h2>
+                    </td>
+                    <td className="tw:p-4">
+                      <h2>TBT</h2>
+                    </td>
+                    <td className="tw:p-4"></td>
+                  </tr>
+                  <tr>
+                    <td className="tw:p-4">
+                      <h2>LCP</h2>
+                    </td>
+                    <td className="tw:p-4"></td>
+                    <td className="tw:p-4"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <aside className="notes">
               Existence of so many metrics highlights the common need* (read -
               Google) TODO: Add this quote but put google with * to the bottom
             </aside>
           </section>
-          <section id="network-compute">
-            <h1>Network & Compute</h1>
-            <h2>Network vs Compute (c) Cost of Javascript Addy Osmani</h2>
-            <aside className="notes"></aside>
-          </section>
           <section id="network">
             <h1>Network</h1>
-          </section>
-          <section id="network-panel">
-            <h1>Network Panel</h1>
             <aside className="notes">
-              TODO: How to read "Timing" in request
-              https://developer.chrome.com/docs/devtools/network/reference/?utm_source=devtools#timing-explanation
+              If you work in a frontend team you can still make your
+              contribution to the network part of the performance by making sure
+              your bundle size doesn't blow up. However, this effort is only a
+              small part of the whole network story. You know this feeling, when
+              you're trying to wipe out all package duplicates, you're spending
+              days on bundlephobia trying to find the smallest alternative for
+              lodash and eventually implementing your own. This is great, but if
+              your devops team forgot to enable gzip compression this effort
+              will look like this:
             </aside>
           </section>
-          <section id="is-it-your-pain-only">
-            <h1>Is it your pain only?</h1>
+          <section>
+            <h1>Bundle size optimisation</h1>
+            <div className="tw:flex tw:justify-center tw:mt-10">
+              <img
+                src={images.agentsBundlesize}
+                alt="Fighting bundle size"
+                className="screenshot"
+              />
+            </div>
             <aside className="notes">
-              Protecting the commons
-              https://infrequently.org/2022/05/performance-management-maturity/#protecting-the-commons
+              So we must to understand - performance, like security, privacy and
+              UX, is an aggregate result and it must be managed as a commons.
+              And this is a part of performance management discipline. Alex
+              Russel,
             </aside>
           </section>
           <section id="inp">
             <h1>INP</h1>
+            <h3>Interaction to next PAIN</h3>
             <aside className="notes">
               Often misinterpreted as "Interaction to next PAIN". TODO: Display
               with "t" being appended. Add gif from banners interactions. Which
@@ -291,26 +317,38 @@ export function WebPerf() {
             </aside>
           </section>
           <section id="inp-scheduler-yield">
-            <h1>INP: scheduler.yield()</h1>
+            <h1>scheduler.yield()</h1>
             <aside className="notes">
-              There is currently 1 solution to improve this metric for 99% of
-              case - yield the main thread. Experimental API called
-              scheduler.yield() aims to fix the issue of long tasks. If you're
-              interested in more details go check out the wonderful article
+              TODO: Add some code snippet. There is currently 1 solution to
+              improve this metric for 99% of case - yield the main thread.
+              Experimental API called scheduler.yield() aims to fix the issue of
+              long tasks. If you're interested in more details go check out the
+              wonderful article
               https://calendar.perfplanet.com/2024/breaking-up-with-long-tasks-or-how-i-learned-to-group-loops-and-wield-the-yield/
             </aside>
           </section>
-          <section id="inp-loaf-api">
-            <h1>INP: LoAF API</h1>
-            <aside className="notes"></aside>
+          <section id="custom-metrics">
+            <h1>Custom Metrics</h1>
+            <aside className="notes">
+              If your application has an AI assistant maybe you need something
+              like "time to first input" which is used by Vercel. Or you need
+              something that is related solely to your domain, something like
+              "time to first tweet." TODO: Add tweet from Vercel CTO about their
+              custom metric https://x.com/cramforce/status/1855312496137298116.
+              TODO: Mention "time to first tweet"
+            </aside>
           </section>
           <section id="metrics-future">
-            <h1>Metrics future</h1>
+            <h1>Container Timing API</h1>
             <aside className="notes">
-              One interesting metric which is currently being discussed in AI
-              assistance and Vercel metric. While implementing custom metrics
-              it's even more important to take the observer effect into
-              consideration. https://github.com/bloomberg/container-timing
+              There are plenty of native and external APIs to measure
+              performance. One which I will mention is Container Timing API.
+              It's not yet available in browsers but you can use polyfills and
+              Chrome extension. It allows you to track when specific sections of
+              DOM are first displayed and fully painted. This way we define our
+              own "time to first tweet" more easily with component-based
+              libraries. TODO: Install the extension and add a screenshot with
+              code as well. https://github.com/bloomberg/container-timing
             </aside>
           </section>
           <section id="javascript-pain-points">
@@ -335,11 +373,10 @@ export function WebPerf() {
               className="screenshot"
             />
             <aside className="notes">
-              I want you to think a bit - does React solves the real issue? I'm
-              still have a question - does React Compiler solve the right issue?
-              From immutability, to implicit memoisation. This becomes complex.
-              TODO: Add concern about where React goes. 2.5 years to release the
-              new version (sarcasm alert).
+              I still have a question - does React Compiler solve the right
+              issue? From immutability, to implicit memoisation. This becomes
+              complex. TODO: Add concern about where React goes. 2.5 years to
+              release the new version (sarcasm alert).
               https://dev.to/matfrana/react-where-are-you-going-5284
             </aside>
           </section>
@@ -352,7 +389,8 @@ export function WebPerf() {
               considered by many as a breakthrough in reactivity. TODO: Add more
               about it TODO: Add that idea of signals is good and such primitive
               implemented on the language level can drastictally simplify
-              internal libraries and positively affect performance.
+              internal libraries and positively affect performance. TODO: Read
+              https://infrequently.org/2024/11/if-not-react-then-what/
             </aside>
           </section>
           <section id="react-no-signals">
@@ -363,16 +401,6 @@ export function WebPerf() {
             />
             <aside className="notes">
               TODO: Add that we'll see how it will play out.
-            </aside>
-          </section>
-          <section id="matrix-pill-reverse">
-            <img
-              src={images.matrixPillReverse}
-              alt="Matrix Pill Reverse"
-              className="screenshot"
-            />
-            <aside className="notes">
-              I feel like the tone of the talk becomes somewhat pessimistic.
             </aside>
           </section>
           <section id="frameworks-performance">
@@ -387,9 +415,10 @@ export function WebPerf() {
           </section>
           <section id="languages-quote">
             <aside className="notes">
-              In the end, let's remember what was said a long time ago: "There
-              are only two kinds of languages: the ones people complain about
-              and the ones nobody uses." TODO: Add a screen of quote
+              TODO: Add a screen of quote. In the end, let's remember what was
+              said a long time ago: "There are only two kinds of languages: the
+              ones people complain about and the ones nobody uses." TODO: Add a
+              screen of quote
             </aside>
           </section>
           <section id="microoptimisations">
@@ -399,7 +428,8 @@ export function WebPerf() {
               we join a big tech company. Always it's already "too big to fail".
               But what we can control is the business logic code. It's the place
               that we need start measuring if we know it's time to get the
-              responsibility. for vs forEach etc
+              responsibility. TODO: Add examples like for vs forEach, let vs
+              var, reduce etc
               https://www.measurethat.net/Benchmarks/Show/18532/0/jsonstringify-jsonparse-vs-structuredclone#latest_results_block
             </aside>
           </section>
@@ -409,8 +439,12 @@ export function WebPerf() {
           </section>
           <section id="tools">
             <h1>Tools</h1>
-            <p>Lighthouse, WebPageTest, RUM tools.</p>
-            <aside className="notes">We've already mentioned RUM</aside>
+            <aside className="notes">
+              TODO: Insert a gif with weapons. We've already mentioned RUM as
+              the best way to measure field data. But we still need to diagnose
+              the performance of our app and the best way to do it is to use
+              Chrome DevTools.
+            </aside>
           </section>
           <section id="chrome-devtools">
             <h1>Chrome DevTools</h1>
@@ -424,26 +458,55 @@ export function WebPerf() {
               https://x.com/WebTwitr/status/1838571299381055752
             </aside>
           </section>
+          <section id="chrome-devtools-ai">
+            <aside className="notes">
+              TODO: Add a gif with AI. The thing is you must be logged in and
+              people usually have a lot of extensions enabled. But you don't
+              want your extensions to get on your way when you record your
+              traces, don't you? So at the time you'll need a separate account
+              to have a clean environment and to be able to use AI assistant.
+            </aside>
+          </section>
+          <section id="devtools-annotations">
+            <aside className="notes">
+              You can add annotations to your traces to share with your
+              teammates. You export it as a json blob with all your annotations
+              inside. I thought: what if I could share it not only with my team
+              but with some frontier model. I have this big hammer called
+              generative AI and performance analysis looks definitely like a
+              nail.
+            </aside>
+          </section>
           <section id="quote-abraham-maslow">
             <Quote
+              img={images.screwWithHammer}
               source="Abraham Maslow"
               quote="If the only tool you have is a hammer, to treat everything as if it
             were a nail"
             />
           </section>
           <section id="case-study-agentic-workflow">
-            <h3>Case Study: Agentic Workflow</h3>
+            <h1>AI Agents & Performance Tracing</h1>
+            <img
+              src={images.agentSmith}
+              alt="Agent Smith"
+              className="screenshot"
+            />
+            <aside className="notes">
+              TODO: Leave a link to the gist with jupyter notebook.
+            </aside>
           </section>
           <section id="video-did-you-do-that">
             <Video url={videos.didYouDoThat} />
             <aside className="notes">
-              But in the end you will come to your upper management to show them
-              what you've been working on the last quarter.
+              But in the end you will come to your upper management or even
+              better to your performance review to show, how the "real
+              performance review" looks like.
             </aside>
           </section>
-          <section id="qa">
-            <h3>Q&A</h3>
-            <p>Let's discuss!</p>
+          <section id="thank-you">
+            <h1>Thank you!</h1>
+            <aside className="notes"></aside>
           </section>
         </div>
       </div>

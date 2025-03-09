@@ -1,10 +1,12 @@
 @import url(../fonts/montserrat.css);
 @import url(../fonts/open-sans.css);
+@import url(../fonts/inter.css);
 
 @theme {
   /* Fonts */
   --font-montserrat: Montserrat, sans-serif;
   --font-opensans: Open Sans, sans-serif;
+  --font-inter: Inter, sans-serif;
   /* Gruvbox light */
   --gruvbox-light-bg: #fbf1c7;
   --gruvbox-light-fg: #3c3836;
@@ -88,10 +90,10 @@
 .reveal h2,
 .reveal h3,
 .reveal h4 {
-  @apply tw:font-montserrat tw:m-0 tw:font-normal;
+  @apply tw:font-inter tw:inline-block tw:max-w-md tw:text-[2.5rem] tw:leading-[3.5rem] tw:tracking-tight tw:text-pretty tw:text-gray-950 tw:max-lg:font-medium tw:lg:text-6xl tw:dark:text-gray-200;
 }
 .reveal h1 {
-  @apply tw:font-semibold tw:text-6xl tw:mb-4;
+  @apply tw:font-[400] tw:text-6xl;
 }
 .reveal h2 {
   @apply tw:text-5xl;
@@ -125,14 +127,4 @@
 
 .content {
   @apply tw:flex tw:flex-col tw:flex-1 tw:justify-items-start;
-}
-
-.tw\:animate-spin {
-  animation: spin 1s linear infinite; 
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
 }

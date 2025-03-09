@@ -9,7 +9,6 @@ export function useDeckRef(
     autoAnimateEasing: "ease-out",
     autoAnimateDuration: 1.5,
     autoAnimateUnmatched: true,
-    plugins: [RevealNotes],
   }
 ) {
   const deckDivRef = useRef<HTMLDivElement>(null);
@@ -18,7 +17,10 @@ export function useDeckRef(
   useEffect(() => {
     if (!deckDivRef.current || deckRef.current) return;
 
-    deckRef.current = new Reveal(deckDivRef.current, options);
+    deckRef.current = new Reveal(deckDivRef.current, {
+      ...options,
+      plugins: [RevealNotes],
+    });
 
     deckRef.current.initialize().catch(console.warn);
 
