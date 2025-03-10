@@ -90,7 +90,7 @@
 .reveal h2,
 .reveal h3,
 .reveal h4 {
-  @apply tw:font-inter tw:inline-block tw:max-w-md tw:text-[2.5rem] tw:leading-[3.5rem] tw:tracking-tight tw:text-pretty tw:text-gray-950 tw:max-lg:font-medium tw:lg:text-6xl tw:dark:text-gray-200;
+  @apply tw:font-inter tw:inline-block tw:text-[2.5rem] tw:leading-[3.5rem] tw:tracking-tight tw:text-pretty tw:text-gray-950 tw:max-lg:font-medium tw:lg:text-6xl tw:dark:text-gray-200;
 }
 .reveal h1 {
   @apply tw:font-[400] tw:text-6xl;
@@ -118,11 +118,15 @@
 }
 
 .screenshot {
-  @apply tw:max-w-full tw:max-h-4/5 tw:h-auto tw:w-auto tw:rounded-[1.5rem] tw:shadow-sm tw:mt-4 tw:mx-auto tw:block;
+  @apply  tw:max-h-4/5 tw:rounded-[1.5rem] tw:shadow-sm tw:mt-4 tw:mx-auto tw:block;
 }
 
 .container {
-  @apply tw:h-full tw:w-full tw:gap-4 tw:flex tw:flex-col tw:items-center;
+  @apply tw:w-full tw:h-full tw:gap-4 tw:flex tw:flex-col tw:items-center tw:max-h-full;
+}
+
+.container img {
+  @apply tw:max-h-[500px] tw:object-contain;
 }
 
 .content {

@@ -2,6 +2,7 @@ import { useDeckRef } from "../../hooks/useDeckRef";
 import Banners from "./Banners";
 import BlurEffect from "./BlurEffect";
 import images from "./images";
+import { QR } from "./QR";
 import { Quote } from "./Quote";
 import { Video } from "./Video";
 import videos from "./videos";
@@ -9,10 +10,12 @@ import videos from "./videos";
 export function WebPerf() {
   const { deckDivRef } = useDeckRef({
     transition: "slide",
-    controls: true,
+    controls: false,
     autoAnimateEasing: "ease-out",
     autoAnimateDuration: 1.5,
     autoAnimateUnmatched: true,
+    hash: true,
+    slideNumber: true,
   });
 
   return (
@@ -23,12 +26,12 @@ export function WebPerf() {
       >
         <div className="slides">
           <section id="intro">
-            <div className="container tw:flex-row! tw:justify-evenly">
-              <div className="tw:flex tw:flex-col tw:items-center">
+            <div className="container tw:flex-row!">
+              <div className="tw:flex tw:flex-col tw:items-center tw:flex-1">
                 <BlurEffect
                   src={images.warsawJSImg}
                   alt="WarsawJS Logo"
-                  className="tw:w-30 tw:h-auto tw:mx-auto tw:my-2"
+                  className="tw:w-30 tw:h-auto tw:mx-auto"
                 />
                 <h4 className="">The Red Pill of the Web Application</h4>
                 <h1 className="">Performance</h1>
@@ -65,12 +68,15 @@ export function WebPerf() {
             </aside>
           </section>
           <section id="question-1-why">
-            <div className="container">
-              <h1>Question 1: Why?</h1>
+            <div className="container tw:mt-0! tw:flex tw:flex-col tw:items-center tw:justify-center tw:h-full">
+              <h3>Question 1</h3>
+              <h1 className="tw:font-bold! tw:text-8xl!">Why?</h1>
             </div>
           </section>
-          <section>
-            <div className="content">
+          <section id="matrix-pill">
+            <div className="container">
+              <h1>Performance Review</h1>
+              <h3>* no, the other one</h3>
               <img
                 src={images.matrixPill}
                 alt="Matrix Pill"
@@ -83,12 +89,14 @@ export function WebPerf() {
           </section>
           <section id="psychological-impact">
             <Banners>
-              <h1>Psychological Impact</h1>
-              <img
-                src={images.matrixRageClick}
-                alt="Matrix Rage Click"
-                className="screenshot"
-              />
+              <div className="container">
+                <h1>Psychological Impact</h1>
+                <img
+                  src={images.matrixRageClick}
+                  alt="Matrix Rage Click"
+                  className="screenshot"
+                />
+              </div>
             </Banners>
             <aside className="notes">
               The psychological impact boils down to user experience. Because
@@ -107,19 +115,30 @@ export function WebPerf() {
             </aside>
           </section>
           <section id="business-impact">
-            <h1>Business Impact</h1>
+            <div className="container">
+              <h1>Business Impact</h1>
+              <img
+                src={images.speedToConversion}
+                alt="Speed to Conversion"
+                className="screenshot tw:bg-white tw:p-4"
+              />
+              <QR value="https://www.cloudflare.com/learning/performance/more/website-performance-conversion-rates/" />
+            </div>
             <aside className="notes">
               Impacts revenue & conversions TODO: Add excerpts from the book
               "Time Is Money: The Business Value of Web Performance"
             </aside>
           </section>
           <section id="case-studies">
-            <h1>Case Studies</h1>
-            <img
-              src={images.caseStudies}
-              alt="Case Studies"
-              className="screenshot"
-            />
+            <div className="container">
+              <h1>Case Studies</h1>
+              <img
+                src={images.caseStudies}
+                alt="Case Studies"
+                className="screenshot tw:h-2/3"
+              />
+              <QR value="https://web.dev/case-studies" />
+            </div>
             <aside className="notes">
               In 2025 it's obvious that working on performance improvements.
               These example is a sample of efforts that eventually end up to be
@@ -133,12 +152,14 @@ export function WebPerf() {
             </aside>
           </section>
           <section id="survivorship-bias">
-            <h1>Survivorship Bias?</h1>
-            <img
-              src={images.gitlabCriticalCssImg}
-              alt="GitLab Critical CSS case"
-              className="screenshot"
-            />
+            <div className="container">
+              <h1>Survivorship Bias</h1>
+              <img
+                src={images.gitlabCriticalCssImg}
+                alt="GitLab Critical CSS case"
+                className="screenshot"
+              />
+            </div>
             <aside className="notes">
               Here is just a single example of Gitlab, that spent around 2 years
               trying to improve First Contentful Paint for the first-time users
@@ -152,83 +173,93 @@ export function WebPerf() {
               https://gitlab.com/gitlab-org/gitlab/-/merge_requests/124406
             </aside>
           </section>
-          <section>
-            <img
-              src={images.matrixPillReverse}
-              alt="Matrix Pill Reverse"
-              className="screenshot"
-            />
+          <section id="matrix-pill-reverse">
+            <div className="container">
+              <h1>Is it worth it?</h1>
+              <img
+                src={images.matrixPillReverse}
+                alt="Matrix Pill"
+                className="screenshot"
+              />
+            </div>
             <aside className="notes">
               Does it mean we should not care then? No. It means that we need
               data.
             </aside>
           </section>
           <section id="question-2-what">
-            <h1>Question 2: What?</h1>
+            <div className="container tw:mt-0! tw:flex tw:flex-col tw:items-center tw:justify-center tw:h-full">
+              <h3>Question 2</h3>
+              <h1 className="tw:font-bold! tw:text-8xl!">What?</h1>
+            </div>
             <aside className="notes">
               Here arises the next question about web performance - "what" data
               do we need?
             </aside>
           </section>
-          <section id="real-user-monitoring">
-            <h1>Real User Monitoring</h1>
-            <img
-              src={images.matrixRUM}
-              alt="Matrix RUM"
-              className="screenshot"
-            />
+          <section id="rum">
+            <div className="container">
+              <h1>Real User Monitoring</h1>
+              <img
+                src={images.matrixRUM}
+                alt="Matrix RUM"
+                className="screenshot"
+              />
+            </div>
             <aside className="notes">
               TODO: Add about costs, vendors, noise. How your users experience
               your application
             </aside>
           </section>
           <section id="core-web-vitals">
-            <h1>Core Web Vitals</h1>
-            <div className="content tw:h-full tw:mt-20">
-              <table className="tw:table-auto tw:w-full">
-                <thead>
-                  <tr>
-                    <th className="tw:border-b">
-                      <h3>Loading Speed</h3>
-                    </th>
-                    <th className="tw:border-b">
-                      <h3>Interactivity</h3>
-                    </th>
-                    <th className="tw:border-b">
-                      <h3>Stability</h3>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="tw:p-4">
-                      <h2>TTFB</h2>
-                    </td>
-                    <td className="tw:p-4">
-                      <h2>INP</h2>
-                    </td>
-                    <td className="tw:p-4">
-                      <h2>CLS</h2>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="tw:p-4">
-                      <h2>FCP</h2>
-                    </td>
-                    <td className="tw:p-4">
-                      <h2>TBT</h2>
-                    </td>
-                    <td className="tw:p-4"></td>
-                  </tr>
-                  <tr>
-                    <td className="tw:p-4">
-                      <h2>LCP</h2>
-                    </td>
-                    <td className="tw:p-4"></td>
-                    <td className="tw:p-4"></td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="container">
+              <h1>Core Web Vitals</h1>
+              <div className="tw:h-full tw:w-full tw:mt-20">
+                <table className="tw:table-auto tw:w-full">
+                  <thead>
+                    <tr>
+                      <th className="tw:border-b">
+                        <h3>Loading Speed</h3>
+                      </th>
+                      <th className="tw:border-b">
+                        <h3>Interactivity</h3>
+                      </th>
+                      <th className="tw:border-b">
+                        <h3>Stability</h3>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="tw:p-4">
+                        <h2>TTFB</h2>
+                      </td>
+                      <td className="tw:p-4">
+                        <h2>INP</h2>
+                      </td>
+                      <td className="tw:p-4">
+                        <h2>CLS</h2>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="tw:p-4">
+                        <h2>FCP</h2>
+                      </td>
+                      <td className="tw:p-4">
+                        <h2>TBT</h2>
+                      </td>
+                      <td className="tw:p-4"></td>
+                    </tr>
+                    <tr>
+                      <td className="tw:p-4">
+                        <h2>LCP</h2>
+                      </td>
+                      <td className="tw:p-4"></td>
+                      <td className="tw:p-4"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
             <aside className="notes">
               Existence of so many metrics highlights the common need* (read -
@@ -236,7 +267,15 @@ export function WebPerf() {
             </aside>
           </section>
           <section id="network">
-            <h1>Network</h1>
+            <div className="container">
+              <h1>Network</h1>
+              <img
+                src={images.navigationTiming}
+                alt="Navigation Timing"
+                className="screenshot tw:bg-white tw:p-4"
+              />
+              <QR value="http://developer.mozilla.org/en-US/docs/Web/API/Performance_API/Navigation_timing/" />
+            </div>
             <aside className="notes">
               If you work in a frontend team you can still make your
               contribution to the network part of the performance by making sure
@@ -250,8 +289,8 @@ export function WebPerf() {
             </aside>
           </section>
           <section>
-            <h1>Bundle size optimisation</h1>
-            <div className="tw:flex tw:justify-center tw:mt-10">
+            <div className="container">
+              <h1>Bundle Size Optimization</h1>
               <img
                 src={images.agentsBundlesize}
                 alt="Fighting bundle size"
@@ -266,8 +305,16 @@ export function WebPerf() {
             </aside>
           </section>
           <section id="inp">
-            <h1>INP</h1>
-            <h3>Interaction to next PAIN</h3>
+            <div className="container">
+              <div className="tw:text-left tw:flex tw:flex-col tw:justify-center tw:h-full tw:gap-4">
+                <h1 className="tw:font-extrabold!">Interaction to</h1>
+                <h1 className="tw:font-extrabold!">Next</h1>
+                <h1 className="tw:font-extrabold!">
+                  Pain
+                  <span className="tw:font-extralight! tw:opacity-40">t</span>
+                </h1>
+              </div>
+            </div>
             <aside className="notes">
               Often misinterpreted as "Interaction to next PAIN". TODO: Display
               with "t" being appended. Add gif from banners interactions. Which
@@ -284,13 +331,15 @@ export function WebPerf() {
             </aside>
           </section>
           <section id="inp-hover">
-            <h1>INP 🙅 Hover</h1>
-            <div className="flex justify-center h-full">
-              <img
-                src={images.hoverLessWrong}
-                alt="Hover Lesswrong"
-                className="screenshot scale-75"
-              />
+            <div className="container">
+              <h1>INP 🙅 Hover</h1>
+              <div className="flex justify-center h-full">
+                <img
+                  src={images.hoverLessWrong}
+                  alt="Hover Lesswrong"
+                  className="screenshot scale-75"
+                />
+              </div>
             </div>
             <aside className="notes">
               Hover interactions are not included in INP calculations, but many
@@ -317,7 +366,15 @@ export function WebPerf() {
             </aside>
           </section>
           <section id="inp-scheduler-yield">
-            <h1>scheduler.yield()</h1>
+            <div className="container">
+              <h1>scheduler.yield()</h1>
+              <img
+                src={images.schedulerYield}
+                alt="Scheduler Yield"
+                className="screenshot tw:h-2/3"
+              />
+              <QR value="https://web.dev/articles/optimize-long-tasks#scheduler-yield/" />
+            </div>
             <aside className="notes">
               TODO: Add some code snippet. There is currently 1 solution to
               improve this metric for 99% of case - yield the main thread.
@@ -327,7 +384,19 @@ export function WebPerf() {
               https://calendar.perfplanet.com/2024/breaking-up-with-long-tasks-or-how-i-learned-to-group-loops-and-wield-the-yield/
             </aside>
           </section>
-          <section id="custom-metrics">
+          <section id="start-transition">
+            <div className="container">
+              <h1>React: startTransition()</h1>
+              <img
+                src={images.startTransition}
+                alt="Start Transition"
+                className="screenshot tw:w-2/3"
+              />
+              <QR value="https://kurtextrem.de/posts/improve-inp-react" />
+            </div>
+            <aside className="notes"></aside>
+          </section>
+          <section id="custom-metrics" data-visibility="hidden">
             <h1>Custom Metrics</h1>
             <aside className="notes">
               If your application has an AI assistant maybe you need something
@@ -338,7 +407,7 @@ export function WebPerf() {
               TODO: Mention "time to first tweet"
             </aside>
           </section>
-          <section id="metrics-future">
+          <section id="metrics-future" data-visibility="hidden">
             <h1>Container Timing API</h1>
             <aside className="notes">
               There are plenty of native and external APIs to measure
@@ -380,8 +449,8 @@ export function WebPerf() {
               https://dev.to/matfrana/react-where-are-you-going-5284
             </aside>
           </section>
-          <section id="react-vs-others">
-            <h1>React vs. Others</h1>
+          <section id="react-vs-others" data-visibility="hidden">
+            <h1>React and Others</h1>
             <aside className="notes">
               There are multiple attempts to solve performance issues. Qwik
               comes with an idea of resumability. If you have a big ping (slow
@@ -394,26 +463,36 @@ export function WebPerf() {
             </aside>
           </section>
           <section id="react-no-signals">
-            <img
-              src={images.reactNoSignals}
-              alt="React No Signals"
-              className="screenshot"
-            />
+            <div className="container">
+              <h1>React and Signals</h1>
+              <img
+                src={images.reactNoSignals}
+                alt="React No Signals"
+                className="screenshot"
+              />
+            </div>
             <aside className="notes">
               TODO: Add that we'll see how it will play out.
             </aside>
           </section>
           <section id="frameworks-performance">
-            <h1>Frameworks performance</h1>
+            <div className="container">
+              <h1>Frameworks performance</h1>
+              <img
+                src={images.frameworkBenchmark}
+                alt="Frameworks Benchmark"
+                className="screenshot"
+              />
+              <QR value="https://krausest.github.io/js-framework-benchmark/2024/table_chrome_126.0.6478.55.html" />
+            </div>
             <aside className="notes">
               However, we're making tradeoffs. If we pick vanila JS just because
               it's the fastest in benchmarks, will it be a vise choice beyond
               personal projects? I doubt it will. TODO: Add screenshot with
               benchmark
-              https://krausest.github.io/js-framework-benchmark/2024/table_chrome_126.0.6478.55.html
             </aside>
           </section>
-          <section id="languages-quote">
+          <section id="languages-quote" data-visibility="hidden">
             <aside className="notes">
               TODO: Add a screen of quote. In the end, let's remember what was
               said a long time ago: "There are only two kinds of languages: the
@@ -421,7 +500,7 @@ export function WebPerf() {
               screen of quote
             </aside>
           </section>
-          <section id="microoptimisations">
+          <section id="microoptimisations" data-visibility="hidden">
             <h1>Microoptimisations</h1>
             <aside className="notes">
               But frameworks and libraries choice isn't something we can do when
@@ -434,11 +513,17 @@ export function WebPerf() {
             </aside>
           </section>
           <section id="how">
-            <h1>How?</h1>
-            <aside className="notes">FOMO</aside>
+            <div className="container tw:mt-0! tw:flex tw:flex-col tw:items-center tw:justify-center tw:h-full">
+              <h3>Question 3</h3>
+              <h1 className="tw:font-bold! tw:text-8xl!">How?</h1>
+            </div>
+            <aside className="notes"></aside>
           </section>
           <section id="tools">
-            <h1>Tools</h1>
+            <div className="container">
+              <h1>Tools</h1>
+              <img src={images.toolsGif} alt="Tools" className="screenshot" />
+            </div>
             <aside className="notes">
               TODO: Insert a gif with weapons. We've already mentioned RUM as
               the best way to measure field data. But we still need to diagnose
@@ -446,7 +531,7 @@ export function WebPerf() {
               Chrome DevTools.
             </aside>
           </section>
-          <section id="chrome-devtools">
+          <section id="chrome-devtools" data-visibility="hidden">
             <h1>Chrome DevTools</h1>
             <aside className="notes">
               Chrome DevTools are activelly developed. You can label your
@@ -458,7 +543,7 @@ export function WebPerf() {
               https://x.com/WebTwitr/status/1838571299381055752
             </aside>
           </section>
-          <section id="chrome-devtools-ai">
+          <section id="chrome-devtools-ai" data-visibility="hidden">
             <aside className="notes">
               TODO: Add a gif with AI. The thing is you must be logged in and
               people usually have a lot of extensions enabled. But you don't
@@ -467,7 +552,7 @@ export function WebPerf() {
               to have a clean environment and to be able to use AI assistant.
             </aside>
           </section>
-          <section id="devtools-annotations">
+          <section id="devtools-annotations" data-visibility="hidden">
             <aside className="notes">
               You can add annotations to your traces to share with your
               teammates. You export it as a json blob with all your annotations
@@ -477,7 +562,7 @@ export function WebPerf() {
               nail.
             </aside>
           </section>
-          <section id="quote-abraham-maslow">
+          <section id="quote-abraham-maslow" data-visibility="hidden">
             <Quote
               img={images.screwWithHammer}
               source="Abraham Maslow"
@@ -485,7 +570,7 @@ export function WebPerf() {
             were a nail"
             />
           </section>
-          <section id="case-study-agentic-workflow">
+          <section id="case-study-agentic-workflow" data-visibility="hidden">
             <h1>AI Agents & Performance Tracing</h1>
             <img
               src={images.agentSmith}
@@ -497,7 +582,10 @@ export function WebPerf() {
             </aside>
           </section>
           <section id="video-did-you-do-that">
-            <Video url={videos.didYouDoThat} />
+            <div className="container">
+              <h1>Hope</h1>
+              <Video url={videos.didYouDoThat} />
+            </div>
             <aside className="notes">
               But in the end you will come to your upper management or even
               better to your performance review to show, how the "real
@@ -505,7 +593,14 @@ export function WebPerf() {
             </aside>
           </section>
           <section id="thank-you">
-            <h1>Thank you!</h1>
+            <div className="container tw:mt-0! tw:flex tw:flex-col tw:items-center tw:justify-center tw:h-full">
+              <h3>Thank you!</h3>
+              <h1 className="tw:font-bold! tw:text-8xl!">Q&A</h1>
+              <div className="tw:mt-10">
+                <h3>Slides:</h3>
+                <QR value="https://loonskai-decks.netlify.app/webperf/" />
+              </div>
+            </div>
             <aside className="notes"></aside>
           </section>
         </div>

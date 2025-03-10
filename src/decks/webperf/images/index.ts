@@ -25,8 +25,15 @@ import warsawJSImg from "./warsawjs-logo.png";
 import whyWhatHow from "./why-what-how.jpg";
 import agentSmith from "./agent-smith.gif";
 import agentsBundlesize from "./agents-bundlesize.gif";
+import speedToConversion from "./speed-to-conversion.svg";
+import navigationTiming from "./navigation-timing.svg";
+import schedulerYield from "./scheduler-yield.png";
+import startTransition from "./start-transition.png";
+import frameworkBenchmark from "./framework-benchmark.png";
 
 export default {
+  speedToConversion,
+  navigationTiming,
   agentSmith,
   agentsBundlesize,
   whyWhatHow,
@@ -54,4 +61,7 @@ export default {
   screwWithHammer,
   stateOfHtmlPerformanceTools,
   startWithWhy,
+  schedulerYield,
+  startTransition,
+  frameworkBenchmark,
 };

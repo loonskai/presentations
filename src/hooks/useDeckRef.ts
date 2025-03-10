@@ -1,14 +1,14 @@
 import { useEffect, useRef } from "react";
 import Reveal, { type Options } from "reveal.js";
-import RevealNotes from "reveal.js/plugin/notes/notes";
+// import RevealNotes from "reveal.js/plugin/notes/notes";
 
 export function useDeckRef(
   options: Options = {
     transition: "slide",
-    controls: true,
     autoAnimateEasing: "ease-out",
     autoAnimateDuration: 1.5,
     autoAnimateUnmatched: true,
+    hash: true,
   }
 ) {
   const deckDivRef = useRef<HTMLDivElement>(null);
@@ -19,7 +19,7 @@ export function useDeckRef(
 
     deckRef.current = new Reveal(deckDivRef.current, {
       ...options,
-      plugins: [RevealNotes],
+      // plugins: [RevealNotes],
     });
 
     deckRef.current.initialize().catch(console.warn);
