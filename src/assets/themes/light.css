@@ -118,16 +118,16 @@
 }
 
 .screenshot {
-  @apply  tw:max-h-4/5 tw:rounded-[1.5rem] tw:shadow-sm tw:mt-4 tw:mx-auto tw:block;
+  @apply tw:max-h-4/5 tw:rounded-[1.5rem] tw:shadow-sm tw:mt-4 tw:mx-auto tw:block;
 }
 
 .container {
   @apply tw:w-full tw:h-full tw:gap-4 tw:flex tw:flex-col tw:items-center tw:max-h-full;
 }
 
-.container img {
+/* .container img {
   @apply tw:max-h-[500px] tw:object-contain;
-}
+} */
 
 .content {
   @apply tw:flex tw:flex-col tw:flex-1 tw:justify-items-start;

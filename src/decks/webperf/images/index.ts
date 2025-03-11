@@ -21,6 +21,7 @@ import stateOfHtmlPerformanceTools from "./state-of-html-performance-tools.png";
 import stateOfJsPainPointsImg from "./state-of-js-pain-points.png";
 import startWithWhy from "./start-with-why.png";
 import toolsGif from "./tools.gif";
+import timeToFocusedInput from "./time-to-focused-input.png";
 import warsawJSImg from "./warsawjs-logo.png";
 import whyWhatHow from "./why-what-how.jpg";
 import agentSmith from "./agent-smith.gif";
@@ -30,8 +31,18 @@ import navigationTiming from "./navigation-timing.svg";
 import schedulerYield from "./scheduler-yield.png";
 import startTransition from "./start-transition.png";
 import frameworkBenchmark from "./framework-benchmark.png";
+import reactAndrewAnswer1 from "./react-andrew-answer1.png";
+import reactAndrewAnswer2 from "./react-andrew-answer2.png";
+import bjarneStroustrup from "./bjarne-stoustrup.jpg";
+import devtoolsPanel from "./devtools-panel.png";
+import timeToMeaningfulContent from "./time-to-meaningful-content.gif";
+import perfTimelineToDevtoolsProfile from "./perf-timeline-to-devtools-profile.png";
+import devtoolsAnnotations from "./devtools-annotations.gif";
+import devtoolsAi from "./devtools-ai.gif";
 
 export default {
+  devtoolsPanel,
+  timeToMeaningfulContent,
   speedToConversion,
   navigationTiming,
   agentSmith,
@@ -64,4 +75,11 @@ export default {
   schedulerYield,
   startTransition,
   frameworkBenchmark,
+  timeToFocusedInput,
+  reactAndrewAnswer1,
+  reactAndrewAnswer2,
+  bjarneStroustrup,
+  perfTimelineToDevtoolsProfile,
+  devtoolsAnnotations,
+  devtoolsAi,
 };

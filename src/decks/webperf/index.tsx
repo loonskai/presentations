@@ -1,6 +1,7 @@
 import { useDeckRef } from "../../hooks/useDeckRef";
 import Banners from "./Banners";
 import BlurEffect from "./BlurEffect";
+import { CWVTable } from "./CWVTable";
 import images from "./images";
 import { QR } from "./QR";
 import { Quote } from "./Quote";
@@ -62,16 +63,9 @@ export function WebPerf() {
               Performance is a vast topic that is highly intertwined with
               everything related to product engineering. 20 minutes is
               definitely not enough to explore even smaller parts of it. So
-              today I'll try to skim over a so called, "golden circle" of "why",
-              "what" and "how" to see, where we are at with the performance
-              topic.
+              today I'll try to skim over the "golden circle" of "why", "what"
+              and "how".
             </aside>
-          </section>
-          <section id="question-1-why">
-            <div className="container tw:mt-0! tw:flex tw:flex-col tw:items-center tw:justify-center tw:h-full">
-              <h3>Question 1</h3>
-              <h1 className="tw:font-bold! tw:text-8xl!">Why?</h1>
-            </div>
           </section>
           <section id="matrix-pill">
             <div className="container">
@@ -84,107 +78,147 @@ export function WebPerf() {
               />
             </div>
             <aside className="notes">
-              Without further due, let's take the red pill and start with "Why?"
+              We'll try to see what is the real picture of the web performance
+              today. It will be a performance review - web performance review,
+              not the one you're thinking about.
+            </aside>
+          </section>
+          <section id="question-1-why">
+            <div className="container tw:mt-0! tw:flex tw:flex-col tw:items-center tw:justify-center tw:h-full">
+              <h3>Question 1</h3>
+              <h1 className="tw:font-bold! tw:text-8xl!">Why?</h1>
+            </div>
+            <aside className="notes">
+              Without further due, let's take the red pill and start with "Why"
+              and ask why anyone should bother. Let's go to the next slide and
+              see how the web looks like today.
             </aside>
           </section>
           <section id="psychological-impact">
             <Banners>
               <div className="container">
                 <h1>Psychological Impact</h1>
-                <img
-                  src={images.matrixRageClick}
-                  alt="Matrix Rage Click"
-                  className="screenshot"
-                />
+                <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                  <img
+                    src={images.matrixRageClick}
+                    alt="Matrix Rage Click"
+                    className="screenshot"
+                  />
+                </div>
+                <QR value="https://dictionary.cambridge.org/dictionary/english/performance" />
               </div>
             </Banners>
             <aside className="notes">
-              The psychological impact boils down to user experience. Because
-              what is performance by definition? Cambridge dictionary defines
-              performance as "how well a person, machine, etc. does a piece of
-              work or an activity". TODO: Add screen for "performance"
-              definition
-              https://dictionary.cambridge.org/dictionary/english/performance
-              And we all know that frustrution comes when we expect something to
-              work well but later we face the reality. TODO: Add a screen from
-              matrix, something funny. Rage clicks, frustration, cognitive
-              overload. The more important and unique service - the more users
-              are ready to wait TODO: Read a paper around waiting:
-              https://www.columbia.edu/~ww2040/4615S13/Psychology_of_Waiting_Lines.pdf
-              https://dl.acm.org/doi/pdf/10.1145/1476589.1476628 TODO: Read
+              You just witnessed the psychological impact of bad UX and
+              performance is a big part of it. Because what is performance in
+              general? It is "how well a person, machine, etc. does a piece of
+              work or an activity". And we all know that frustrution comes when
+              we expect something to work well but later we face the reality.
+              You'll notice that every time you catch yourself on rage clicking
+              some irresponsive interface. Because we're all people - when we
+              submit a request, we expect at least an instant acknowledgment,
+              because unexplained waits are more frustrating than explained
+              ones. Thought people are ready to tolerate longer for high-value
+              services, like medical or bank apps. I clicked through all these
+              banners because it was important to me. I would already closed the
+              tab in the real life scenario. By 2025 the expectation to UX and
+              how the web pages must perform has grown, unfortunately, with the
+              pace of growing Javascript bundles.
             </aside>
           </section>
           <section id="business-impact">
             <div className="container">
               <h1>Business Impact</h1>
-              <img
-                src={images.speedToConversion}
-                alt="Speed to Conversion"
-                className="screenshot tw:bg-white tw:p-4"
-              />
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.speedToConversion}
+                  alt="Speed to Conversion"
+                  className="screenshot tw:bg-white tw:p-4 tw:h-2/3"
+                />
+              </div>
               <QR value="https://www.cloudflare.com/learning/performance/more/website-performance-conversion-rates/" />
             </div>
             <aside className="notes">
-              Impacts revenue & conversions TODO: Add excerpts from the book
-              "Time Is Money: The Business Value of Web Performance"
+              There are multiple studies around how performance affects the
+              number of page views, bounce rate as well as conversion rate.
             </aside>
           </section>
           <section id="case-studies">
             <div className="container">
               <h1>Case Studies</h1>
-              <img
-                src={images.caseStudies}
-                alt="Case Studies"
-                className="screenshot tw:h-2/3"
-              />
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.caseStudies}
+                  alt="Case Studies"
+                  className="screenshot tw:h-[400px]"
+                />
+              </div>
               <QR value="https://web.dev/case-studies" />
             </div>
             <aside className="notes">
-              In 2025 it's obvious that working on performance improvements.
-              These example is a sample of efforts that eventually end up to be
-              positive for business. And in general I believe there a strong
-              correlation between how our applications perform and how much
-              revenue do they generate. But would be great for us in seeing the
-              splendor of ... is to not fall victim to the survivirship bias
-              because it's hard find stories where companies spent a huge effort
-              trying to optimise for performance but ended up realising that it
-              doesn't bring any value.
+              These examples can be easily found online. However all of them is
+              just a sample of efforts that eventually end up to be positive for
+              the businesses. There is definitely a strong correlation between
+              how our applications perform and how much revenue do they
+              generate. What I think what we also miss in seeing the splendor of
+              such successes is how many initiatives to improve the performance
+              failed. Right now it's easy to fall victim to the survivirship
+              bias because it's hard find stories where companies spent a huge
+              effort trying to optimise for performance but ended up realising
+              that it doesn't bring any value.
             </aside>
           </section>
           <section id="survivorship-bias">
             <div className="container">
-              <h1>Survivorship Bias</h1>
-              <img
-                src={images.gitlabCriticalCssImg}
-                alt="GitLab Critical CSS case"
-                className="screenshot"
-              />
+              <h1>Survivorship Bias?</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.gitlabCriticalCssImg}
+                  alt="GitLab Critical CSS case"
+                  className="screenshot tw:h-[400px]"
+                />
+              </div>
+              <QR value="https://gitlab.com/gitlab-org/gitlab/-/merge_requests/124406" />
             </div>
             <aside className="notes">
               Here is just a single example of Gitlab, that spent around 2 years
               trying to improve First Contentful Paint for the first-time users
-              by adding inline CSS. As any product aspect, similar to SEO,
-              accesibility, performance improvements don't make much sence in
-              separation from business. Again, I'm not about non-profit or
-              personal project, or when we do this for learning purposes. So now
-              you may ask yourselves: do we even need to spend the time and
-              money trying to improve the performance? No. Unless you the
-              relevant data.
-              https://gitlab.com/gitlab-org/gitlab/-/merge_requests/124406
+              by adding inline CSS. At the end they removed around 10K of code
+              that introduced this optimization because there was no positive
+              effect.
             </aside>
           </section>
           <section id="matrix-pill-reverse">
             <div className="container">
               <h1>Is it worth it?</h1>
-              <img
-                src={images.matrixPillReverse}
-                alt="Matrix Pill"
-                className="screenshot"
-              />
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.matrixPillReverse}
+                  alt="Matrix Pill"
+                  className="screenshot"
+                />
+              </div>
             </div>
             <aside className="notes">
-              Does it mean we should not care then? No. It means that we need
-              data.
+              As any product aspect, similar to SEO, accesibility, performance
+              improvements don't make much sence in separation from business.
+              I'm not talking about non-profit or personal projects, where we go
+              deep into the topic to learn something new. I'm talking about real
+              world products. Before going into the rabit hole of the
+              performance optimisations, the business needs to ask the question:
+              do I need to spend the time and money trying to to improve the
+              performance?
+            </aside>
+          </section>
+          <section id="no">
+            <div className="container">
+              <div className="container tw:mt-0! tw:flex tw:flex-col tw:items-center tw:justify-center tw:h-full">
+                <h1 className="tw:font-bold! tw:text-8xl!">No.</h1>
+                <h3>Unless you have data.</h3>
+              </div>
+            </div>
+            <aside className="notes">
+              My answer is - No. Unless you have the relevant data.
             </aside>
           </section>
           <section id="question-2-what">
@@ -194,86 +228,83 @@ export function WebPerf() {
             </div>
             <aside className="notes">
               Here arises the next question about web performance - "what" data
-              do we need?
+              do we need to have?
+            </aside>
+          </section>
+          <section id="field-vs-lab">
+            <div className="container">
+              <h1>Field vs Lab</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <div className="container tw:mt-0! tw:flex tw:flex-col tw:items-center tw:justify-center tw:h-full">
+                  <h3>Lab Data is</h3>
+                  <h1 className="tw:font-bold! tw:text-8xl! tw:mb-8!">
+                    diagnostic
+                  </h1>
+                  <h3>Field Data is</h3>
+                  <h1 className="tw:font-bold! tw:text-8xl!">experience</h1>
+                </div>
+              </div>
+              <QR value="https://frontendmasters.com/courses/web-perf-v2/" />
+            </div>
+            <aside className="notes">
+              Performance data boils down into 2 categories: field and lab data.
+              What is the difference? Todd Gardner, performance expert, defined
+              it the following way: lab data is diagnostic, field data is
+              experience. And if someone would ask me: hey, I don't have ANY
+              data, what should I start with? I would say: start collecting
+              field data. And the best way to do it is to enable real user
+              monitoring.
             </aside>
           </section>
           <section id="rum">
             <div className="container">
               <h1>Real User Monitoring</h1>
-              <img
-                src={images.matrixRUM}
-                alt="Matrix RUM"
-                className="screenshot"
-              />
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.matrixRUM}
+                  alt="Matrix RUM"
+                  className="screenshot"
+                />
+              </div>
             </div>
             <aside className="notes">
-              TODO: Add about costs, vendors, noise. How your users experience
-              your application
+              In 2025 there is a vast amount of solutions of different cost and
+              functionality and the topic of real user monitoring is big enough
+              to have a separate talk. In one sentense - RUM gives you the data
+              about your users' environments, how they navigate your app, how
+              performance changes over time. Because there is a lot of data
+              there is also a lot of noise. TODO: Finish watching RUM and noise
+              and add some details about RUM. Anyway, RUM is a process by
+              itself, but what are the signals?
             </aside>
           </section>
           <section id="core-web-vitals">
             <div className="container">
               <h1>Core Web Vitals</h1>
-              <div className="tw:h-full tw:w-full tw:mt-20">
-                <table className="tw:table-auto tw:w-full">
-                  <thead>
-                    <tr>
-                      <th className="tw:border-b">
-                        <h3>Loading Speed</h3>
-                      </th>
-                      <th className="tw:border-b">
-                        <h3>Interactivity</h3>
-                      </th>
-                      <th className="tw:border-b">
-                        <h3>Stability</h3>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="tw:p-4">
-                        <h2>TTFB</h2>
-                      </td>
-                      <td className="tw:p-4">
-                        <h2>INP</h2>
-                      </td>
-                      <td className="tw:p-4">
-                        <h2>CLS</h2>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="tw:p-4">
-                        <h2>FCP</h2>
-                      </td>
-                      <td className="tw:p-4">
-                        <h2>TBT</h2>
-                      </td>
-                      <td className="tw:p-4"></td>
-                    </tr>
-                    <tr>
-                      <td className="tw:p-4">
-                        <h2>LCP</h2>
-                      </td>
-                      <td className="tw:p-4"></td>
-                      <td className="tw:p-4"></td>
-                    </tr>
-                  </tbody>
-                </table>
+              <h4>this is what everyone* needs</h4>
+              <div className="tw:h-full tw:w-full tw:mt-4">
+                <CWVTable />
               </div>
+              <h4>*Google</h4>
             </div>
             <aside className="notes">
-              Existence of so many metrics highlights the common need* (read -
-              Google) TODO: Add this quote but put google with * to the bottom
+              The signals are core web vitals. Something that everyone needs to
+              collect. These metrics are evolving with time and I think the best
+              way not to get lost with them is to split them into 3 categories:
+              loading speed (network time), interactivity (compute time) and
+              stability.
             </aside>
           </section>
           <section id="network">
             <div className="container">
               <h1>Network</h1>
-              <img
-                src={images.navigationTiming}
-                alt="Navigation Timing"
-                className="screenshot tw:bg-white tw:p-4"
-              />
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.navigationTiming}
+                  alt="Navigation Timing"
+                  className="screenshot tw:bg-white tw:p-4 tw:h-[400px]"
+                />
+              </div>
               <QR value="http://developer.mozilla.org/en-US/docs/Web/API/Performance_API/Navigation_timing/" />
             </div>
             <aside className="notes">
@@ -288,20 +319,23 @@ export function WebPerf() {
               will look like this:
             </aside>
           </section>
-          <section>
+          <section id="bundlesize-optimization">
             <div className="container">
               <h1>Bundle Size Optimization</h1>
-              <img
-                src={images.agentsBundlesize}
-                alt="Fighting bundle size"
-                className="screenshot"
-              />
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.agentsBundlesize}
+                  alt="Fighting bundle size"
+                  className="screenshot"
+                />
+              </div>
             </div>
             <aside className="notes">
               So we must to understand - performance, like security, privacy and
               UX, is an aggregate result and it must be managed as a commons.
-              And this is a part of performance management discipline. Alex
-              Russel,
+              And this is a part of performance management discipline. Let's now
+              dive a little bit into something that we, frontend engineers, are
+              most responsible for. And we'll do it by reviewing INP.
             </aside>
           </section>
           <section id="inp">
@@ -316,28 +350,21 @@ export function WebPerf() {
               </div>
             </div>
             <aside className="notes">
-              Often misinterpreted as "Interaction to next PAIN". TODO: Display
-              with "t" being appended. Add gif from banners interactions. Which
+              Often misinterpreted as "Interaction to next PAIN". Which
               partially makes sence since high INP causes all sorts of the bad
-              psychological effect, e.g., rage clicks. To describe INP we can
-              say, that the web application is as slow as the slowest
-              interaction which happens on it. It's calculated from 3 stages:{" "}
-              <br />
-              input delay: how much it takes from actual physical click to event
-              handler. <br />
-              processing time - how much your event listener function takes time{" "}
-              <br />
-              frame presented. <br />
+              psychological effect, e.g., already discussed rage clicks. To
+              describe INP we can say, that the web application is as slow as
+              the slowest interaction which happens on it.
             </aside>
           </section>
           <section id="inp-hover">
             <div className="container">
               <h1>INP 🙅 Hover</h1>
-              <div className="flex justify-center h-full">
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
                 <img
                   src={images.hoverLessWrong}
                   alt="Hover Lesswrong"
-                  className="screenshot scale-75"
+                  className="screenshot"
                 />
               </div>
             </div>
@@ -347,13 +374,15 @@ export function WebPerf() {
             </aside>
           </section>
           <section id="inp-scroll">
-            <h1>INP 🙅 Scroll</h1>
-            <div className="flex justify-center h-full">
-              <img
-                src={images.scrollPinterest}
-                alt="Scroll Pinterest"
-                className="screenshot scale-75"
-              />
+            <div className="container">
+              <h1>INP 🙅 Scroll</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.scrollPinterest}
+                  alt="Scroll Pinterest"
+                  className="screenshot"
+                />
+              </div>
             </div>
             <aside className="notes">
               And what's in my opinion even more important to - INP doesn't
@@ -368,65 +397,113 @@ export function WebPerf() {
           <section id="inp-scheduler-yield">
             <div className="container">
               <h1>scheduler.yield()</h1>
-              <img
-                src={images.schedulerYield}
-                alt="Scheduler Yield"
-                className="screenshot tw:h-2/3"
-              />
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.schedulerYield}
+                  alt="Scheduler Yield"
+                  className="screenshot tw:h-[460px]"
+                />
+              </div>
               <QR value="https://web.dev/articles/optimize-long-tasks#scheduler-yield/" />
             </div>
             <aside className="notes">
-              TODO: Add some code snippet. There is currently 1 solution to
-              improve this metric for 99% of case - yield the main thread.
-              Experimental API called scheduler.yield() aims to fix the issue of
-              long tasks. If you're interested in more details go check out the
-              wonderful article
+              There is currently 1 solution to improve this metric for 99% of
+              case - yield the main thread. Experimental API called
+              scheduler.yield() aims to fix the issue of long tasks. If you're
+              interested in more details go check out the wonderful article
               https://calendar.perfplanet.com/2024/breaking-up-with-long-tasks-or-how-i-learned-to-group-loops-and-wield-the-yield/
             </aside>
           </section>
-          <section id="start-transition">
+          <section id="core-web-vitals-challenges">
             <div className="container">
-              <h1>React: startTransition()</h1>
-              <img
-                src={images.startTransition}
-                alt="Start Transition"
-                className="screenshot tw:w-2/3"
-              />
-              <QR value="https://kurtextrem.de/posts/improve-inp-react" />
+              <h1>CWV: WFT?</h1>
+              <div className="tw:h-full tw:w-full tw:mt-20">
+                <CWVTable noHeader />
+              </div>
             </div>
-            <aside className="notes"></aside>
+            <aside className="notes">
+              This is just one of the metrics. But imagine coming to your
+              designer or product manager and trying to explain them why we need
+              to optimize for TTFB, INP or any other abbreviature? And this
+              misunderstanding is mutual - these metrics are generic and they
+              don't take into accound the specifics of your product.
+            </aside>
           </section>
-          <section id="custom-metrics" data-visibility="hidden">
-            <h1>Custom Metrics</h1>
+          <section id="custom-metrics">
+            <div className="container">
+              <h1>Custom Metrics</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.timeToFocusedInput}
+                  alt="Time to Focused Input"
+                  className="screenshot tw:h-[400px]"
+                />
+              </div>
+              <QR value="https://x.com/cramforce/status/1855312496137298116" />
+            </div>
             <aside className="notes">
               If your application has an AI assistant maybe you need something
               like "time to first input" which is used by Vercel. Or you need
               something that is related solely to your domain, something like
-              "time to first tweet." TODO: Add tweet from Vercel CTO about their
-              custom metric https://x.com/cramforce/status/1855312496137298116.
-              TODO: Mention "time to first tweet"
+              "time to first tweet" which Twitter has been using for a long
+              time. Or Pinterest with their "time to first pin" which measures
+              the time between initiated action (like tapping a pin) until the
+              action is completed from the user perspective.
             </aside>
           </section>
-          <section id="metrics-future" data-visibility="hidden">
+          <section id="time-to-meaningful-content">
+            <div className="container">
+              <h1>Time to Meaningful Content</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.timeToMeaningfulContent}
+                  alt="Time to Meaningful Content"
+                  className="screenshot"
+                />
+              </div>
+            </div>
+            <aside className="notes">
+              At Box for example we're looking at "time to meaningful content" -
+              this is the duration from when a user start a request either by
+              going to URL or clicking a link to when meaningful content (like a
+              minimal folder list) is rendered. Fortunately, there are plenty of
+              native and external APIs to build custom measurements.
+            </aside>
+          </section>
+          <section id="element-timing-api">
+            <div className="container">
+              <h1>Element Timing API</h1>
+              <QR value="https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API" />
+            </div>
+            <aside className="notes">
+              Element Timing API - it let's you to define explicitly what images
+              or text nodes you care about as opposed to what default LCP
+              captures for you.
+            </aside>
+          </section>
+          <section id="container-timing-api" data-visibility="hidden">
             <h1>Container Timing API</h1>
             <aside className="notes">
-              There are plenty of native and external APIs to measure
-              performance. One which I will mention is Container Timing API.
-              It's not yet available in browsers but you can use polyfills and
-              Chrome extension. It allows you to track when specific sections of
-              DOM are first displayed and fully painted. This way we define our
-              own "time to first tweet" more easily with component-based
-              libraries. TODO: Install the extension and add a screenshot with
-              code as well. https://github.com/bloomberg/container-timing
+              Another interesting API which is not yet available in browsers but
+              being actively developed by Bloomberg is Container Timing API. It
+              allows you to track when specific sections of DOM are first
+              displayed and fully painted, will all their children elements. You
+              can try it out with a polyfill and some experimental flags.
+              https://github.com/bloomberg/container-timing
             </aside>
           </section>
           <section id="javascript-pain-points">
-            <h1>Javascript Pain Points</h1>
-            <img
-              src={images.stateOfJsPainPointsImg}
-              alt="State of JS Pain Points"
-              className="screenshot"
-            />
+            <div className="container">
+              <h1>Javascript Pain Points</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.stateOfJsPainPointsImg}
+                  alt="State of JS Pain Points"
+                  className="screenshot tw:h-[400px]"
+                />
+              </div>
+              <QR value="https://2024.stateofjs.com/en-us/javascript-pain-points/" />
+            </div>
             <aside className="notes">
               But let's make a step back and see at Javascript performance. 1
               out of 4 respondents mentioned performance as one of the main pain
@@ -435,44 +512,57 @@ export function WebPerf() {
             </aside>
           </section>
           <section id="react-and-performance">
-            <h1>React and Performance</h1>
-            <img
-              src={images.reactUseMemoText}
-              alt="React useMemo Text"
-              className="screenshot"
-            />
+            <div className="container">
+              <h1>React and Performance</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.reactUseMemoText}
+                  alt="React useMemo Text"
+                  className="screenshot tw:h-[400px]"
+                />
+              </div>
+              <QR value="https://dev.to/matfrana/react-where-are-you-going-5284" />
+            </div>
             <aside className="notes">
-              I still have a question - does React Compiler solve the right
-              issue? From immutability, to implicit memoisation. This becomes
-              complex. TODO: Add concern about where React goes. 2.5 years to
-              release the new version (sarcasm alert).
-              https://dev.to/matfrana/react-where-are-you-going-5284
-            </aside>
-          </section>
-          <section id="react-vs-others" data-visibility="hidden">
-            <h1>React and Others</h1>
-            <aside className="notes">
-              There are multiple attempts to solve performance issues. Qwik
-              comes with an idea of resumability. If you have a big ping (slow
-              connection) it's just unusable. Svelte comes with runes which is
-              considered by many as a breakthrough in reactivity. TODO: Add more
-              about it TODO: Add that idea of signals is good and such primitive
-              implemented on the language level can drastictally simplify
-              internal libraries and positively affect performance. TODO: Read
-              https://infrequently.org/2024/11/if-not-react-then-what/
+              One question to ask - does React Compiler solve the right issue by
+              putting React Compiler on top of all memoisation methods? There
+              are concerns about growing complexity of the React, with Server
+              Components, React Compiler, Suspense, etc.
             </aside>
           </section>
           <section id="react-no-signals">
             <div className="container">
-              <h1>React and Signals</h1>
-              <img
-                src={images.reactNoSignals}
-                alt="React No Signals"
-                className="screenshot"
-              />
+              <h1>React and (no) Signals</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.reactNoSignals}
+                  alt="React No Signals"
+                  className="screenshot"
+                />
+              </div>
+              <QR value="https://x.com/cramforce/status/1855312496137298116" />
             </div>
             <aside className="notes">
-              TODO: Add that we'll see how it will play out.
+              Someone may recall this conversation from the early 2023 about
+              signals in React.
+            </aside>
+          </section>
+          <section id="react-vs-others">
+            <div className="container">
+              <h1>If Not React, Then What?</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.reactAndrewAnswer2}
+                  alt="React Andrew Answer"
+                  className="screenshot"
+                />
+              </div>
+            </div>
+            <aside className="notes">
+              There are multiple attempts to solve performance issues. Qwik
+              comes with an idea of resumability. But if you have a big ping
+              (slow connection) it's just unusable. Also Svelte comes with runes
+              which is considered by many as a breakthrough in reactivity.
             </aside>
           </section>
           <section id="frameworks-performance">
@@ -486,18 +576,24 @@ export function WebPerf() {
               <QR value="https://krausest.github.io/js-framework-benchmark/2024/table_chrome_126.0.6478.55.html" />
             </div>
             <aside className="notes">
-              However, we're making tradeoffs. If we pick vanila JS just because
-              it's the fastest in benchmarks, will it be a vise choice beyond
-              personal projects? I doubt it will. TODO: Add screenshot with
-              benchmark
+              But building apps that real people use is often about tradeoffs.
+              Right now React is definitely not the fastest UI library out
+              there. If we pick vanila JS just because it's the fastest in
+              benchmarks, will it be a vise choice beyond personal projects.
             </aside>
           </section>
-          <section id="languages-quote" data-visibility="hidden">
+          <section id="languages-quote">
+            <div className="container">
+              <Quote
+                img={images.bjarneStroustrup}
+                source="Bjarne Stroustrup"
+                quote="There are only two kinds of languages: the ones people complain about and the ones nobody uses."
+              />
+            </div>
             <aside className="notes">
-              TODO: Add a screen of quote. In the end, let's remember what was
-              said a long time ago: "There are only two kinds of languages: the
-              ones people complain about and the ones nobody uses." TODO: Add a
-              screen of quote
+              In the end, let's remember what was said a long time ago: "There
+              are only two kinds of languages: the ones people complain about
+              and the ones nobody uses."
             </aside>
           </section>
           <section id="microoptimisations" data-visibility="hidden">
@@ -522,69 +618,147 @@ export function WebPerf() {
           <section id="tools">
             <div className="container">
               <h1>Tools</h1>
-              <img src={images.toolsGif} alt="Tools" className="screenshot" />
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img src={images.toolsGif} alt="Tools" className="screenshot" />
+              </div>
             </div>
             <aside className="notes">
-              TODO: Insert a gif with weapons. We've already mentioned RUM as
-              the best way to measure field data. But we still need to diagnose
-              the performance of our app and the best way to do it is to use
-              Chrome DevTools.
+              We've already mentioned RUM as the best way to measure field data.
+              But we still need to diagnose the performance of our app with the
+              lab data and the most advanced tool for that is of course Chrome
+              DevTools.
             </aside>
           </section>
-          <section id="chrome-devtools" data-visibility="hidden">
-            <h1>Chrome DevTools</h1>
+          <section id="chrome-devtools">
+            <div className="container">
+              <h1>Chrome DevTools</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.devtoolsPanel}
+                  alt="DevTools Panel"
+                  className="screenshot"
+                />
+              </div>
+            </div>
             <aside className="notes">
-              Chrome DevTools are activelly developed. You can label your
-              performance trace. Use a separate Chrome profile with no
-              extensions. Your laptop is typically much faster than the median
-              user's phone. If you run your test without throttling, you'll get
-              numbers that are too good. What you can try is also to instruct
-              LLM how to treat the specific trace.
-              https://x.com/WebTwitr/status/1838571299381055752
+              Your laptop is typically much faster than the median user's phone.
+              If you run your test without throttling, you'll get numbers that
+              are too good. What you can try is also to instruct LLM how to
+              treat the specific trace.
             </aside>
           </section>
-          <section id="chrome-devtools-ai" data-visibility="hidden">
+          <section id="chrome-devtools-custom-metrics">
+            <div className="container">
+              <div className="container">
+                <h1>Custom Track</h1>
+                <img
+                  src={images.perfTimelineToDevtoolsProfile}
+                  alt="Perf Timeline to DevTools Profile"
+                  className="screenshot tw:h-[480px]"
+                />
+                <QR value="https://github.com/andydavies/perf-timeline-to-devtools-profile/" />
+              </div>
+            </div>
             <aside className="notes">
-              TODO: Add a gif with AI. The thing is you must be logged in and
-              people usually have a lot of extensions enabled. But you don't
-              want your extensions to get on your way when you record your
-              traces, don't you? So at the time you'll need a separate account
-              to have a clean environment and to be able to use AI assistant.
+              When it comes to custom measurements, Chrome DevTools already has
+              a way to display them in the Performance panel. There are even
+              some ready-to-use Chrome Extensions, for example this one injects
+              Long Animation Frames mesurements and allows us to see how
+              multiple render-blocking tasks may affect frame rendering. The
+              last thing I would like to mention is something probably only few
+              people have heard about.
             </aside>
           </section>
-          <section id="devtools-annotations" data-visibility="hidden">
+          <section id="devtools-annotations">
+            <div className="container">
+              <h1>Trace Annotations</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.devtoolsAnnotations}
+                  alt="DevTools Annotations"
+                  className="screenshot tw:h-[400px]"
+                />
+              </div>
+              <QR value="https://developer.chrome.com/docs/devtools/console/console-reference#trace" />
+            </div>
             <aside className="notes">
-              You can add annotations to your traces to share with your
-              teammates. You export it as a json blob with all your annotations
-              inside. I thought: what if I could share it not only with my team
-              but with some frontier model. I have this big hammer called
-              generative AI and performance analysis looks definitely like a
-              nail.
+              Another feature that looks extremely helpful, at least on paper,
+              is trace annotations. You can add put whatever comments or
+              questions you have, export the profile as a json blob and share it
+              with your teammates. By the way, WarsawJS, this was recorded with
+              Slow 4G network and 20x CPU slowdown, no worries here.
             </aside>
           </section>
-          <section id="quote-abraham-maslow" data-visibility="hidden">
-            <Quote
-              img={images.screwWithHammer}
-              source="Abraham Maslow"
-              quote="If the only tool you have is a hammer, to treat everything as if it
-            were a nail"
-            />
+          <section id="ai">
+            <div className="container tw:mt-0! tw:flex tw:flex-col tw:items-center tw:justify-center tw:h-full">
+              <h1 className="tw:font-bold! tw:text-8xl!">AI</h1>
+            </div>
+            <aside className="notes">AI</aside>
           </section>
-          <section id="case-study-agentic-workflow" data-visibility="hidden">
-            <h1>AI Agents & Performance Tracing</h1>
-            <img
-              src={images.agentSmith}
-              alt="Agent Smith"
-              className="screenshot"
-            />
+          <section id="chrome-devtools-ai">
+            <div className="container">
+              <h1>AI Assistant</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.devtoolsAi}
+                  alt="DevTools AI"
+                  className="screenshot"
+                />
+              </div>
+              <QR value="https://developer.chrome.com/docs/devtools/ai-assistance" />
+            </div>
             <aside className="notes">
-              TODO: Leave a link to the gist with jupyter notebook.
+              From the latest versions Chrome DevTools has an integrated AI
+              assistant with Gemini model under the hood. You must be logged in
+              in Chrome to start using it and being signed in with your personal
+              account while doing performance profiling is not the best idea
+              since we usually have a lot of extensions enabled. You don't want
+              your extensions to get on your way when you record your traces,
+              don't you? So at the time you'll need a separate account to have a
+              clean environment and to be able to use AI assistant. Also you'll
+              need it to be enabled by your machine administrator if you use
+              your working laptop and your company is fine with Google privacy
+              policy.
+            </aside>
+          </section>
+          <section id="vibe-debugging">
+            <h1>Vibe Debugging</h1>
+            <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+              <img
+                src={images.agentSmith}
+                alt="Agent Smith"
+                className="screenshot"
+              />
+            </div>
+            <aside className="notes">
+              We are on the verge of a new era of debugging, when we leave this
+              overwhelming flowcharts to AI agents, seet back and relax. I call
+              it "vibe debugging".
+            </aside>
+          </section>
+          <section id="quote-abraham-maslow">
+            <div className="container tw:mt-0! tw:flex tw:flex-col tw:items-center tw:justify-center tw:h-full">
+              <Quote
+                img={images.screwWithHammer}
+                source="Abraham Maslow"
+                quote="If the only tool you have is a hammer, to treat everything as if it
+                were a nail"
+              />
+            </div>
+            <aside className="notes">
+              I also thought: there are so many powerful frontier models so why
+              to limit yourself with Gemini? If I can annotate and export
+              profile as a json blob, can I feed it into an LLM to get some
+              meaningful insides? I have this big hammer called generative AI
+              and performance analysis looks definitely like a nail. TODO: Leave
+              a link to the gist with jupyter notebook.
             </aside>
           </section>
           <section id="video-did-you-do-that">
             <div className="container">
-              <h1>Hope</h1>
-              <Video url={videos.didYouDoThat} />
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <Video url={videos.didYouDoThat} />
+              </div>
             </div>
             <aside className="notes">
               But in the end you will come to your upper management or even

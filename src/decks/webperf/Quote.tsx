@@ -8,35 +8,26 @@ export const Quote = ({
   source: string;
 }) => {
   return (
-    <div className="tw:font-montserrat relative flex items-center justify-center min-h-[300px] w-full">
-      {/* Quote Card */}
-      <div className="relative max-w-2xl mx-auto pt-12 p-8 bg-[var(--gruvbox-light0_hard)] rounded-2xl shadow-2xl">
-        {/* Mac-style window controls */}
-        <div className="absolute top-4 left-4 flex space-x-2">
-          <span className="w-3 h-3 bg-[#cc241d] rounded-full"></span>{" "}
-          {/* Red */}
-          <span className="w-3 h-3 bg-[#d79921] rounded-full"></span>{" "}
-          {/* Yellow */}
-          <span className="w-3 h-3 bg-[#98971a] rounded-full"></span>{" "}
-          {/* Green */}
+    <div className="tw:font-montserrat tw:relative tw:flex tw:items-center tw:justify-center tw:min-h-[300px] tw:w-full">
+      <div className="tw:relative tw:max-w-2xl tw:mx-auto tw:pt-12 tw:p-8 tw:bg-[var(--gruvbox-light0_hard)] tw:rounded-2xl tw:shadow-2xl">
+        <div className="tw:absolute tw:top-4 tw:left-4 tw:flex tw:space-x-2">
+          <span className="tw:w-3 tw:h-3 tw:bg-[#cc241d] tw:rounded-full"></span>{" "}
+          <span className="tw:w-3 tw:h-3 tw:bg-[#d79921] tw:rounded-full"></span>{" "}
+          <span className="tw:w-3 tw:h-3 tw:bg-[#98971a] tw:rounded-full"></span>{" "}
         </div>
-
-        {/* Image inside card */}
         {img && (
-          <div className="overflow-hidden rounded-xl mb-4 h-1/3">
+          <div className="tw:overflow-hidden tw:rounded-xl tw:mb-4 tw:h-1/3 tw:flex tw:justify-center">
             <img
               src={img}
               alt="Quote image"
-              className="h-full w-auto object-cover rounded-lg shadow-md"
+              className="tw:h-full tw:w-auto tw:object-contain tw:rounded-lg tw:shadow-md"
             />
           </div>
         )}
-
-        {/* Quote Content */}
-        <p className="text-3xl text-[var(--gruvbox-light-fg)]">“{quote}”</p>
-
-        {/* Attribution */}
-        <p className="text-right mt-1 text-sm text-[#7c6f64] italic">
+        <p className="tw:text-3xl tw:text-[var(--gruvbox-light-fg)]">
+          "{quote}"
+        </p>
+        <p className="tw:text-right tw:mt-1 tw:text-sm tw:text-[#7c6f64] tw:italic">
           — {source}
         </p>
       </div>
