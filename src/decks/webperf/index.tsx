@@ -256,9 +256,28 @@ export function WebPerf() {
               monitoring.
             </aside>
           </section>
+          <section id="lighthouse">
+            <div className="container">
+              <h1>Lab: Lighthouse</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.lighthouse}
+                  alt="Lighthouse"
+                  className="screenshot tw:h-[300px]"
+                />
+              </div>
+              <QR value="https://web.dev/articles/vitals-tools#when_not_to_use_lighthouse" />
+            </div>
+            <aside className="notes">
+              The lab data - Lighthouse. Should be used only during development
+              or in CI to run some sanity check on your application performance.
+              Since it's not based on real user experiencem the value of the
+              green Lighthouse for business is close to zero.
+            </aside>
+          </section>
           <section id="rum">
             <div className="container">
-              <h1>Real User Monitoring</h1>
+              <h1>Field: Real User Monitoring</h1>
               <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
                 <img
                   src={images.matrixRUM}
@@ -272,10 +291,12 @@ export function WebPerf() {
               functionality and the topic of real user monitoring is big enough
               to have a separate talk. In one sentense - RUM gives you the data
               about your users' environments, how they navigate your app, how
-              performance changes over time. Because there is a lot of data
-              there is also a lot of noise. TODO: Finish watching RUM and noise
-              and add some details about RUM. Anyway, RUM is a process by
-              itself, but what are the signals?
+              performance changes over time in real time. Because there is a lot
+              of data there is also a lot of noise. If you have big traffic
+              there is a big cost as well so sampling may help here to save some
+              money. TODO: Finish watching RUM and noise and add some details
+              about RUM. Anyway, RUM is a process by itself, but what are the
+              signals?
             </aside>
           </section>
           <section id="core-web-vitals">
@@ -470,7 +491,7 @@ export function WebPerf() {
               native and external APIs to build custom measurements.
             </aside>
           </section>
-          <section id="element-timing-api">
+          <section id="element-timing-api" data-visibility="hidden">
             <div className="container">
               <h1>Element Timing API</h1>
               <QR value="https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API" />

@@ -39,6 +39,7 @@ import timeToMeaningfulContent from "./time-to-meaningful-content.gif";
 import perfTimelineToDevtoolsProfile from "./perf-timeline-to-devtools-profile.png";
 import devtoolsAnnotations from "./devtools-annotations.gif";
 import devtoolsAi from "./devtools-ai.gif";
+import lighthouse from "./lighthouse.png";
 
 export default {
   devtoolsPanel,
@@ -82,4 +83,5 @@ export default {
   perfTimelineToDevtoolsProfile,
   devtoolsAnnotations,
   devtoolsAi,
+  lighthouse,
 };
