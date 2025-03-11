@@ -114,7 +114,7 @@
 }
 
 .reveal section {
-  @apply tw:w-full tw:h-full;
+  @apply tw:w-full tw:h-full tw:py-8;
 }
 
 .screenshot {

@@ -250,10 +250,7 @@ export function WebPerf() {
               Performance data boils down into 2 categories: field and lab data.
               What is the difference? Todd Gardner, performance expert, defined
               it the following way: lab data is diagnostic, field data is
-              experience. And if someone would ask me: hey, I don't have ANY
-              data, what should I start with? I would say: start collecting
-              field data. And the best way to do it is to enable real user
-              monitoring.
+              experience.
             </aside>
           </section>
           <section id="lighthouse">
@@ -271,7 +268,7 @@ export function WebPerf() {
             <aside className="notes">
               The lab data - Lighthouse. Should be used only during development
               or in CI to run some sanity check on your application performance.
-              Since it's not based on real user experiencem the value of the
+              Since it's not based on real user experience, the value of the
               green Lighthouse for business is close to zero.
             </aside>
           </section>
@@ -293,10 +290,21 @@ export function WebPerf() {
               about your users' environments, how they navigate your app, how
               performance changes over time in real time. Because there is a lot
               of data there is also a lot of noise. If you have big traffic
-              there is a big cost as well so sampling may help here to save some
-              money. TODO: Finish watching RUM and noise and add some details
-              about RUM. Anyway, RUM is a process by itself, but what are the
-              signals?
+              there is a big cost as well, so sampling can help us to save some
+              money. And if someone would ask me: hey, I don't have ANY data,
+              what should I start with? I would say: start collecting field
+              data. And the best way to do it is to enable real user monitoring.
+              RUM is a process by itself, but what are the signals? TODO: Finish
+              watching RUM and noise and add some details about RUM.
+            </aside>
+          </section>
+          <section id="how">
+            <div className="container tw:mt-0! tw:flex tw:flex-col tw:items-center tw:justify-center tw:h-full">
+              <h3>Question 3</h3>
+              <h1 className="tw:font-bold! tw:text-8xl!">How?</h1>
+            </div>
+            <aside className="notes">
+              And we slowly move to the 3rd question - how?
             </aside>
           </section>
           <section id="core-web-vitals">
@@ -354,9 +362,10 @@ export function WebPerf() {
             <aside className="notes">
               So we must to understand - performance, like security, privacy and
               UX, is an aggregate result and it must be managed as a commons.
-              And this is a part of performance management discipline. Let's now
-              dive a little bit into something that we, frontend engineers, are
-              most responsible for. And we'll do it by reviewing INP.
+              And this is a part of performance management discipline. This is a
+              different topic to discuss so let's focus on something that we,
+              frontend engineers, can control. Let's review one of the Core Web
+              Vitals - INP.
             </aside>
           </section>
           <section id="inp">
@@ -373,9 +382,11 @@ export function WebPerf() {
             <aside className="notes">
               Often misinterpreted as "Interaction to next PAIN". Which
               partially makes sence since high INP causes all sorts of the bad
-              psychological effect, e.g., already discussed rage clicks. To
-              describe INP we can say, that the web application is as slow as
-              the slowest interaction which happens on it.
+              psychological effect we've mentioned before. To describe INP we
+              can say, that the web application is as slow as the slowest
+              interaction which happens on it. There's a lot of guides on what
+              causes high INP and how to fix this by yielding the main thread.
+              Instead, I want to look at what INP doesn't track.
             </aside>
           </section>
           <section id="inp-hover">
@@ -391,7 +402,9 @@ export function WebPerf() {
             </div>
             <aside className="notes">
               Hover interactions are not included in INP calculations, but many
-              apps leverage hovers for some of their important user behavior.
+              apps leverage hovers for some of their important user behavior,
+              like fetching and displaying additional data, or displaying
+              thumbnails on hover.
             </aside>
           </section>
           <section id="inp-scroll">
@@ -408,21 +421,21 @@ export function WebPerf() {
             <aside className="notes">
               And what's in my opinion even more important to - INP doesn't
               track scrolling, which means virtual lists, that became so
-              pervasive pattern in the modern web, is out of the picture.
-              Putting aside these details, this metric attracts the attention
-              due to the nature of the modern apps. The data says, that 90% of
-              the time on a page is spent after loading (link
-              https://web.dev/articles/inp).
+              pervasive pattern in the modern web, is out of the picture. The
+              INP metric takes our attention because it's interaction metric,
+              and the nature of the complex single page applications is that
+              users spend much more time on the page after it's loaded. Which is
+              90% of the time (link https://web.dev/articles/inp).
             </aside>
           </section>
-          <section id="inp-scheduler-yield">
+          <section id="inp-scheduler-yield" data-visibility="hidden">
             <div className="container">
               <h1>scheduler.yield()</h1>
               <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
                 <img
                   src={images.schedulerYield}
                   alt="Scheduler Yield"
-                  className="screenshot tw:h-[460px]"
+                  className="screenshot tw:h-[400px]"
                 />
               </div>
               <QR value="https://web.dev/articles/optimize-long-tasks#scheduler-yield/" />
@@ -443,11 +456,12 @@ export function WebPerf() {
               </div>
             </div>
             <aside className="notes">
-              This is just one of the metrics. But imagine coming to your
+              INP is just one of the metrics. But imagine coming to your
               designer or product manager and trying to explain them why we need
-              to optimize for TTFB, INP or any other abbreviature? And this
-              misunderstanding is mutual - these metrics are generic and they
-              don't take into accound the specifics of your product.
+              to optimize for TTFB, or for INP, or for XYZ? And interesting
+              coincidence is that misunderstanding between product and Core Web
+              Vitals is mutual - these metrics are pretty generic and they don't
+              take into accound the specifics of our products.
             </aside>
           </section>
           <section id="custom-metrics">
@@ -463,18 +477,19 @@ export function WebPerf() {
               <QR value="https://x.com/cramforce/status/1855312496137298116" />
             </div>
             <aside className="notes">
-              If your application has an AI assistant maybe you need something
-              like "time to first input" which is used by Vercel. Or you need
-              something that is related solely to your domain, something like
-              "time to first tweet" which Twitter has been using for a long
-              time. Or Pinterest with their "time to first pin" which measures
-              the time between initiated action (like tapping a pin) until the
-              action is completed from the user perspective.
+              And here when we should about custom metrics. If your application
+              has an AI assistant, you probably need something like "time to
+              focused input" which is, for example, is used by Vercel AI. Or
+              maybe you need something that is related solely to your domain,
+              something like "time to first tweet", that Twitter has been using
+              for a long time. Or "time to first pin" at Pinterest, which
+              measures the time between initiated action (like tapping a pin)
+              until the action is completed from the user perspective.
             </aside>
           </section>
           <section id="time-to-meaningful-content">
             <div className="container">
-              <h1>Time to Meaningful Content</h1>
+              <h1>Time To Meaningful Content</h1>
               <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
                 <img
                   src={images.timeToMeaningfulContent}
@@ -485,15 +500,16 @@ export function WebPerf() {
             </div>
             <aside className="notes">
               At Box for example we're looking at "time to meaningful content" -
-              this is the duration from when a user start a request either by
-              going to URL or clicking a link to when meaningful content (like a
-              minimal folder list) is rendered. Fortunately, there are plenty of
-              native and external APIs to build custom measurements.
+              this is the duration from a user starts a request either by going
+              to URL or clicking a link, to the time when meaningful content
+              (like a minimal folder list) is rendered. There are plenty of
+              native and external APIs to build such custom measurements.
             </aside>
           </section>
           <section id="element-timing-api" data-visibility="hidden">
             <div className="container">
-              <h1>Element Timing API</h1>
+              <h1>Custom Metrics APIs</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center"></div>
               <QR value="https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API" />
             </div>
             <aside className="notes">
@@ -526,10 +542,12 @@ export function WebPerf() {
               <QR value="https://2024.stateofjs.com/en-us/javascript-pain-points/" />
             </div>
             <aside className="notes">
-              But let's make a step back and see at Javascript performance. 1
-              out of 4 respondents mentioned performance as one of the main pain
-              points of the JS. But is Javascript itself slow or does this paint
-              point come from the ecosystem around the language?
+              Let's make a step back and look at the Javascript runtime
+              performance. I'm still not sure how representative this report is,
+              but 1 out of 4 respondents of the State of JS 2024 mentioned
+              performance as one of the main pain points in JS. But is
+              Javascript itself slow or does this paint point come from the
+              ecosystem around the language?
             </aside>
           </section>
           <section id="react-and-performance">
@@ -545,10 +563,11 @@ export function WebPerf() {
               <QR value="https://dev.to/matfrana/react-where-are-you-going-5284" />
             </div>
             <aside className="notes">
-              One question to ask - does React Compiler solve the right issue by
-              putting React Compiler on top of all memoisation methods? There
-              are concerns about growing complexity of the React, with Server
-              Components, React Compiler, Suspense, etc.
+              And here comes React since it's often mentioned in conversations
+              about performance and complexity around it: Server Components,
+              Suspense etc. The new React Compiler that tries to solve the
+              issues of memoisation overuse, but the question is - is that's a
+              problem to solve?!
             </aside>
           </section>
           <section id="react-no-signals">
@@ -564,43 +583,35 @@ export function WebPerf() {
               <QR value="https://x.com/cramforce/status/1855312496137298116" />
             </div>
             <aside className="notes">
-              Someone may recall this conversation from the early 2023 about
-              signals in React.
-            </aside>
-          </section>
-          <section id="react-vs-others">
-            <div className="container">
-              <h1>If Not React, Then What?</h1>
-              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
-                <img
-                  src={images.reactAndrewAnswer2}
-                  alt="React Andrew Answer"
-                  className="screenshot"
-                />
-              </div>
-            </div>
-            <aside className="notes">
-              There are multiple attempts to solve performance issues. Qwik
-              comes with an idea of resumability. But if you have a big ping
-              (slow connection) it's just unusable. Also Svelte comes with runes
-              which is considered by many as a breakthrough in reactivity.
+              There was quite hot conversation around signals in the early 2023,
+              it's impact of UI performance, why do we need Virtual DOM at all,
+              why don't React just adopt signals. As always - it's all about
+              tradeoffs. There are alternative approaches to what React
+              suggests. For example Qwik with a new an idea of resumability.
+              Sounds pretty on paper, but if you have a big ping (slow
+              connection) you just can't use the app. Another alternative is
+              Svelte and their runes, which are considered by many as a
+              breakthrough in reactivity.
             </aside>
           </section>
           <section id="frameworks-performance">
             <div className="container">
               <h1>Frameworks performance</h1>
-              <img
-                src={images.frameworkBenchmark}
-                alt="Frameworks Benchmark"
-                className="screenshot"
-              />
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.frameworkBenchmark}
+                  alt="Frameworks Benchmark"
+                  className="screenshot tw:h-[400px]"
+                />
+              </div>
               <QR value="https://krausest.github.io/js-framework-benchmark/2024/table_chrome_126.0.6478.55.html" />
             </div>
             <aside className="notes">
               But building apps that real people use is often about tradeoffs.
-              Right now React is definitely not the fastest UI library out
-              there. If we pick vanila JS just because it's the fastest in
-              benchmarks, will it be a vise choice beyond personal projects.
+              React today is definitely not the fastest UI library available.
+              React Compiler may fix this a bit. But if we pick vanila JS just
+              because it's the fastest on benchmarks, will it be a vise choice
+              beyond personal projects? I don't think so.
             </aside>
           </section>
           <section id="languages-quote">
@@ -614,27 +625,13 @@ export function WebPerf() {
             <aside className="notes">
               In the end, let's remember what was said a long time ago: "There
               are only two kinds of languages: the ones people complain about
-              and the ones nobody uses."
+              and the ones nobody uses.". Just substitute "languages" with "UI
+              libraries" and the quote will not loose its meaning. The choice of
+              the main UI framework is not something we can fully control - most
+              of the times the decision has already been made and it's already
+              "too big to fail". But what we can control is the business logic
+              code. It's the place that we need to start measuring.
             </aside>
-          </section>
-          <section id="microoptimisations" data-visibility="hidden">
-            <h1>Microoptimisations</h1>
-            <aside className="notes">
-              But frameworks and libraries choice isn't something we can do when
-              we join a big tech company. Always it's already "too big to fail".
-              But what we can control is the business logic code. It's the place
-              that we need start measuring if we know it's time to get the
-              responsibility. TODO: Add examples like for vs forEach, let vs
-              var, reduce etc
-              https://www.measurethat.net/Benchmarks/Show/18532/0/jsonstringify-jsonparse-vs-structuredclone#latest_results_block
-            </aside>
-          </section>
-          <section id="how">
-            <div className="container tw:mt-0! tw:flex tw:flex-col tw:items-center tw:justify-center tw:h-full">
-              <h3>Question 3</h3>
-              <h1 className="tw:font-bold! tw:text-8xl!">How?</h1>
-            </div>
-            <aside className="notes"></aside>
           </section>
           <section id="tools">
             <div className="container">
@@ -644,22 +641,21 @@ export function WebPerf() {
               </div>
             </div>
             <aside className="notes">
-              We've already mentioned RUM as the best way to measure field data.
-              But we still need to diagnose the performance of our app with the
-              lab data and the most advanced tool for that is of course Chrome
+              Let's move on and explore the tools that we have. We've already
+              mentioned RUM as the best way to measure the field data. But we
+              still need to diagnose the performance of our app with the lab
+              data and the most advanced tool for that is of course Chrome
               DevTools.
             </aside>
           </section>
           <section id="chrome-devtools">
             <div className="container">
               <h1>Chrome DevTools</h1>
-              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
-                <img
-                  src={images.devtoolsPanel}
-                  alt="DevTools Panel"
-                  className="screenshot"
-                />
-              </div>
+              <img
+                src={images.devtoolsPanel}
+                alt="DevTools Panel"
+                className="screenshot tw:h-[400px]"
+              />
             </div>
             <aside className="notes">
               Your laptop is typically much faster than the median user's phone.
@@ -675,7 +671,7 @@ export function WebPerf() {
                 <img
                   src={images.perfTimelineToDevtoolsProfile}
                   alt="Perf Timeline to DevTools Profile"
-                  className="screenshot tw:h-[480px]"
+                  className="screenshot tw:h-[400px]"
                 />
                 <QR value="https://github.com/andydavies/perf-timeline-to-devtools-profile/" />
               </div>
@@ -693,13 +689,11 @@ export function WebPerf() {
           <section id="devtools-annotations">
             <div className="container">
               <h1>Trace Annotations</h1>
-              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
-                <img
-                  src={images.devtoolsAnnotations}
-                  alt="DevTools Annotations"
-                  className="screenshot tw:h-[400px]"
-                />
-              </div>
+              <img
+                src={images.devtoolsAnnotations}
+                alt="DevTools Annotations"
+                className="screenshot tw:h-[400px]"
+              />
               <QR value="https://developer.chrome.com/docs/devtools/console/console-reference#trace" />
             </div>
             <aside className="notes">
@@ -729,27 +723,29 @@ export function WebPerf() {
               <QR value="https://developer.chrome.com/docs/devtools/ai-assistance" />
             </div>
             <aside className="notes">
-              From the latest versions Chrome DevTools has an integrated AI
-              assistant with Gemini model under the hood. You must be logged in
-              in Chrome to start using it and being signed in with your personal
-              account while doing performance profiling is not the best idea
-              since we usually have a lot of extensions enabled. You don't want
-              your extensions to get on your way when you record your traces,
-              don't you? So at the time you'll need a separate account to have a
-              clean environment and to be able to use AI assistant. Also you'll
-              need it to be enabled by your machine administrator if you use
-              your working laptop and your company is fine with Google privacy
-              policy.
+              From the latest versions, Chrome DevTools has an integrated AI
+              assistant with the Gemini model under the hood. You must be logged
+              in to Chrome to start using it, and being signed in with your
+              personal account while doing performance profiling is not the best
+              idea since we usually have a lot of extensions enabled. You don't
+              want your extensions to get in your way when you record your
+              traces, do you? So at this time you'll need a separate account to
+              have a clean environment and to be able to use the AI assistant.
+              Also you'll need it to be enabled by your machine administrator if
+              you use your work laptop and your company is fine with Google's
+              privacy policy.
             </aside>
           </section>
           <section id="vibe-debugging">
-            <h1>Vibe Debugging</h1>
-            <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
-              <img
-                src={images.agentSmith}
-                alt="Agent Smith"
-                className="screenshot"
-              />
+            <div className="container">
+              <h1>Vibe Debugging</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.agentSmith}
+                  alt="Agent Smith"
+                  className="screenshot"
+                />
+              </div>
             </div>
             <aside className="notes">
               We are on the verge of a new era of debugging, when we leave this
