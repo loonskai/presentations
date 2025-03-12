@@ -16,6 +16,7 @@ export function WebPerf() {
     autoAnimateDuration: 1.5,
     autoAnimateUnmatched: true,
     hash: true,
+    touch: true,
     slideNumber: true,
   });
 
@@ -60,11 +61,21 @@ export function WebPerf() {
               </div>
             </div>
             <aside className="notes">
-              Performance is a vast topic that is highly intertwined with
-              everything related to product engineering. 20 minutes is
-              definitely not enough to explore even smaller parts of it. So
-              today I'll try to skim over the "golden circle" of "why", "what"
-              and "how".
+              <ul>
+                <li>
+                  Performance is a big topic that is highly intertwined with
+                  everything related to product engineering.
+                </li>
+                <li>
+                  20 minutes is definitely not enough to explore even smaller
+                  parts of it.
+                </li>
+                <li>
+                  Today I'll skim over the "golden circle" of "why" performance
+                  matters, "what" data matters and "how" to deal with all of
+                  this.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="matrix-pill">
@@ -78,9 +89,14 @@ export function WebPerf() {
               />
             </div>
             <aside className="notes">
-              We'll try to see what is the real picture of the web performance
-              today. It will be a performance review - web performance review,
-              not the one you're thinking about.
+              <ul>
+                <li>Some kind of performance review</li>
+                <li>
+                  And no, this is not about your early performance review, so
+                  relax.
+                </li>
+                <li>Without further due, let's take the red pill</li>
+              </ul>
             </aside>
           </section>
           <section id="question-1-why">
@@ -89,9 +105,13 @@ export function WebPerf() {
               <h1 className="tw:font-bold! tw:text-8xl!">Why?</h1>
             </div>
             <aside className="notes">
-              Without further due, let's take the red pill and start with "Why"
-              and ask why anyone should bother. Let's go to the next slide and
-              see how the web looks like today.
+              <ul>
+                <li>We'll start with "why" anyone should bother.</li>
+                <li>
+                  Let's go to the next slide and see how the modern web looks
+                  like today.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="psychological-impact">
@@ -109,21 +129,52 @@ export function WebPerf() {
               </div>
             </Banners>
             <aside className="notes">
-              You just witnessed the psychological impact of bad UX and
-              performance is a big part of it. Because what is performance in
-              general? It is "how well a person, machine, etc. does a piece of
-              work or an activity". And we all know that frustrution comes when
-              we expect something to work well but later we face the reality.
-              You'll notice that every time you catch yourself on rage clicking
-              some irresponsive interface. Because we're all people - when we
-              submit a request, we expect at least an instant acknowledgment,
-              because unexplained waits are more frustrating than explained
-              ones. Thought people are ready to tolerate longer for high-value
-              services, like medical or bank apps. I clicked through all these
-              banners because it was important to me. I would already closed the
-              tab in the real life scenario. By 2025 the expectation to UX and
-              how the web pages must perform has grown, unfortunately, with the
-              pace of growing Javascript bundles.
+              <ul>
+                <li>
+                  You witnessed the psychological impact of bad UX. Performance
+                  is a big part of it.
+                </li>
+                <li>What is performance in general?</li>
+                <li>
+                  It is "how well a person, machine, etc. does a piece of work
+                  or an activity".
+                </li>
+                <li>We have high expectations from the web.</li>
+                <li>
+                  When we submit a request, we expect at least an instant
+                  acknowledgment. Unexplained waits are more frustrating than
+                  explained ones.
+                </li>
+                <li>
+                  People are ready to tolerate longer for high-value services,
+                  like medical or bank apps.
+                </li>
+                <li>
+                  I didn't close the tab with all these banners because it was
+                  important to me.
+                </li>
+                <li>Expectations to the web pages speed grow.</li>
+              </ul>
+            </aside>
+          </section>
+          <section id="unused-javascript">
+            <div className="container">
+              <h1>Unused JavaScript</h1>
+              <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
+                <img
+                  src={images.unusedJs}
+                  alt="Unused JavaScript"
+                  className="screenshot tw:h-[400px]"
+                />
+              </div>
+              <QR value="https://almanac.httparchive.org/en/2024/javascript#how-much-javascript-do-we-load" />
+            </div>
+            <aside className="notes">
+              <ul>
+                <li>
+                  Unfortunately, the amount of unused Javascript grows as well.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="business-impact">
@@ -139,8 +190,12 @@ export function WebPerf() {
               <QR value="https://www.cloudflare.com/learning/performance/more/website-performance-conversion-rates/" />
             </div>
             <aside className="notes">
-              There are multiple studies around how performance affects the
-              number of page views, bounce rate as well as conversion rate.
+              <ul>
+                <li>
+                  There are multiple studies around performance impact on the
+                  number of page views, bounce rate, conversion rate.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="case-studies">
@@ -156,16 +211,27 @@ export function WebPerf() {
               <QR value="https://web.dev/case-studies" />
             </div>
             <aside className="notes">
-              These examples can be easily found online. However all of them is
-              just a sample of efforts that eventually end up to be positive for
-              the businesses. There is definitely a strong correlation between
-              how our applications perform and how much revenue do they
-              generate. What I think what we also miss in seeing the splendor of
-              such successes is how many initiatives to improve the performance
-              failed. Right now it's easy to fall victim to the survivirship
-              bias because it's hard find stories where companies spent a huge
-              effort trying to optimise for performance but ended up realising
-              that it doesn't bring any value.
+              <ul>
+                <li>
+                  There are also many case studies of how performance
+                  improvements helped businesses.
+                </li>
+                <li>
+                  However - this is a sample of efforts that were successful.
+                </li>
+                <li>
+                  No question - these are well planned and well executed
+                  initiatives inside the companies.
+                </li>
+                <li>
+                  However it's easy to fall victim to the survivorship bias.
+                </li>
+                <li>
+                  It's hard to find the case studies where companies tried to
+                  improve performance but ended up realising that it didn't
+                  bring any value.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="survivorship-bias">

@@ -40,6 +40,7 @@ import perfTimelineToDevtoolsProfile from "./perf-timeline-to-devtools-profile.p
 import devtoolsAnnotations from "./devtools-annotations.gif";
 import devtoolsAi from "./devtools-ai.gif";
 import lighthouse from "./lighthouse.png";
+import unusedJs from "./unused-js.png";
 
 export default {
   devtoolsPanel,
@@ -84,4 +85,5 @@ export default {
   devtoolsAnnotations,
   devtoolsAi,
   lighthouse,
+  unusedJs,
 };
