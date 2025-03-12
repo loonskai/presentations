@@ -737,8 +737,8 @@ export function WebPerf() {
               <h1>React and Performance</h1>
               <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
                 <img
-                  src={images.frameworkBenchmark}
-                  alt="Frameworks Benchmark"
+                  src={images.reactUseMemoText}
+                  alt="React useMemo Text"
                   className="screenshot tw:h-[400px]"
                 />
               </div>
@@ -762,8 +762,8 @@ export function WebPerf() {
             <div className="container">
               <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
                 <img
-                  src={images.reactUseMemoText}
-                  alt="React useMemo Text"
+                  src={images.frameworkBenchmark}
+                  alt="Frameworks Benchmark"
                   className="screenshot tw:h-[400px]"
                 />
               </div>
