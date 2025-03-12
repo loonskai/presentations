@@ -19,12 +19,12 @@ export const CWVTable = ({ noHeader = false }: { noHeader?: boolean }) => {
       <tbody>
         <tr>
           <td className="tw:p-4">
+            <h2 className="tw:font-extrabold">INP</h2>
+          </td>
+          <td className="tw:p-4">
             <h2>TTFB</h2>
           </td>
-          <td className="tw:p-4">
-            <h2>INP</h2>
-          </td>
-          <td className="tw:p-4">
+          <td className="tw:p-4 tw:font-extrabold">
             <h2>CLS</h2>
           </td>
         </tr>
@@ -39,7 +39,7 @@ export const CWVTable = ({ noHeader = false }: { noHeader?: boolean }) => {
         </tr>
         <tr>
           <td className="tw:p-4">
-            <h2>LCP</h2>
+            <h2 className="tw:font-extrabold">LCP</h2>
           </td>
           <td className="tw:p-4"></td>
           <td className="tw:p-4"></td>

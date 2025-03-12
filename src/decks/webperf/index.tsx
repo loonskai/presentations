@@ -67,7 +67,7 @@ export function WebPerf() {
                   everything related to product engineering.
                 </li>
                 <li>
-                  20 minutes is definitely not enough to explore even smaller
+                  20 minutes is definitely not enough to explore even small
                   parts of it.
                 </li>
                 <li>
@@ -90,12 +90,11 @@ export function WebPerf() {
             </div>
             <aside className="notes">
               <ul>
-                <li>Some kind of performance review</li>
+                <li>It will be some kind of performance review</li>
                 <li>
-                  And no, this is not about your early performance review, so
-                  relax.
+                  But not the one you're anxiously waiting for every year.
                 </li>
-                <li>Without further due, let's take the red pill</li>
+                <li>So relax, take a red pill and let's see what we have.</li>
               </ul>
             </aside>
           </section>
@@ -108,8 +107,7 @@ export function WebPerf() {
               <ul>
                 <li>We'll start with "why" anyone should bother.</li>
                 <li>
-                  Let's go to the next slide and see how the modern web looks
-                  like today.
+                  Next I want to remind you how the modern web looks like today.
                 </li>
               </ul>
             </aside>
@@ -125,7 +123,7 @@ export function WebPerf() {
                     className="screenshot"
                   />
                 </div>
-                <QR value="https://dictionary.cambridge.org/dictionary/english/performance" />
+                <QR value="https://www.lukew.com/ff/entry.asp?1963" />
               </div>
             </Banners>
             <aside className="notes">
@@ -136,10 +134,13 @@ export function WebPerf() {
                 </li>
                 <li>What is performance in general?</li>
                 <li>
-                  It is "how well a person, machine, etc. does a piece of work
-                  or an activity".
+                  It is "how well a person or machine does a piece of work or an
+                  activity".
                 </li>
-                <li>We have high expectations from the web.</li>
+                <li>
+                  People don't like waiting. Neither in real life nor online .
+                </li>
+                <li>But waiting can also be different.</li>
                 <li>
                   When we submit a request, we expect at least an instant
                   acknowledgment. Unexplained waits are more frustrating than
@@ -151,7 +152,7 @@ export function WebPerf() {
                 </li>
                 <li>
                   I didn't close the tab with all these banners because it was
-                  important to me.
+                  important to me to open this slide right know.
                 </li>
                 <li>Expectations to the web pages speed grow.</li>
               </ul>
@@ -172,7 +173,8 @@ export function WebPerf() {
             <aside className="notes">
               <ul>
                 <li>
-                  Unfortunately, the amount of unused Javascript grows as well.
+                  Unfortunately, the amount of Javascript, particularly unused
+                  Javascript, grows as well.
                 </li>
               </ul>
             </aside>
@@ -192,9 +194,9 @@ export function WebPerf() {
             <aside className="notes">
               <ul>
                 <li>
-                  There are multiple studies around performance impact on the
-                  number of page views, bounce rate, conversion rate.
+                  There are multiple studies how performance affects bussiness.
                 </li>
+                <li>Page views, bounce rate, conversion rate.</li>
               </ul>
             </aside>
           </section>
@@ -213,8 +215,8 @@ export function WebPerf() {
             <aside className="notes">
               <ul>
                 <li>
-                  There are also many case studies of how performance
-                  improvements helped businesses.
+                  There are many case studies of how performance improvements
+                  helped businesses.
                 </li>
                 <li>
                   However - this is a sample of efforts that were successful.
@@ -247,11 +249,18 @@ export function WebPerf() {
               <QR value="https://gitlab.com/gitlab-org/gitlab/-/merge_requests/124406" />
             </div>
             <aside className="notes">
-              Here is just a single example of Gitlab, that spent around 2 years
-              trying to improve First Contentful Paint for the first-time users
-              by adding inline CSS. At the end they removed around 10K of code
-              that introduced this optimization because there was no positive
-              effect.
+              <ul>
+                <li>Example from Gitlab I found because it's open-source</li>
+                <li>
+                  They spent around 2 years trying to improve First Contentful
+                  Paint for the first-time users by adding inline CSS.
+                </li>
+                <li>
+                  In the end they removed around 10 thousands lines of code that
+                  introduced this optimization because there was no positive
+                  effect.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="matrix-pill-reverse">
@@ -266,14 +275,20 @@ export function WebPerf() {
               </div>
             </div>
             <aside className="notes">
-              As any product aspect, similar to SEO, accesibility, performance
-              improvements don't make much sence in separation from business.
-              I'm not talking about non-profit or personal projects, where we go
-              deep into the topic to learn something new. I'm talking about real
-              world products. Before going into the rabit hole of the
-              performance optimisations, the business needs to ask the question:
-              do I need to spend the time and money trying to to improve the
-              performance?
+              <li>Is trying even worth it?</li>
+              <li>
+                As any product aspect, like UX or A11Y, performance improvements
+                don't make much sence in separation from the business.
+              </li>
+              <li>
+                I'm not talking about personal projects where try things to
+                learn something new. I'm talking about real world products and
+                users.
+              </li>
+              <li>
+                Engineers and business need to collaborate by asking: do we need
+                to spend the time and money trying to improve the performance?
+              </li>
             </aside>
           </section>
           <section id="no">
@@ -284,7 +299,9 @@ export function WebPerf() {
               </div>
             </div>
             <aside className="notes">
-              My answer is - No. Unless you have the relevant data.
+              <ul>
+                <li>My answer is - No. Unless you have the relevant data.</li>
+              </ul>
             </aside>
           </section>
           <section id="question-2-what">
@@ -293,8 +310,9 @@ export function WebPerf() {
               <h1 className="tw:font-bold! tw:text-8xl!">What?</h1>
             </div>
             <aside className="notes">
-              Here arises the next question about web performance - "what" data
-              do we need to have?
+              <ul>
+                <li>Here comes the 2nd question - "what" data do we need?</li>
+              </ul>
             </aside>
           </section>
           <section id="field-vs-lab">
@@ -313,10 +331,15 @@ export function WebPerf() {
               <QR value="https://frontendmasters.com/courses/web-perf-v2/" />
             </div>
             <aside className="notes">
-              Performance data boils down into 2 categories: field and lab data.
-              What is the difference? Todd Gardner, performance expert, defined
-              it the following way: lab data is diagnostic, field data is
-              experience.
+              <ul>
+                <li>
+                  Performance data consists of 2 categories: field and lab data.
+                </li>
+                <li>
+                  I like this explanation of the difference between them: lab
+                  data is diagnostic, field data is experience.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="lighthouse">
@@ -332,15 +355,30 @@ export function WebPerf() {
               <QR value="https://web.dev/articles/vitals-tools#when_not_to_use_lighthouse" />
             </div>
             <aside className="notes">
-              The lab data - Lighthouse. Should be used only during development
-              or in CI to run some sanity check on your application performance.
-              Since it's not based on real user experience, the value of the
-              green Lighthouse for business is close to zero.
+              <ul>
+                <li>The lab data - Lighthouse.</li>
+                <li>Should be used only during development or in CI</li>
+                <li>
+                  To run some sanity check on application performance state
+                  before it gets to your users.
+                </li>
+                <li>
+                  Since it's not based on real user experience, the value of the
+                  green Lighthouse for business is close to zero.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="rum">
             <div className="container">
-              <h1>Field: Real User Monitoring</h1>
+              <h1>
+                Field: <b className="tw:font-extrabold">R</b>
+                <span className="tw:font-light">eal</span>{" "}
+                <b className="tw:font-extrabold">U</b>
+                <span className="tw:font-light">ser</span>{" "}
+                <b className="tw:font-extrabold">M</b>
+                <span className="tw:font-light">onitoring</span>
+              </h1>
               <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
                 <img
                   src={images.matrixRUM}
@@ -348,20 +386,33 @@ export function WebPerf() {
                   className="screenshot"
                 />
               </div>
+              <QR value="https://www.youtube.com/watch?v=_z5DOOq5Qlw" />
             </div>
             <aside className="notes">
-              In 2025 there is a vast amount of solutions of different cost and
-              functionality and the topic of real user monitoring is big enough
-              to have a separate talk. In one sentense - RUM gives you the data
-              about your users' environments, how they navigate your app, how
-              performance changes over time in real time. Because there is a lot
-              of data there is also a lot of noise. If you have big traffic
-              there is a big cost as well, so sampling can help us to save some
-              money. And if someone would ask me: hey, I don't have ANY data,
-              what should I start with? I would say: start collecting field
-              data. And the best way to do it is to enable real user monitoring.
-              RUM is a process by itself, but what are the signals? TODO: Finish
-              watching RUM and noise and add some details about RUM.
+              <ul>
+                <li>
+                  RUM gives you the data about your users' environments, how
+                  they navigate your app, how performance changes over time in
+                  real time.
+                </li>
+                <li>
+                  If you have big traffic there is a big cost as well, so
+                  sampling can reduce the cost.
+                </li>
+                <li>There is a lot of data there is also a lot of noise.</li>
+                <li>
+                  There are many solutions on the market of different cost and
+                  functionalities.
+                </li>
+                <li>
+                  If you don't have ANY data, you should start with collecting
+                  the field data using RUM.
+                </li>
+                <li>
+                  RUM is not API or data, it is a process of collecting field
+                  data.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="how">
@@ -370,24 +421,35 @@ export function WebPerf() {
               <h1 className="tw:font-bold! tw:text-8xl!">How?</h1>
             </div>
             <aside className="notes">
-              And we slowly move to the 3rd question - how?
+              <ul>
+                <li>
+                  We move to the 3rd question - how to collect the field data?
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="core-web-vitals">
             <div className="container">
-              <h1>Core Web Vitals</h1>
-              <h4>this is what everyone* needs</h4>
+              <h1>Web Vitals</h1>
+              <h4>what everyone* needs to be successful</h4>
               <div className="tw:h-full tw:w-full tw:mt-4">
                 <CWVTable />
               </div>
               <h4>*Google</h4>
             </div>
             <aside className="notes">
-              The signals are core web vitals. Something that everyone needs to
-              collect. These metrics are evolving with time and I think the best
-              way not to get lost with them is to split them into 3 categories:
-              loading speed (network time), interactivity (compute time) and
-              stability.
+              <ul>
+                <li>The industry standard - Web Vitals</li>
+                <li>
+                  3 of them are called "Core Web Vitals". These metrics are
+                  evolving with the time.
+                </li>
+                <li>
+                  To not get lost with them: split into 3 categories: loading
+                  speed (network time), interactivity (compute time) and
+                  stability.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="network">
@@ -403,15 +465,16 @@ export function WebPerf() {
               <QR value="http://developer.mozilla.org/en-US/docs/Web/API/Performance_API/Navigation_timing/" />
             </div>
             <aside className="notes">
-              If you work in a frontend team you can still make your
-              contribution to the network part of the performance by making sure
-              your bundle size doesn't blow up. However, this effort is only a
-              small part of the whole network story. You know this feeling, when
-              you're trying to wipe out all package duplicates, you're spending
-              days on bundlephobia trying to find the smallest alternative for
-              lodash and eventually implementing your own. This is great, but if
-              your devops team forgot to enable gzip compression this effort
-              will look like this:
+              <ul>
+                <li>
+                  Network performance isn't something frontend-focused teams can
+                  control in a full manner.
+                </li>
+                <li>
+                  What they can do - is to make sure that the bundle size
+                  doesn't blow up.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="bundlesize-optimization">
@@ -426,12 +489,25 @@ export function WebPerf() {
               </div>
             </div>
             <aside className="notes">
-              So we must to understand - performance, like security, privacy and
-              UX, is an aggregate result and it must be managed as a commons.
-              And this is a part of performance management discipline. This is a
-              different topic to discuss so let's focus on something that we,
-              frontend engineers, can control. Let's review one of the Core Web
-              Vitals - INP.
+              <ul>
+                <li>
+                  But you know this feeling, when you're:
+                  <ul>
+                    <li>trying to wipe out all package duplicates</li>
+                    <li>spending days on bundlephobia</li>
+                    <li>putting bundlesize gates everywhere around</li>
+                  </ul>
+                </li>
+                <li>
+                  But then realise that your devops team forgot to enable gzip
+                  compression.
+                </li>
+                <li>
+                  So remember: performance, like security, privacy or UX, is an
+                  aggregate result and it must be managed as a commons.
+                </li>
+                <li>For a moment let's take a look at one metric: INP</li>
+              </ul>
             </aside>
           </section>
           <section id="inp">
@@ -446,13 +522,25 @@ export function WebPerf() {
               </div>
             </div>
             <aside className="notes">
-              Often misinterpreted as "Interaction to next PAIN". Which
-              partially makes sence since high INP causes all sorts of the bad
-              psychological effect we've mentioned before. To describe INP we
-              can say, that the web application is as slow as the slowest
-              interaction which happens on it. There's a lot of guides on what
-              causes high INP and how to fix this by yielding the main thread.
-              Instead, I want to look at what INP doesn't track.
+              <ul>
+                <li>Often misinterpreted as "Interaction to next PAIN".</li>
+                <li>
+                  Makes sence: dropped frames and clunky interaction behavior
+                  causes all sorts of the bad psychological effect we've
+                  mentioned before
+                </li>
+                <li>
+                  INP is basically calculated based on the slowest interaction
+                  on the page. It's not an average value.
+                </li>
+                <li>
+                  Interaction is something highly complex and unpredictable.
+                </li>
+                <li>
+                  We can't rely on INP for all interactions that happen on the
+                  page.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="inp-hover">
@@ -467,10 +555,13 @@ export function WebPerf() {
               </div>
             </div>
             <aside className="notes">
-              Hover interactions are not included in INP calculations, but many
-              apps leverage hovers for some of their important user behavior,
-              like fetching and displaying additional data, or displaying
-              thumbnails on hover.
+              <ul>
+                <li>Hover interactions are not included in INP calculations</li>
+                <li>
+                  Many apps use hovers in some of their important user
+                  scenarios, like displaying some extra details or previews.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="inp-scroll">
@@ -485,13 +576,17 @@ export function WebPerf() {
               </div>
             </div>
             <aside className="notes">
-              And what's in my opinion even more important to - INP doesn't
-              track scrolling, which means virtual lists, that became so
-              pervasive pattern in the modern web, is out of the picture. The
-              INP metric takes our attention because it's interaction metric,
-              and the nature of the complex single page applications is that
-              users spend much more time on the page after it's loaded. Which is
-              90% of the time (link https://web.dev/articles/inp).
+              <ul>
+                <li>Scrolling is not included in INP calculations</li>
+                <li>
+                  Which means virtual lists, that became so pervasive pattern in
+                  the modern web, is out of the picture.
+                </li>
+                <li>
+                  INP is just one of the metrics and it's already many details
+                  in how it works.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="inp-scheduler-yield" data-visibility="hidden">
@@ -522,12 +617,18 @@ export function WebPerf() {
               </div>
             </div>
             <aside className="notes">
-              INP is just one of the metrics. But imagine coming to your
-              designer or product manager and trying to explain them why we need
-              to optimize for TTFB, or for INP, or for XYZ? And interesting
-              coincidence is that misunderstanding between product and Core Web
-              Vitals is mutual - these metrics are pretty generic and they don't
-              take into accound the specifics of our products.
+              <ul>
+                <li>
+                  But there more of them, and how to explain your product
+                  manager that you need to optimise your TTFB, or INP, or XYZ?
+                </li>
+                <li>Instead of working on a new product feature?</li>
+                <li>
+                  Problem: that misunderstanding between product and Core Web
+                  Vitals is mutual - these metrics are pretty generic and they
+                  don't take into accound the specifics of our products.
+                </li>
+              </ul>
             </aside>
           </section>
           <section id="custom-metrics">
@@ -638,7 +739,6 @@ export function WebPerf() {
           </section>
           <section id="react-no-signals">
             <div className="container">
-              <h1>React and (no) Signals</h1>
               <div className="tw:flex-1 tw:flex-col tw:flex tw:justify-center">
                 <img
                   src={images.reactNoSignals}
@@ -646,7 +746,6 @@ export function WebPerf() {
                   className="screenshot"
                 />
               </div>
-              <QR value="https://x.com/cramforce/status/1855312496137298116" />
             </div>
             <aside className="notes">
               There was quite hot conversation around signals in the early 2023,
