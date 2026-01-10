@@ -17,12 +17,26 @@ export function LivecodingAgent() {
   });
 
   const waveformVideoRef = useRef<HTMLVideoElement>(null);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isWaveformMuted, setIsWaveformMuted] = useState(true);
 
-  const toggleMute = () => {
+  const toggleWaveformMute = () => {
     if (waveformVideoRef.current) {
       waveformVideoRef.current.muted = !waveformVideoRef.current.muted;
-      setIsMuted(waveformVideoRef.current.muted);
+      setIsWaveformMuted(waveformVideoRef.current.muted);
+    }
+  };
+
+  const fourierAudioRef = useRef<HTMLAudioElement>(null);
+  const [isFourierMuted, setIsFourierMuted] = useState(true);
+
+  const toggleFourierMute = () => {
+    if (fourierAudioRef.current) {
+      if (isFourierMuted) {
+        fourierAudioRef.current.play();
+      } else {
+        fourierAudioRef.current.pause();
+      }
+      setIsFourierMuted(!isFourierMuted);
     }
   };
 
@@ -91,10 +105,37 @@ export function LivecodingAgent() {
                   className="tw:rounded-2xl tw:max-h-[600px]"
                 />
                 <button
-                  onClick={toggleMute}
+                  onClick={toggleWaveformMute}
                   className="tw:absolute tw:bottom-4 tw:right-4 tw:bg-[#3c3836] tw:hover:bg-[#504945] tw:text-[#ebdbb2] tw:px-3 tw:py-2 tw:rounded-lg tw:text-sm tw:font-medium tw:transition-colors tw:border tw:border-[#504945]"
                 >
-                  {isMuted ? "🔇 Unmute" : "🔊 Mute"}
+                  {isWaveformMuted ? "🔇 Unmute" : "🔊 Mute"}
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section id="sound-representations">
+            <div className="container tw:justify-center">
+              <h1>Sound Representations</h1>
+              <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center tw:relative">
+                <video
+                  src="/manim/SoundVisualization.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="tw:rounded-2xl tw:max-h-[600px]"
+                />
+                <audio
+                  ref={fourierAudioRef}
+                  src="/manim/fourier_sample.wav"
+                  loop
+                />
+                <button
+                  onClick={toggleFourierMute}
+                  className="tw:absolute tw:bottom-4 tw:right-4 tw:bg-[#3c3836] tw:hover:bg-[#504945] tw:text-[#ebdbb2] tw:px-3 tw:py-2 tw:rounded-lg tw:text-sm tw:font-medium tw:transition-colors tw:border tw:border-[#504945]"
+                >
+                  {isFourierMuted ? "🔇 Unmute" : "🔊 Mute"}
                 </button>
               </div>
             </div>

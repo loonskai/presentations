@@ -16,6 +16,7 @@ if [ -z "$SCENE_NAME" ]; then
     echo "Available scenes:"
     echo "  - Waveforms"
     echo "  - AnalogToDigital"
+    echo "  - SoundVisualization"
     echo ""
     echo "Quality options:"
     echo "  l  - Low quality (480p)"
@@ -56,9 +57,23 @@ if [ "$SCENE_NAME" = "Waveforms" ] && [ ! -f "scenes/audio/sine.wav" ]; then
     python scenes/generate_sounds.py
 fi
 
+# Determine which file contains the scene
+case "$SCENE_NAME" in
+    "Waveforms"|"AnalogToDigital")
+        SCENE_FILE="scenes/waveforms.py"
+        ;;
+    "SoundVisualization")
+        SCENE_FILE="scenes/sound_visualization.py"
+        ;;
+    *)
+        echo "Error: Unknown scene '$SCENE_NAME'"
+        exit 1
+        ;;
+esac
+
 # Render the scene
 echo "Rendering $SCENE_NAME at quality -q$QUALITY..."
-manim render -q$QUALITY scenes/waveforms.py $SCENE_NAME
+manim render -q$QUALITY $SCENE_FILE $SCENE_NAME
 
 # Check if render was successful
 if [ $? -eq 0 ]; then
@@ -66,21 +81,37 @@ if [ $? -eq 0 ]; then
     echo "Render complete!"
     echo ""
 
-    # Find the output files
-    VIDEO_FILE=$(find media/videos -name "${SCENE_NAME}.mp4" 2>/dev/null | head -1)
-    JSON_FILE=$(find media/videos -name "${SCENE_NAME}.json" 2>/dev/null | head -1)
+    # Determine output directory based on quality
+    case "$QUALITY" in
+        "l") QUALITY_DIR="480p15" ;;
+        "m") QUALITY_DIR="720p30" ;;
+        "h") QUALITY_DIR="1080p60" ;;
+        "k") QUALITY_DIR="2160p60" ;;
+        *) QUALITY_DIR="1080p60" ;;
+    esac
+
+    # Get scene file base name (without .py)
+    SCENE_BASE=$(basename "$SCENE_FILE" .py)
+
+    # Find the output files in the correct quality directory
+    VIDEO_FILE="media/videos/${SCENE_BASE}/${QUALITY_DIR}/${SCENE_NAME}.mp4"
+    JSON_FILE="media/videos/${SCENE_BASE}/${QUALITY_DIR}/${SCENE_NAME}.json"
 
     # Create public/manim directory and copy files
     mkdir -p ../public/manim
 
-    if [ -n "$VIDEO_FILE" ]; then
+    if [ -f "$VIDEO_FILE" ]; then
         cp "$VIDEO_FILE" ../public/manim/
         echo "Copied: $VIDEO_FILE -> public/manim/"
+    else
+        echo "Warning: Video file not found at $VIDEO_FILE"
     fi
 
-    if [ -n "$JSON_FILE" ]; then
+    if [ -f "$JSON_FILE" ]; then
         cp "$JSON_FILE" ../public/manim/
         echo "Copied: $JSON_FILE -> public/manim/"
+    else
+        echo "Warning: JSON file not found at $JSON_FILE"
     fi
 
     echo ""
