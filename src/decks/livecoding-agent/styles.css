@@ -1,0 +1,58 @@
+/* Gruvbox Medium Dark Theme for Livecoding Agent Deck */
+
+.livecoding-agent-deck {
+  /* Gruvbox Medium Dark Colors */
+  --gruvbox-bg: #32302f;
+  --gruvbox-bg-dark: #282828;
+  --gruvbox-bg-light: #3c3836;
+  --gruvbox-fg: #ebdbb2;
+  --gruvbox-fg-dim: #a89984;
+  --gruvbox-red: #fb4934;
+  --gruvbox-green: #b8bb26;
+  --gruvbox-yellow: #fabd2f;
+  --gruvbox-blue: #83a598;
+  --gruvbox-purple: #d3869b;
+  --gruvbox-aqua: #8ec07c;
+  --gruvbox-orange: #fe8019;
+}
+
+.livecoding-agent-deck .reveal {
+  font-family: "IosevkaNerdFont", "Iosevka", monospace;
+}
+
+.livecoding-agent-deck .reveal h1,
+.livecoding-agent-deck .reveal h2,
+.livecoding-agent-deck .reveal h3,
+.livecoding-agent-deck .reveal h4 {
+  font-family: "IosevkaNerdFont", "Iosevka", monospace;
+  color: var(--gruvbox-fg);
+}
+
+.livecoding-agent-deck .reveal h1 {
+  color: var(--gruvbox-fg);
+}
+
+.livecoding-agent-deck .reveal h4 {
+  color: var(--gruvbox-fg-dim);
+}
+
+.livecoding-agent-deck .reveal a {
+  color: var(--gruvbox-blue);
+}
+
+.livecoding-agent-deck .reveal a:hover {
+  color: var(--gruvbox-aqua);
+}
+
+.livecoding-agent-deck .reveal .slides section {
+  color: var(--gruvbox-fg);
+}
+
+.livecoding-agent-deck .reveal pre {
+  background: var(--gruvbox-bg-dark);
+  border: 1px solid var(--gruvbox-bg-light);
+}
+
+.livecoding-agent-deck .reveal code {
+  font-family: "IosevkaNerdFont", "Iosevka", monospace;
+}
