@@ -1,9 +1,8 @@
 from manim import *
-from manim_revealjs import PresentationScene, NORMAL, LOOP
 import numpy as np
 
 
-class SoundVisualization(PresentationScene):
+class SoundVisualization(Scene):
     """Sound visualization - time domain with frequency axis spectrogram style."""
 
     def construct(self):
@@ -335,7 +334,6 @@ class SoundVisualization(PresentationScene):
         all_waves[low_freq_idx].add_updater(wave_updaters[low_freq_idx][1])
 
         self.play(phase.animate.set_value(4 * PI), run_time=3, rate_func=linear)
-        self.end_fragment(fragment_type=LOOP)
 
         # Step 2: Add high frequency wave
         self.add(all_axes[high_freq_idx])  # Last axes
@@ -343,7 +341,6 @@ class SoundVisualization(PresentationScene):
         all_waves[high_freq_idx].add_updater(wave_updaters[high_freq_idx][1])
 
         self.play(phase.animate.set_value(8 * PI), run_time=3, rate_func=linear)
-        self.end_fragment(fragment_type=LOOP)
 
         # Step 3: Add all remaining waves
         for i in range(1, len(components) - 1):
@@ -352,7 +349,6 @@ class SoundVisualization(PresentationScene):
             all_waves[i].add_updater(wave_updaters[i][1])
 
         self.play(phase.animate.set_value(12 * PI), run_time=3, rate_func=linear)
-        self.end_fragment(fragment_type=LOOP)
 
         # Step 4: Add spectral components (rectangle, bands, bars)
         self.add(freq_rectangle, parallel_freq_axis, spectral_label)
@@ -360,13 +356,11 @@ class SoundVisualization(PresentationScene):
         self.add(*all_bars)
 
         self.play(phase.animate.set_value(16 * PI), run_time=3, rate_func=linear)
-        self.end_fragment(fragment_type=LOOP)
 
         # Step 5: Add Fourier transform
         self.add(final_axes, *fourier_bars, fourier_wave)
 
         self.play(phase.animate.set_value(36 * PI), run_time=10, rate_func=linear)
-        self.end_fragment(fragment_type=LOOP)
 
         # Remove all updaters
         for wave, updater in wave_updaters:
