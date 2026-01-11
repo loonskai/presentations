@@ -22,7 +22,20 @@ export function useDeckRef(
       plugins: [RevealNotes],
     });
 
-    deckRef.current.initialize().catch(console.warn);
+    deckRef.current
+      .initialize()
+      .then(() => {
+        deckRef.current?.on("slidechanged", (event: unknown) => {
+          const e = event as { previousSlide?: HTMLElement; currentSlide: HTMLElement };
+          e.previousSlide
+            ?.querySelectorAll<HTMLVideoElement>("video[autoplay]")
+            .forEach((v: HTMLVideoElement) => v.pause());
+          e.currentSlide
+            .querySelectorAll<HTMLVideoElement>("video[autoplay]")
+            .forEach((v: HTMLVideoElement) => v.play().catch(() => {}));
+        });
+      })
+      .catch(console.warn);
 
     return () => {
       if (deckRef?.current?.isReady()) {

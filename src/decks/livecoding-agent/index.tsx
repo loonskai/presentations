@@ -17,7 +17,21 @@ export function LivecodingAgent() {
   });
 
   const waveformVideoRef = useRef<HTMLVideoElement>(null);
+  const [isWaveformPlaying, setIsWaveformPlaying] = useState(false);
   const [isWaveformMuted, setIsWaveformMuted] = useState(true);
+  const [waveformVolume, setWaveformVolume] = useState(0.5);
+
+  const toggleWaveformPlay = () => {
+    if (waveformVideoRef.current) {
+      if (waveformVideoRef.current.paused) {
+        waveformVideoRef.current.play();
+        setIsWaveformPlaying(true);
+      } else {
+        waveformVideoRef.current.pause();
+        setIsWaveformPlaying(false);
+      }
+    }
+  };
 
   const toggleWaveformMute = () => {
     if (waveformVideoRef.current) {
@@ -26,8 +40,32 @@ export function LivecodingAgent() {
     }
   };
 
+  const handleWaveformVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const vol = parseFloat(e.target.value);
+    setWaveformVolume(vol);
+    if (waveformVideoRef.current) {
+      waveformVideoRef.current.volume = vol;
+    }
+  };
+
+  const soundVisVideoRef = useRef<HTMLVideoElement>(null);
+  const [isSoundVisPlaying, setIsSoundVisPlaying] = useState(false);
+
+  const toggleSoundVisPlay = () => {
+    if (soundVisVideoRef.current) {
+      if (soundVisVideoRef.current.paused) {
+        soundVisVideoRef.current.play();
+        setIsSoundVisPlaying(true);
+      } else {
+        soundVisVideoRef.current.pause();
+        setIsSoundVisPlaying(false);
+      }
+    }
+  };
+
   const fourierAudioRef = useRef<HTMLAudioElement>(null);
   const [isFourierMuted, setIsFourierMuted] = useState(true);
+  const [fourierVolume, setFourierVolume] = useState(0.5);
 
   const toggleFourierMute = () => {
     if (fourierAudioRef.current) {
@@ -37,6 +75,14 @@ export function LivecodingAgent() {
         fourierAudioRef.current.pause();
       }
       setIsFourierMuted(!isFourierMuted);
+    }
+  };
+
+  const handleFourierVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const vol = parseFloat(e.target.value);
+    setFourierVolume(vol);
+    if (fourierAudioRef.current) {
+      fourierAudioRef.current.volume = vol;
     }
   };
 
@@ -98,18 +144,34 @@ export function LivecodingAgent() {
                 <video
                   ref={waveformVideoRef}
                   src="/manim/Waveforms.mp4"
-                  autoPlay
                   loop
                   muted
                   playsInline
                   className="tw:rounded-2xl tw:max-h-[600px]"
                 />
-                <button
-                  onClick={toggleWaveformMute}
-                  className="tw:absolute tw:bottom-4 tw:right-4 tw:bg-[#3c3836] tw:hover:bg-[#504945] tw:text-[#ebdbb2] tw:px-3 tw:py-2 tw:rounded-lg tw:text-sm tw:font-medium tw:transition-colors tw:border tw:border-[#504945]"
-                >
-                  {isWaveformMuted ? "🔇 Unmute" : "🔊 Mute"}
-                </button>
+                <div className="tw:absolute tw:bottom-4 tw:right-4 tw:flex tw:items-center tw:gap-2">
+                  <button
+                    onClick={toggleWaveformPlay}
+                    className="tw:bg-[#3c3836] tw:hover:bg-[#504945] tw:text-[#ebdbb2] tw:px-3 tw:py-2 tw:rounded-lg tw:text-sm tw:font-medium tw:transition-colors tw:border tw:border-[#504945]"
+                  >
+                    {isWaveformPlaying ? "⏸ Pause" : "▶ Play"}
+                  </button>
+                  <button
+                    onClick={toggleWaveformMute}
+                    className="tw:bg-[#3c3836] tw:hover:bg-[#504945] tw:text-[#ebdbb2] tw:px-3 tw:py-2 tw:rounded-lg tw:text-sm tw:font-medium tw:transition-colors tw:border tw:border-[#504945]"
+                  >
+                    {isWaveformMuted ? "🔇" : "🔊"}
+                  </button>
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value={waveformVolume}
+                    onChange={handleWaveformVolume}
+                    className="tw:w-20 tw:h-2 tw:bg-[#504945] tw:rounded-lg tw:appearance-none tw:cursor-pointer"
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -119,8 +181,8 @@ export function LivecodingAgent() {
               <h1>Sound Representations</h1>
               <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center tw:relative">
                 <video
+                  ref={soundVisVideoRef}
                   src="/manim/SoundVisualization.mp4"
-                  autoPlay
                   loop
                   muted
                   playsInline
@@ -131,12 +193,29 @@ export function LivecodingAgent() {
                   src="/manim/fourier_sample.wav"
                   loop
                 />
-                <button
-                  onClick={toggleFourierMute}
-                  className="tw:absolute tw:bottom-4 tw:right-4 tw:bg-[#3c3836] tw:hover:bg-[#504945] tw:text-[#ebdbb2] tw:px-3 tw:py-2 tw:rounded-lg tw:text-sm tw:font-medium tw:transition-colors tw:border tw:border-[#504945]"
-                >
-                  {isFourierMuted ? "🔇 Unmute" : "🔊 Mute"}
-                </button>
+                <div className="tw:absolute tw:bottom-4 tw:right-4 tw:flex tw:items-center tw:gap-2">
+                  <button
+                    onClick={toggleSoundVisPlay}
+                    className="tw:bg-[#3c3836] tw:hover:bg-[#504945] tw:text-[#ebdbb2] tw:px-3 tw:py-2 tw:rounded-lg tw:text-sm tw:font-medium tw:transition-colors tw:border tw:border-[#504945]"
+                  >
+                    {isSoundVisPlaying ? "⏸ Pause" : "▶ Play"}
+                  </button>
+                  <button
+                    onClick={toggleFourierMute}
+                    className="tw:bg-[#3c3836] tw:hover:bg-[#504945] tw:text-[#ebdbb2] tw:px-3 tw:py-2 tw:rounded-lg tw:text-sm tw:font-medium tw:transition-colors tw:border tw:border-[#504945]"
+                  >
+                    {isFourierMuted ? "🔇" : "🔊"}
+                  </button>
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value={fourierVolume}
+                    onChange={handleFourierVolume}
+                    className="tw:w-20 tw:h-2 tw:bg-[#504945] tw:rounded-lg tw:appearance-none tw:cursor-pointer"
+                  />
+                </div>
               </div>
             </div>
           </section>
