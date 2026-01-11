@@ -89,7 +89,7 @@ export function LivecodingAgent() {
   return (
     <div className="reveal-container livecoding-agent-deck">
       <div
-        className="reveal tw:bg-[#32302f]"
+        className="reveal tw:bg-[#2d2b29]"
         ref={deckDivRef}
       >
         <div className="slides">
@@ -255,6 +255,76 @@ export function LivecodingAgent() {
                 />
               </div>
             </div>
+          </section>
+
+          <section id="drums">
+            <section>
+              <div className="container tw:justify-center">
+                <h1>Drums</h1>
+                <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center">
+                  <iframe
+                    className="tw:rounded-2xl"
+                    width="800"
+                    height="450"
+                    src="https://www.youtube.com/embed/aLfVj8ZcuLY"
+                    title="Drums"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </section>
+            <section>
+              <div className="container tw:justify-center">
+                <h1>Drums</h1>
+                <div className="tw:flex-1 tw:flex tw:flex-col tw:justify-center tw:items-center tw:gap-4">
+                  <img
+                    src={images.drumsFile}
+                    alt="Drums File"
+                    className="tw:rounded-xl tw:max-h-[250px]"
+                  />
+                  <div className="tw:flex tw:items-center tw:gap-8">
+                    <div className="tw:flex tw:flex-col tw:items-center tw:gap-2">
+                      <img
+                        src={images.abletonLogo}
+                        alt="Ableton"
+                        className="tw:h-8"
+                      />
+                      <img
+                        src={images.simpler}
+                        alt="Simpler"
+                        className="tw:rounded-xl tw:max-h-[100px]"
+                      />
+                    </div>
+                    <div className="tw:w-px tw:h-32 tw:bg-[#504945]" />
+                    <div className="tw:flex tw:flex-col tw:items-center tw:gap-2">
+                      <img
+                        src={images.supercolliderLogo}
+                        alt="SuperCollider"
+                        className="tw:h-8"
+                      />
+                      <span className="tw:text-[#ebdbb2] tw:text-xl tw:font-mono">
+                        FluidOnsetSlice
+                      </span>
+                      <img
+                        src={images.flucomaLogo}
+                        alt="FluCoMa"
+                        className="tw:h-6"
+                      />
+                      <a
+                        href="https://www.flucoma.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="tw:text-[#83a598] tw:text-sm"
+                      >
+                        flucoma.org
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </section>
         </div>
       </div>
