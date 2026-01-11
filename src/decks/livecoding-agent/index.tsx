@@ -114,12 +114,14 @@ export function LivecodingAgent() {
                 </h1>
               </div>
             </div>
+            <aside className="notes">Notes: Intro</aside>
           </section>
 
           <section id="analog-to-digital">
             <div className="container tw:justify-center">
               <h1>Analog to Digital</h1>
             </div>
+            <aside className="notes">Notes: Analog to Digital</aside>
           </section>
 
           <section id="daw">
@@ -133,12 +135,14 @@ export function LivecodingAgent() {
                 />
               </div>
             </div>
+            <aside className="notes">Notes: DAW</aside>
           </section>
 
           <section id="dsp">
             <div className="container tw:justify-center">
               <h1>Digital Sound Processing (DSP)</h1>
             </div>
+            <aside className="notes">Notes: DSP</aside>
           </section>
 
           <section id="sound-synthesis">
@@ -157,6 +161,7 @@ export function LivecodingAgent() {
                 />
               </div>
             </div>
+            <aside className="notes">Notes: Sound Synthesis</aside>
           </section>
 
           <section id="waveforms">
@@ -196,6 +201,7 @@ export function LivecodingAgent() {
                 </div>
               </div>
             </div>
+            <aside className="notes">Notes: Waveforms</aside>
           </section>
 
           <section id="sound-representations">
@@ -240,6 +246,7 @@ export function LivecodingAgent() {
                 </div>
               </div>
             </div>
+            <aside className="notes">Notes: Sound Representations</aside>
           </section>
 
           <section id="reese-bass">
@@ -258,6 +265,7 @@ export function LivecodingAgent() {
                 />
               </div>
             </div>
+            <aside className="notes">Notes: Reese Bass</aside>
           </section>
 
           <section id="code-as-synth">
@@ -271,6 +279,7 @@ export function LivecodingAgent() {
                 />
               </div>
             </div>
+            <aside className="notes">Notes: Code as Synth</aside>
           </section>
 
           <section id="supercollider">
@@ -289,12 +298,14 @@ export function LivecodingAgent() {
                 />
               </div>
             </div>
+            <aside className="notes">Notes: SuperCollider</aside>
           </section>
 
           <section id="demo">
             <div className="container tw:justify-center tw:items-center">
               <h1 className="tw:text-[8rem]! tw:font-bold">DEMO</h1>
             </div>
+            <aside className="notes">Notes: Demo 1</aside>
           </section>
 
           <section id="livecoding-environment">
@@ -332,6 +343,7 @@ export function LivecodingAgent() {
                 </div>
               </div>
             </div>
+            <aside className="notes">Notes: Livecoding Environment</aside>
           </section>
 
           <section id="percussions">
@@ -351,6 +363,7 @@ export function LivecodingAgent() {
                   />
                 </div>
               </div>
+              <aside className="notes">Notes: Percussions Video</aside>
             </section>
             <section>
               <div className="container tw:justify-center">
@@ -401,6 +414,7 @@ export function LivecodingAgent() {
                   </div>
                 </div>
               </div>
+              <aside className="notes">Notes: Percussions Tools</aside>
             </section>
           </section>
 
@@ -408,6 +422,7 @@ export function LivecodingAgent() {
             <div className="container tw:justify-center tw:items-center">
               <h1 className="tw:text-[8rem]! tw:font-bold">DEMO</h1>
             </div>
+            <aside className="notes">Notes: Demo 2</aside>
           </section>
 
           <section id="livecoding-environment-claude">
@@ -450,6 +465,7 @@ export function LivecodingAgent() {
                 </div>
               </div>
             </div>
+            <aside className="notes">Notes: Livecoding Environment + Claude</aside>
           </section>
 
           <section id="thank-you">
@@ -471,6 +487,7 @@ export function LivecodingAgent() {
                 </a>
               </div>
             </div>
+            <aside className="notes">Notes: Thank you</aside>
           </section>
         </div>
       </div>
