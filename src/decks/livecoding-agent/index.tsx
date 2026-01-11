@@ -88,10 +88,7 @@ export function LivecodingAgent() {
 
   return (
     <div className="reveal-container livecoding-agent-deck">
-      <div
-        className="reveal tw:bg-[#2d2b29]"
-        ref={deckDivRef}
-      >
+      <div className="reveal tw:bg-[#2d2b29]" ref={deckDivRef}>
         <div className="slides">
           <section id="intro">
             <div className="container tw:justify-center">
@@ -102,13 +99,19 @@ export function LivecodingAgent() {
                   className="tw:w-16 tw:h-16 tw:rounded-full tw:object-cover tw:shadow-lg"
                 />
                 <div className="tw:text-left">
-                  <p className="tw:text-xl tw:text-[#ebdbb2] tw:m-0!">Siarhei Lunski</p>
-                  <p className="tw:text-base tw:text-[#83a598] tw:m-0!">Software Engineer @ Box</p>
+                  <p className="tw:text-xl tw:text-[#ebdbb2] tw:m-0!">
+                    Siarhei Lunski
+                  </p>
+                  <p className="tw:text-base tw:text-[#83a598] tw:m-0!">
+                    Software Engineer @ Box
+                  </p>
                 </div>
               </div>
               <div className="tw:flex tw:flex-col tw:items-center">
                 <h4 className="tw:text-[#b8bb26]!">AI-Powered Algorithmic</h4>
-                <h1 className="tw:text-[#ebdbb2]!">Composition and Sound Design</h1>
+                <h1 className="tw:text-[#ebdbb2]!">
+                  Composition and Sound Design
+                </h1>
               </div>
             </div>
           </section>
@@ -122,6 +125,13 @@ export function LivecodingAgent() {
           <section id="daw">
             <div className="container tw:justify-center">
               <h1>Digital Audio Workstations (DAW)</h1>
+              <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center">
+                <img
+                  src={images.daws}
+                  alt="Digital Audio Workstations"
+                  className="tw:rounded-2xl tw:max-h-[450px]"
+                />
+              </div>
             </div>
           </section>
 
@@ -134,6 +144,18 @@ export function LivecodingAgent() {
           <section id="sound-synthesis">
             <div className="container tw:justify-center">
               <h1>Sound Synthesis</h1>
+              <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center">
+                <iframe
+                  className="tw:rounded-2xl"
+                  width="800"
+                  height="450"
+                  src="https://www.youtube.com/embed/ZopDeuSMqxA"
+                  title="Sound Synthesis"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
             </div>
           </section>
 
@@ -220,25 +242,6 @@ export function LivecodingAgent() {
             </div>
           </section>
 
-          <section id="code-as-synth">
-            <div className="container tw:justify-center">
-              <h1>Code as Synth</h1>
-              <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center">
-                <img
-                  src={images.codeAsSynth}
-                  alt="Code as Synth"
-                  className="tw:rounded-2xl tw:max-h-[450px]"
-                />
-              </div>
-            </div>
-          </section>
-
-          <section id="supercollider">
-            <div className="container tw:justify-center">
-              <h1>SuperCollider</h1>
-            </div>
-          </section>
-
           <section id="reese-bass">
             <div className="container tw:justify-center">
               <h1>Reese Bass</h1>
@@ -257,17 +260,91 @@ export function LivecodingAgent() {
             </div>
           </section>
 
-          <section id="drums">
+          <section id="code-as-synth">
+            <div className="container tw:justify-center">
+              <h1>Code as Synth</h1>
+              <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center">
+                <img
+                  src={images.codeAsSynth}
+                  alt="Code as Synth"
+                  className="tw:rounded-2xl tw:max-h-[450px]"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section id="supercollider">
+            <div className="container tw:justify-center">
+              <h1>SuperCollider</h1>
+              <img
+                src={images.supercolliderLogo}
+                alt="SuperCollider"
+                className="tw:h-16"
+              />
+              <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center">
+                <img
+                  src={images.supercolliderIde}
+                  alt="SuperCollider IDE"
+                  className="tw:rounded-2xl tw:max-h-[450px]"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section id="demo">
+            <div className="container tw:justify-center tw:items-center">
+              <h1 className="tw:text-[8rem]! tw:font-bold">DEMO</h1>
+            </div>
+          </section>
+
+          <section id="livecoding-environment">
+            <div className="container tw:justify-center">
+              <h1>Livecoding Environment</h1>
+              <div className="tw:flex-1 tw:flex tw:flex-col tw:justify-center tw:items-center tw:gap-6">
+                <div className="tw:flex tw:items-center tw:gap-8">
+                  <div className="tw:flex tw:flex-col tw:items-center tw:gap-2">
+                    <img
+                      src={images.supercolliderLogo}
+                      alt="SuperCollider"
+                      className="tw:h-20"
+                    />
+                    <span className="tw:text-[#ebdbb2] tw:text-xl">SuperCollider</span>
+                  </div>
+                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">+</span>
+                  <div className="tw:flex tw:flex-col tw:items-center tw:gap-2">
+                    <img
+                      src={images.strudelLogo}
+                      alt="Strudel"
+                      className="tw:h-20"
+                    />
+                    <span className="tw:text-[#ebdbb2] tw:text-xl">Strudel.js</span>
+                  </div>
+                  <span className="tw:text-[#ebdbb2] tw:text-xl">+ many more...</span>
+                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">=</span>
+                  <div className="tw:flex tw:flex-col tw:items-center tw:gap-2">
+                    <img
+                      src={images.flokLogo}
+                      alt="Flok"
+                      className="tw:h-20"
+                    />
+                    <span className="tw:text-[#ebdbb2] tw:text-xl">Flok.cc</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="percussions">
             <section>
               <div className="container tw:justify-center">
-                <h1>Drums</h1>
+                <h1>Percussions</h1>
                 <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center">
                   <iframe
                     className="tw:rounded-2xl"
                     width="800"
                     height="450"
                     src="https://www.youtube.com/embed/aLfVj8ZcuLY"
-                    title="Drums"
+                    title="Percussions"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -277,11 +354,11 @@ export function LivecodingAgent() {
             </section>
             <section>
               <div className="container tw:justify-center">
-                <h1>Drums</h1>
+                <h1>Percussions</h1>
                 <div className="tw:flex-1 tw:flex tw:flex-col tw:justify-center tw:items-center tw:gap-4">
                   <img
                     src={images.drumsFile}
-                    alt="Drums File"
+                    alt="Percussions File"
                     className="tw:rounded-xl tw:max-h-[250px]"
                   />
                   <div className="tw:flex tw:items-center tw:gap-8">
@@ -325,6 +402,75 @@ export function LivecodingAgent() {
                 </div>
               </div>
             </section>
+          </section>
+
+          <section id="demo-2">
+            <div className="container tw:justify-center tw:items-center">
+              <h1 className="tw:text-[8rem]! tw:font-bold">DEMO</h1>
+            </div>
+          </section>
+
+          <section id="livecoding-environment-claude">
+            <div className="container tw:justify-center">
+              <h1>Livecoding Environment</h1>
+              <div className="tw:flex-1 tw:flex tw:flex-col tw:justify-center tw:items-center tw:gap-6">
+                <div className="tw:flex tw:items-center tw:gap-8">
+                  <div className="tw:flex tw:flex-col tw:items-center tw:gap-2">
+                    <img
+                      src={images.supercolliderLogo}
+                      alt="SuperCollider"
+                      className="tw:h-20"
+                    />
+                    <span className="tw:text-[#ebdbb2] tw:text-xl">SuperCollider</span>
+                  </div>
+                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">+</span>
+                  <div className="tw:flex tw:flex-col tw:items-center tw:gap-2">
+                    <img
+                      src={images.strudelLogo}
+                      alt="Strudel"
+                      className="tw:h-20"
+                    />
+                    <span className="tw:text-[#ebdbb2] tw:text-xl">Strudel.js</span>
+                  </div>
+                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">+</span>
+                  <img
+                    src={images.claudeLogo}
+                    alt="Claude"
+                    className="tw:h-[3.75rem]"
+                  />
+                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">=</span>
+                  <div className="tw:flex tw:flex-col tw:items-center tw:gap-2">
+                    <img
+                      src={images.flokLogo}
+                      alt="Flok"
+                      className="tw:h-20"
+                    />
+                    <span className="tw:text-[#ebdbb2] tw:text-xl">Flok.cc</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="thank-you">
+            <div className="container tw:justify-center tw:items-center">
+              <h1>Thank you</h1>
+              <div className="tw:flex tw:flex-col tw:items-center tw:gap-4">
+                <img
+                  src={images.qrCode}
+                  alt="QR Code"
+                  className="tw:rounded-xl tw:border-4 tw:border-[#b8bb26] tw:p-4"
+                />
+                <a
+                  href="https://github.com/loonskai/livecoding-agent-demo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tw:text-[#ebdbb2] tw:text-xl tw:hover:text-[#b8bb26]"
+                >
+                  Github (Demo + Links)
+                </a>
+              </div>
+            </div>
           </section>
         </div>
       </div>
