@@ -489,6 +489,8 @@ export function LivecodingAgent() {
             </div>
             <aside className="notes">Notes: Thank you</aside>
           </section>
+
+          <section id="end" data-visibility="hidden"></section>
         </div>
       </div>
     </div>
