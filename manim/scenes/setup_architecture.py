@@ -25,7 +25,7 @@ class SetupArchitecture(Scene):
             width=10, height=1.6, corner_radius=0.15,
             stroke_color=box_color, stroke_width=2, fill_opacity=0
         )
-        flok_session_box.move_to(UP * 2.0)
+        flok_session_box.move_to(UP * 2.6)
 
         flok_logo = SVGMobject(flok_logo_path)
         flok_logo.scale(0.18)
@@ -41,17 +41,37 @@ class SetupArchitecture(Scene):
             stroke_color=sound_color, stroke_width=2.5, fill_opacity=0
         )
         web_audio_box = DashedVMobject(web_audio_box_solid, num_dashes=30)
-        web_audio_box.move_to(LEFT * 3.3 + UP * 1.75)
+        web_audio_box.move_to(LEFT * 3.3 + UP * 2.35)
 
-        web_audio_label = Text("Web Audio API", font_size=12, color=sound_color, font="Menlo")
+        web_audio_label = Text("Web Audio API", font_size=12, color=text_color, font="Menlo")
         web_audio_label.move_to(web_audio_box.get_center())
+
+        # ==================== ABLETON LIVE (DAW) BLOCK (sound-producing) ====================
+        ableton_logo_path = "../src/decks/livecoding-agent/images/ableton-logo.svg"
+
+        # Position exactly between Flok session (bottom at ~1.8) and Flok server (top at ~0.3)
+        # Midpoint = (1.8 + 0.3) / 2 = 1.05
+        ableton_box = RoundedRectangle(
+            width=3.2, height=0.6, corner_radius=0.08,
+            stroke_color=sound_color, stroke_width=2.5, fill_opacity=0
+        )
+        ableton_box.move_to(LEFT * 3.3 + UP * 1.05)
+
+        ableton_logo = SVGMobject(ableton_logo_path)
+        ableton_logo.set_color(text_color)
+        ableton_logo.scale(0.08)
+        ableton_label = Text("Ableton Live (DAW)", font_size=10, color=text_color, font="Menlo")
+        ableton_label.next_to(ableton_logo, RIGHT, buff=0.08)
+        # Use VGroup to properly center logo+label in the box
+        ableton_content = VGroup(ableton_logo, ableton_label)
+        ableton_content.move_to(ableton_box.get_center())
 
         # ==================== STRUDEL BLOCK ====================
         strudel_box = RoundedRectangle(
             width=2.4, height=0.6, corner_radius=0.08,
             stroke_color=box_color, stroke_width=1.5, fill_opacity=0
         )
-        strudel_box.move_to(UP * 1.75)
+        strudel_box.move_to(UP * 2.35)
 
         strudel_logo = ImageMobject(strudel_logo_path)
         strudel_logo.scale(0.1)
@@ -68,7 +88,7 @@ class SetupArchitecture(Scene):
             width=2.8, height=0.6, corner_radius=0.08,
             stroke_color=box_color, stroke_width=1.5, fill_opacity=0
         )
-        supercollider_box.move_to(RIGHT * 3.3 + UP * 1.75)
+        supercollider_box.move_to(RIGHT * 3.3 + UP * 2.35)
 
         supercollider_logo = SVGMobject(supercollider_logo_path)
         supercollider_logo.set_color(text_color)
@@ -119,14 +139,14 @@ class SetupArchitecture(Scene):
             width=10, height=0.6, corner_radius=0.15,
             stroke_color=sound_color, stroke_width=3, fill_opacity=0
         )
-        sc_server_box.move_to(DOWN * 2.5)
+        sc_server_box.move_to(DOWN * 3.0)
 
         sc_server_logo = SVGMobject(supercollider_logo_path)
-        sc_server_logo.set_color(sound_color)
+        sc_server_logo.set_color(text_color)
         sc_server_logo.scale(0.18)
         sc_server_logo.move_to(sc_server_box.get_center() + LEFT * 1.5)
 
-        sc_server_title = Text("SuperCollider Server", font_size=16, color=sound_color, font="Menlo")
+        sc_server_title = Text("SuperCollider Server", font_size=16, color=text_color, font="Menlo")
         sc_server_title.next_to(sc_server_logo, RIGHT, buff=0.08)
 
         # ==================== ARROW DEFINITIONS ====================
@@ -155,6 +175,10 @@ class SetupArchitecture(Scene):
         strudel_to_webaudio_start = strudel_box.get_left() + LEFT * 0.1
         strudel_to_webaudio_end = web_audio_box.get_right() + RIGHT * 0.1
 
+        # Strudel to Ableton Live arrow (diagonal)
+        strudel_to_ableton_start = strudel_box.get_left() + LEFT * 0.1 + DOWN * 0.15
+        strudel_to_ableton_end = ableton_box.get_top() + UP * 0.1
+
         # ==================== CREATE DASHED LINES ====================
         dash_len = 0.1
 
@@ -165,6 +189,7 @@ class SetupArchitecture(Scene):
         osc_strudel_line = DashedLine(osc_strudel_start, osc_strudel_end, color=osc_color, stroke_width=2, dash_length=dash_len)
         osc_flok_line = DashedLine(osc_flok_start, osc_flok_end, color=osc_color, stroke_width=2, dash_length=dash_len)
         strudel_to_webaudio_line = DashedLine(strudel_to_webaudio_start, strudel_to_webaudio_end, color=arrow_color, stroke_width=2, dash_length=dash_len)
+        strudel_to_ableton_line = DashedLine(strudel_to_ableton_start, strudel_to_ableton_end, color=arrow_color, stroke_width=2, dash_length=dash_len)
 
         # ==================== CREATE ARROW TIPS ====================
         tip_scale = 0.3
@@ -195,6 +220,12 @@ class SetupArchitecture(Scene):
         # Strudel to Web Audio API arrow (pointing left)
         strudel_to_webaudio_tip = ArrowTriangleFilledTip(color=arrow_color).scale(tip_scale)
         strudel_to_webaudio_tip.move_to(strudel_to_webaudio_end).rotate(0)
+
+        # Strudel to Ableton arrow (pointing down-left)
+        strudel_to_ableton_direction = strudel_to_ableton_end - strudel_to_ableton_start
+        strudel_to_ableton_angle = np.arctan2(strudel_to_ableton_direction[1], strudel_to_ableton_direction[0])
+        strudel_to_ableton_tip = ArrowTriangleFilledTip(color=arrow_color).scale(tip_scale)
+        strudel_to_ableton_tip.move_to(strudel_to_ableton_end).rotate(strudel_to_ableton_angle + PI)
 
         # ==================== LABELS WITH BACKGROUND MASKS ====================
         bg_color = "#282625"
@@ -240,11 +271,22 @@ class SetupArchitecture(Scene):
         )
         flok_osc_bg.move_to(flok_osc_label.get_center())
 
+        # MIDI label for Strudel to Ableton arrow (centered on arrow)
+        midi_label = Text("MIDI", font_size=12, color=arrow_color, font="Menlo")
+        midi_label.move_to((strudel_to_ableton_start + strudel_to_ableton_end) / 2)
+        midi_bg = Rectangle(
+            width=midi_label.width + label_padding * 2,
+            height=midi_label.height + label_padding * 2,
+            fill_color=bg_color, fill_opacity=1, stroke_width=0
+        )
+        midi_bg.move_to(midi_label.get_center())
+
         # ==================== ADD ALL STATIC ELEMENTS ====================
         self.add(
             # Boxes
             flok_session_box, flok_logo, flok_title,
             web_audio_box, web_audio_label,
+            ableton_box, ableton_content,
             strudel_box, strudel_logo, strudel_label,
             supercollider_box, supercollider_logo, supercollider_label,
             flok_server_box, nodejs_logo, flok_server_title,
@@ -257,6 +299,7 @@ class SetupArchitecture(Scene):
             srv_strudel_tip, srv_flok_tip,
             osc_strudel_tip, osc_flok_tip,
             strudel_to_webaudio_tip,
+            strudel_to_ableton_tip,
         )
 
         # ==================== ANIMATED DASHED LINES ====================
@@ -269,6 +312,7 @@ class SetupArchitecture(Scene):
             (osc_strudel_line, osc_strudel_start, osc_strudel_end, osc_color, 1),
             (osc_flok_line, osc_flok_start, osc_flok_end, osc_color, 1),
             (strudel_to_webaudio_line, strudel_to_webaudio_start, strudel_to_webaudio_end, arrow_color, 1),
+            (strudel_to_ableton_line, strudel_to_ableton_start, strudel_to_ableton_end, arrow_color, 1),
         ]
 
         # Add lines to scene
@@ -279,8 +323,10 @@ class SetupArchitecture(Scene):
         self.add(
             strudel_ws_bg, sc_ws_bg,
             strudel_osc_bg, flok_osc_bg,
+            midi_bg,
             strudel_ws_label, sc_ws_label,
             strudel_osc_label, flok_osc_label,
+            midi_label,
         )
 
         # Create time tracker for animation
@@ -313,6 +359,7 @@ class SetupArchitecture(Scene):
         osc_strudel_line.add_updater(make_line_updater(osc_strudel_start, osc_strudel_end, osc_color))
         osc_flok_line.add_updater(make_line_updater(osc_flok_start, osc_flok_end, osc_color))
         strudel_to_webaudio_line.add_updater(make_line_updater(strudel_to_webaudio_start, strudel_to_webaudio_end, arrow_color))
+        strudel_to_ableton_line.add_updater(make_line_updater(strudel_to_ableton_start, strudel_to_ableton_end, arrow_color))
 
         # Animate time tracker
         self.play(time.animate.set_value(10), run_time=10, rate_func=linear)

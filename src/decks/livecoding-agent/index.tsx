@@ -399,14 +399,14 @@ export function LivecodingAgent() {
           </section>
 
           <section id="setup">
-            <div className="container tw:justify-center tw:items-center">
+            <div className="container tw:justify-center tw:items-center tw:p-8">
               <video
                 src="/manim/SetupArchitecture.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="tw:rounded-2xl tw:max-h-[90vh] tw:max-w-[90vw]"
+                className="tw:rounded-2xl tw:max-h-[75vh] tw:max-w-[85vw]"
               />
             </div>
             <aside className="notes">Notes: Setup</aside>
