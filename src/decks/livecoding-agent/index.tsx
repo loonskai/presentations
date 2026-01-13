@@ -308,6 +308,23 @@ export function LivecodingAgent() {
             <aside className="notes">Notes: Demo 1</aside>
           </section>
 
+          <section id="phase-cancellation">
+            <div className="container tw:justify-center">
+              <h1>Phase Cancellation</h1>
+              <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center">
+                <video
+                  src="/manim/PhaseCancellation.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="tw:rounded-2xl tw:max-h-[600px]"
+                />
+              </div>
+            </div>
+            <aside className="notes">Notes: Phase Cancellation</aside>
+          </section>
+
           <section id="livecoding-environment">
             <div className="container tw:justify-center">
               <h1>Livecoding Environment</h1>

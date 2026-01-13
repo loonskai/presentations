@@ -17,6 +17,7 @@ if [ -z "$SCENE_NAME" ]; then
     echo "  - Waveforms"
     echo "  - AnalogToDigital"
     echo "  - SoundVisualization"
+    echo "  - PhaseCancellation"
     echo "  - SetupArchitecture"
     echo ""
     echo "Quality options:"
@@ -65,6 +66,9 @@ case "$SCENE_NAME" in
         ;;
     "SoundVisualization")
         SCENE_FILE="scenes/sound_visualization.py"
+        ;;
+    "PhaseCancellation")
+        SCENE_FILE="scenes/phase_cancellation.py"
         ;;
     "SetupArchitecture")
         SCENE_FILE="scenes/setup_architecture.py"
