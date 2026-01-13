@@ -5,6 +5,8 @@ import images from "./images";
 import "./styles.css";
 
 export function LivecodingAgent() {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
   const { deckDivRef } = useDeckRef({
     transition: "slide",
     controls: false,
@@ -14,8 +16,8 @@ export function LivecodingAgent() {
     hash: true,
     touch: true,
     slideNumber: true,
-    // Enable scroll-based navigation on mobile (screens < 768px)
-    scrollActivationWidth: 768,
+    // Enable scroll view on mobile
+    ...(isMobile && { view: "scroll" as const }),
   });
 
   const waveformVideoRef = useRef<HTMLVideoElement>(null);
