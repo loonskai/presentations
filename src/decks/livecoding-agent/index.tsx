@@ -9,15 +9,13 @@ export function LivecodingAgent() {
 
   const { deckDivRef } = useDeckRef({
     transition: "slide",
-    controls: false,
+    controls: isMobile, // Show navigation arrows on mobile
     autoAnimateEasing: "ease-out",
     autoAnimateDuration: 1.5,
     autoAnimateUnmatched: true,
     hash: true,
     touch: true,
     slideNumber: true,
-    // Enable scroll view on mobile
-    ...(isMobile && { view: "scroll" as const }),
   });
 
   const waveformVideoRef = useRef<HTMLVideoElement>(null);

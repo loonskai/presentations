@@ -32,6 +32,15 @@
   background-color: #2d2b29 !important;
 }
 
+/* Enable touch/swipe navigation on mobile */
+.livecoding-agent-deck .reveal .slides {
+  touch-action: pan-x pan-y;
+}
+
+.livecoding-agent-deck .reveal .slides section {
+  touch-action: pan-x pan-y;
+}
+
 .livecoding-agent-deck .reveal h1,
 .livecoding-agent-deck .reveal h2,
 .livecoding-agent-deck .reveal h3,
