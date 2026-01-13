@@ -14,15 +14,16 @@ class PhaseCancellation(Scene):
 
         # Parameters matching SuperCollider code
         base_freq = 55  # Hz
-        detune = 0.5  # semitones (increased for visibility)
+        detune = 0.15  # semitones (matching reese synth)
 
-        # Detune ratios from SuperCollider code (converted to frequency multipliers)
-        detune_ratios = [0, detune, -detune, detune * 2, -detune * 2, detune * 1.5, -detune * 1.5]
+        # Detune ratios sorted from negative (left/back) to positive (right/front)
+        # Original SC: [0, detune, -detune, detune*2, detune*2, detune*1.5, -detune*1.5]
+        detune_ratios = sorted([-detune * 1.5, -detune, 0, detune, detune * 1.5, detune * 2, detune * 2])
 
         # Create component list: (relative_freq_mult, amplitude, color)
-        # Colors going from warm red to orange to yellow
+        # Colors gradient from cool (negative) to warm (positive)
         components = []
-        colors = ["#FF4444", "#FF6B4A", "#FF8844", "#FFAA33", "#FFCC44", "#FFDD55", "#FFEE66"]
+        colors = ["#4488FF", "#55AAFF", "#66CCFF", "#FFFFFF", "#FFCC44", "#FF8844", "#FF4444"]
 
         for i, d in enumerate(detune_ratios):
             freq_mult = 2 ** (d / 12)  # Convert semitones to frequency ratio
@@ -62,20 +63,22 @@ class PhaseCancellation(Scene):
             },
         )
         first_axes.apply_matrix(left_shear)
-        first_axes.move_to(LEFT * 4.0 + DOWN * 0.6)
+        first_axes.move_to(LEFT * 1.5 + DOWN * 0.6)
 
         first_origin = first_axes.c2p(0, 0)
 
         # Frequency axis (representing detuning spread)
         freq_direction = np.array([0.6, 0.2, 0])
         freq_axis_length = 12.0
+        final_pos = 0.55  # Position of output wave along frequency axis
+
         freq_axis = Arrow(
             first_origin,
-            first_origin + freq_direction * freq_axis_length,
+            first_origin + freq_direction * freq_axis_length * final_pos,
             color=axis_color,
             stroke_width=1.5,
             buff=0,
-            max_tip_length_to_length_ratio=0.015
+            max_tip_length_to_length_ratio=0.025
         )
 
         # Labels
@@ -83,6 +86,9 @@ class PhaseCancellation(Scene):
         label_size = 14
 
         freq_angle = np.arctan2(freq_direction[1], freq_direction[0])
+        freq_label = Text("Frequency", font_size=label_size, color=label_color, font="Menlo")
+        freq_label.rotate(freq_angle)
+        freq_label.next_to(freq_axis.get_end(), UP + RIGHT, buff=0.1)
 
         x_direction = np.array([cos_a, -sin_a, 0])
         time_angle = np.arctan2(x_direction[1], x_direction[0])
@@ -94,20 +100,24 @@ class PhaseCancellation(Scene):
         amp_label.rotate(90 * DEGREES)
         amp_label.next_to(first_axes.c2p(0, 1.5), LEFT, buff=0.1)
 
-        # Create axes, waves, and spectral bands for each component
+        # Create axes, waves, spectral bands, and labels for each component
         all_axes = []
         all_waves = []
         all_bands = []
         all_bars = []
+        all_labels = []
         wave_updaters = []
 
-        max_pos = 0.85
+        # Find index of base wave (0 detuning) to highlight
+        middle_index = detune_ratios.index(0)
+
+        max_pos = 0.35  # Waves close together to show minimal frequency change
 
         def sawtooth(t):
             """Basic sawtooth wave."""
             return 2 * (t / (2 * PI) - np.floor(0.5 + t / (2 * PI)))
 
-        def create_wave_func(axes, freq_mult, amp, color):
+        def create_wave_func(axes, freq_mult, amp, color, is_base=False):
             def get_wave(phase_val):
                 points = []
                 for t in np.linspace(0, 4 * PI, 150):
@@ -118,7 +128,11 @@ class PhaseCancellation(Scene):
 
                 path = VMobject()
                 path.set_points_smoothly(points)
-                path.set_stroke(color, width=2, opacity=0.85)
+                # Highlight base wave
+                if is_base:
+                    path.set_stroke(color, width=4, opacity=1.0)
+                else:
+                    path.set_stroke(color, width=2, opacity=0.6)
                 return path
             return get_wave
 
@@ -146,8 +160,9 @@ class PhaseCancellation(Scene):
             axes.shift(point - axes_origin)
             all_axes.append(axes)
 
-            # Create wave
-            wave_func = create_wave_func(axes, freq_mult, amp * 1.5, color)
+            # Create wave (highlight middle wave)
+            is_middle = (i == middle_index)
+            wave_func = create_wave_func(axes, freq_mult, amp * 1.5, color, is_middle)
             wave = wave_func(0)
             all_waves.append(wave)
 
@@ -201,6 +216,23 @@ class PhaseCancellation(Scene):
             )
             all_bars.append(bar)
 
+            # Create Hz detuning label for each wave (skip base frequency)
+            hz_diff = base_freq * freq_mult - base_freq
+            if abs(hz_diff) < 0.01:
+                # Skip label for base frequency
+                all_labels.append(None)
+            else:
+                if hz_diff > 0:
+                    hz_text = f"+{hz_diff:.1f} Hz"
+                else:
+                    hz_text = f"{hz_diff:.1f} Hz"
+
+                wave_label = Text(hz_text, font_size=12, color=color, font="Menlo")
+                # Position label at the start of the wave (near y-axis)
+                label_pos = axes.c2p(0, 1.2)
+                wave_label.move_to(label_pos)
+                all_labels.append(wave_label)
+
         # Get last axes for rectangle boundary
         last_pos = max_pos
         last_point = first_origin + freq_direction * freq_axis_length * last_pos
@@ -239,7 +271,6 @@ class PhaseCancellation(Scene):
         )
 
         # Combined output axes and wave
-        final_pos = 1.0
         final_point = first_origin + freq_direction * freq_axis_length * final_pos
 
         final_axes = Axes(
@@ -284,35 +315,24 @@ class PhaseCancellation(Scene):
         # === ANIMATION STEPS ===
 
         # Show base elements
-        self.add(freq_axis, time_label, amp_label)
+        self.add(freq_axis, freq_label, time_label, amp_label)
 
-        # Add waves one by one in sequence
-        current_phase = 0
-        phase_per_wave = 2 * PI
-
+        # Add all waves and labels at once
         for i in range(len(components)):
             self.add(all_axes[i])
             self.add(all_waves[i])
+            if all_labels[i] is not None:
+                self.add(all_labels[i])
             all_waves[i].add_updater(wave_updaters[i][1])
 
-            current_phase += phase_per_wave
-            self.play(phase.animate.set_value(current_phase), run_time=1.5, rate_func=linear)
-
-        # Add spectral components visualization
-        self.add(freq_rectangle, parallel_freq_axis, spectral_label)
-        self.add(*all_bands)
-        self.add(*all_bars)
-
-        current_phase += 4 * PI
-        self.play(phase.animate.set_value(current_phase), run_time=3, rate_func=linear)
+        self.play(phase.animate.set_value(6 * PI), run_time=3, rate_func=linear)
 
         # Add combined output
         self.add(final_axes)
         combined_wave.add_updater(combined_updater)
         self.add(combined_wave)
 
-        current_phase += 16 * PI
-        self.play(phase.animate.set_value(current_phase), run_time=8, rate_func=linear)
+        self.play(phase.animate.set_value(26 * PI), run_time=10, rate_func=linear)
 
         # Remove all updaters
         for wave, updater in wave_updaters:

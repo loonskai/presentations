@@ -86,6 +86,30 @@ export function LivecodingAgent() {
     }
   };
 
+  const typeErrorAudioRef = useRef<HTMLAudioElement>(null);
+  const [isTypeErrorPlaying, setIsTypeErrorPlaying] = useState(false);
+  const [typeErrorVolume, setTypeErrorVolume] = useState(0.5);
+
+  const toggleTypeErrorPlay = () => {
+    if (typeErrorAudioRef.current) {
+      if (typeErrorAudioRef.current.paused) {
+        typeErrorAudioRef.current.play();
+        setIsTypeErrorPlaying(true);
+      } else {
+        typeErrorAudioRef.current.pause();
+        setIsTypeErrorPlaying(false);
+      }
+    }
+  };
+
+  const handleTypeErrorVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const vol = parseFloat(e.target.value);
+    setTypeErrorVolume(vol);
+    if (typeErrorAudioRef.current) {
+      typeErrorAudioRef.current.volume = vol;
+    }
+  };
+
   return (
     <div className="reveal-container livecoding-agent-deck">
       <div className="reveal tw:bg-[#2d2b29]" ref={deckDivRef}>
@@ -117,13 +141,6 @@ export function LivecodingAgent() {
             <aside className="notes">Notes: Intro</aside>
           </section>
 
-          <section id="analog-to-digital">
-            <div className="container tw:justify-center">
-              <h1>Analog to Digital</h1>
-            </div>
-            <aside className="notes">Notes: Analog to Digital</aside>
-          </section>
-
           <section id="daw">
             <div className="container tw:justify-center">
               <h1>Digital Audio Workstations (DAW)</h1>
@@ -136,13 +153,6 @@ export function LivecodingAgent() {
               </div>
             </div>
             <aside className="notes">Notes: DAW</aside>
-          </section>
-
-          <section id="dsp">
-            <div className="container tw:justify-center">
-              <h1>Digital Sound Processing (DSP)</h1>
-            </div>
-            <aside className="notes">Notes: DSP</aside>
           </section>
 
           <section id="sound-synthesis">
@@ -554,6 +564,41 @@ export function LivecodingAgent() {
               </div>
             </div>
             <aside className="notes">Notes: Thank you</aside>
+          </section>
+
+          <section id="bonus">
+            <div className="container tw:justify-center tw:items-center">
+              <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center tw:relative">
+                <img
+                  src={images.typeerror}
+                  alt="TypeError"
+                  className="tw:rounded-2xl tw:max-h-[600px]"
+                />
+                <audio
+                  ref={typeErrorAudioRef}
+                  src="/manim/TypeError.wav"
+                  loop
+                />
+                <div className="tw:absolute tw:bottom-4 tw:right-4 tw:flex tw:items-center tw:gap-2">
+                  <button
+                    onClick={toggleTypeErrorPlay}
+                    className="tw:bg-[#3c3836] tw:hover:bg-[#504945] tw:text-[#ebdbb2] tw:px-3 tw:py-2 tw:rounded-lg tw:text-sm tw:font-medium tw:transition-colors tw:border tw:border-[#504945]"
+                  >
+                    {isTypeErrorPlaying ? "⏸ Pause" : "▶ Play"}
+                  </button>
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value={typeErrorVolume}
+                    onChange={handleTypeErrorVolume}
+                    className="tw:w-20 tw:h-2 tw:bg-[#504945] tw:rounded-lg tw:appearance-none tw:cursor-pointer"
+                  />
+                </div>
+              </div>
+            </div>
+            <aside className="notes">Notes: Bonus</aside>
           </section>
 
           <section id="end" data-visibility="hidden"></section>

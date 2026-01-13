@@ -10,6 +10,7 @@ import strudelLogo from "./strudel-logo.png";
 import flokLogo from "./flok-logo.svg";
 import claudeLogo from "./claude-logo.svg";
 import qrCode from "./qr-code.png";
+import typeerror from "./typeerror.png";
 
 export default {
   codeAsSynth,
@@ -24,4 +25,5 @@ export default {
   flokLogo,
   claudeLogo,
   qrCode,
+  typeerror,
 };
