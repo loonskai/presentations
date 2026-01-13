@@ -101,6 +101,7 @@ export function LivecodingAgent() {
   const [isTypeErrorPlaying, setIsTypeErrorPlaying] = useState(false);
   const [typeErrorVolume, setTypeErrorVolume] = useState(0.5);
 
+
   const toggleTypeErrorPlay = () => {
     if (typeErrorAudioRef.current) {
       if (typeErrorAudioRef.current.paused) {
@@ -496,10 +497,27 @@ export function LivecodingAgent() {
           </section>
 
           <section id="demo-2">
-            <div className="container tw:justify-center tw:items-center">
-              <h1 className="tw:text-[8rem]! tw:font-bold">DEMO</h1>
-            </div>
-            <aside className="notes">Notes: Demo 2</aside>
+            <section>
+              <div className="container tw:justify-center tw:items-center">
+                <h1 className="tw:text-[8rem]! tw:font-bold">DEMO</h1>
+              </div>
+              <aside className="notes">Notes: Demo 2</aside>
+            </section>
+            <section>
+              <div className="container tw:justify-center tw:items-center">
+                <iframe
+                  className="tw:rounded-2xl"
+                  width="800"
+                  height="450"
+                  src="https://www.youtube.com/embed/QPv3fdZ_cU0"
+                  title="Demo 2 Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <aside className="notes">Notes: Demo 2 Video</aside>
+            </section>
           </section>
 
           <section id="livecoding-environment-claude">
