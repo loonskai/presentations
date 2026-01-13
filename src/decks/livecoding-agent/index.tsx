@@ -167,6 +167,25 @@ export function LivecodingAgent() {
             <aside className="notes">Notes: DAW</aside>
           </section>
 
+          <section id="sampling">
+            <div className="container tw:justify-center">
+              <h1>Sampling</h1>
+              <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center">
+                <iframe
+                  className="tw:rounded-2xl"
+                  width="800"
+                  height="450"
+                  src="https://www.youtube.com/embed/1ZeciX-3wfs?start=38"
+                  title="Sampling"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+            <aside className="notes">Notes: Sampling</aside>
+          </section>
+
           <section id="sound-synthesis">
             <div className="container tw:justify-center">
               <h1>Sound Synthesis</h1>
@@ -184,46 +203,6 @@ export function LivecodingAgent() {
               </div>
             </div>
             <aside className="notes">Notes: Sound Synthesis</aside>
-          </section>
-
-          <section id="waveforms">
-            <div className="container tw:justify-center">
-              <h1>Waveforms</h1>
-              <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center tw:relative">
-                <video
-                  ref={waveformVideoRef}
-                  src="/manim/Waveforms.mp4"
-                  loop
-                  muted
-                  playsInline
-                  className="tw:rounded-2xl tw:max-h-[600px]"
-                />
-                <div className="tw:absolute tw:bottom-4 tw:right-4 tw:flex tw:items-center tw:gap-2">
-                  <button
-                    onClick={toggleWaveformPlay}
-                    className="tw:bg-[#3c3836] tw:hover:bg-[#504945] tw:text-[#ebdbb2] tw:px-3 tw:py-2 tw:rounded-lg tw:text-sm tw:font-medium tw:transition-colors tw:border tw:border-[#504945]"
-                  >
-                    {isWaveformPlaying ? "⏸ Pause" : "▶ Play"}
-                  </button>
-                  <button
-                    onClick={toggleWaveformMute}
-                    className="tw:bg-[#3c3836] tw:hover:bg-[#504945] tw:text-[#ebdbb2] tw:px-3 tw:py-2 tw:rounded-lg tw:text-sm tw:font-medium tw:transition-colors tw:border tw:border-[#504945]"
-                  >
-                    {isWaveformMuted ? "🔇" : "🔊"}
-                  </button>
-                  <input
-                    type="range"
-                    min="0"
-                    max="1"
-                    step="0.01"
-                    value={waveformVolume}
-                    onChange={handleWaveformVolume}
-                    className="tw:w-20 tw:h-2 tw:bg-[#504945] tw:rounded-lg tw:appearance-none tw:cursor-pointer"
-                  />
-                </div>
-              </div>
-            </div>
-            <aside className="notes">Notes: Waveforms</aside>
           </section>
 
           <section id="sound-representations">
@@ -269,6 +248,46 @@ export function LivecodingAgent() {
               </div>
             </div>
             <aside className="notes">Notes: Sound Representations</aside>
+          </section>
+
+          <section id="waveforms">
+            <div className="container tw:justify-center">
+              <h1>Waveforms</h1>
+              <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center tw:relative">
+                <video
+                  ref={waveformVideoRef}
+                  src="/manim/Waveforms.mp4"
+                  loop
+                  muted
+                  playsInline
+                  className="tw:rounded-2xl tw:max-h-[600px]"
+                />
+                <div className="tw:absolute tw:bottom-4 tw:right-4 tw:flex tw:items-center tw:gap-2">
+                  <button
+                    onClick={toggleWaveformPlay}
+                    className="tw:bg-[#3c3836] tw:hover:bg-[#504945] tw:text-[#ebdbb2] tw:px-3 tw:py-2 tw:rounded-lg tw:text-sm tw:font-medium tw:transition-colors tw:border tw:border-[#504945]"
+                  >
+                    {isWaveformPlaying ? "⏸ Pause" : "▶ Play"}
+                  </button>
+                  <button
+                    onClick={toggleWaveformMute}
+                    className="tw:bg-[#3c3836] tw:hover:bg-[#504945] tw:text-[#ebdbb2] tw:px-3 tw:py-2 tw:rounded-lg tw:text-sm tw:font-medium tw:transition-colors tw:border tw:border-[#504945]"
+                  >
+                    {isWaveformMuted ? "🔇" : "🔊"}
+                  </button>
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value={waveformVolume}
+                    onChange={handleWaveformVolume}
+                    className="tw:w-20 tw:h-2 tw:bg-[#504945] tw:rounded-lg tw:appearance-none tw:cursor-pointer"
+                  />
+                </div>
+              </div>
+            </div>
+            <aside className="notes">Notes: Waveforms</aside>
           </section>
 
           <section id="reese-bass">
