@@ -11,6 +11,10 @@ export function LivecodingAgent() {
       navigator.userAgent
     );
 
+  const showNotes =
+    typeof window !== "undefined" &&
+    new URLSearchParams(window.location.search).has("notes");
+
   const { deckDivRef } = useDeckRef({
     transition: "slide",
     controls: isMobile, // Show navigation arrows on mobile
@@ -20,6 +24,7 @@ export function LivecodingAgent() {
     hash: true,
     touch: true,
     slideNumber: true,
+    showNotes, // Add ?notes to URL to show speaker notes inline
   });
 
   const waveformVideoRef = useRef<HTMLVideoElement>(null);
