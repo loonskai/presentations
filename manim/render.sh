@@ -17,6 +17,7 @@ if [ -z "$SCENE_NAME" ]; then
     echo "  - Waveforms"
     echo "  - AnalogToDigital"
     echo "  - SoundVisualization"
+    echo "  - SetupArchitecture"
     echo ""
     echo "Quality options:"
     echo "  l  - Low quality (480p)"
@@ -64,6 +65,9 @@ case "$SCENE_NAME" in
         ;;
     "SoundVisualization")
         SCENE_FILE="scenes/sound_visualization.py"
+        ;;
+    "SetupArchitecture")
+        SCENE_FILE="scenes/setup_architecture.py"
         ;;
     *)
         echo "Error: Unknown scene '$SCENE_NAME'"

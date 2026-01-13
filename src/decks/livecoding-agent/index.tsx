@@ -206,7 +206,7 @@ export function LivecodingAgent() {
 
           <section id="sound-representations">
             <div className="container tw:justify-center">
-              <h1>Sound Representations</h1>
+              <h1>Additive Synthesis</h1>
               <div className="tw:flex-1 tw:flex tw:justify-center tw:items-center tw:relative">
                 <video
                   ref={soundVisVideoRef}
@@ -319,31 +319,53 @@ export function LivecodingAgent() {
                       alt="SuperCollider"
                       className="tw:h-20"
                     />
-                    <span className="tw:text-[#ebdbb2] tw:text-xl">SuperCollider</span>
+                    <span className="tw:text-[#ebdbb2] tw:text-xl">
+                      SuperCollider
+                    </span>
                   </div>
-                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">+</span>
+                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">
+                    +
+                  </span>
                   <div className="tw:flex tw:flex-col tw:items-center tw:gap-2">
                     <img
                       src={images.strudelLogo}
                       alt="Strudel"
                       className="tw:h-20"
                     />
-                    <span className="tw:text-[#ebdbb2] tw:text-xl">Strudel.js</span>
+                    <span className="tw:text-[#ebdbb2] tw:text-xl">
+                      Strudel.js
+                    </span>
                   </div>
-                  <span className="tw:text-[#ebdbb2] tw:text-xl">+ many more...</span>
-                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">=</span>
+                  <span className="tw:text-[#ebdbb2] tw:text-xl">
+                    + many more...
+                  </span>
+                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">
+                    =
+                  </span>
                   <div className="tw:flex tw:flex-col tw:items-center tw:gap-2">
-                    <img
-                      src={images.flokLogo}
-                      alt="Flok"
-                      className="tw:h-20"
-                    />
-                    <span className="tw:text-[#ebdbb2] tw:text-xl">Flok.cc</span>
+                    <img src={images.flokLogo} alt="Flok" className="tw:h-20" />
+                    <span className="tw:text-[#ebdbb2] tw:text-xl">
+                      Flok.cc
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
             <aside className="notes">Notes: Livecoding Environment</aside>
+          </section>
+
+          <section id="setup">
+            <div className="container tw:justify-center tw:items-center">
+              <video
+                src="/manim/SetupArchitecture.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="tw:rounded-2xl tw:max-h-[90vh] tw:max-w-[90vw]"
+              />
+            </div>
+            <aside className="notes">Notes: Setup</aside>
           </section>
 
           <section id="percussions">
@@ -436,36 +458,46 @@ export function LivecodingAgent() {
                       alt="SuperCollider"
                       className="tw:h-20"
                     />
-                    <span className="tw:text-[#ebdbb2] tw:text-xl">SuperCollider</span>
+                    <span className="tw:text-[#ebdbb2] tw:text-xl">
+                      SuperCollider
+                    </span>
                   </div>
-                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">+</span>
+                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">
+                    +
+                  </span>
                   <div className="tw:flex tw:flex-col tw:items-center tw:gap-2">
                     <img
                       src={images.strudelLogo}
                       alt="Strudel"
                       className="tw:h-20"
                     />
-                    <span className="tw:text-[#ebdbb2] tw:text-xl">Strudel.js</span>
+                    <span className="tw:text-[#ebdbb2] tw:text-xl">
+                      Strudel.js
+                    </span>
                   </div>
-                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">+</span>
+                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">
+                    +
+                  </span>
                   <img
                     src={images.claudeLogo}
                     alt="Claude"
                     className="tw:h-[3.75rem]"
                   />
-                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">=</span>
+                  <span className="tw:text-[#ebdbb2] tw:text-4xl tw:font-bold">
+                    =
+                  </span>
                   <div className="tw:flex tw:flex-col tw:items-center tw:gap-2">
-                    <img
-                      src={images.flokLogo}
-                      alt="Flok"
-                      className="tw:h-20"
-                    />
-                    <span className="tw:text-[#ebdbb2] tw:text-xl">Flok.cc</span>
+                    <img src={images.flokLogo} alt="Flok" className="tw:h-20" />
+                    <span className="tw:text-[#ebdbb2] tw:text-xl">
+                      Flok.cc
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
-            <aside className="notes">Notes: Livecoding Environment + Claude</aside>
+            <aside className="notes">
+              Notes: Livecoding Environment + Claude
+            </aside>
           </section>
 
           <section id="thank-you">
