@@ -73,6 +73,9 @@ case "$SCENE_NAME" in
     "SetupArchitecture")
         SCENE_FILE="scenes/setup_architecture.py"
         ;;
+    "Filters")
+        SCENE_FILE="scenes/filters.py"
+        ;;
     *)
         echo "Error: Unknown scene '$SCENE_NAME'"
         exit 1
