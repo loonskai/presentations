@@ -555,6 +555,20 @@ export function LivecodingAgent() {
             </aside>
           </section>
 
+          <section id="agent-architecture">
+            <div className="container tw:justify-center tw:items-center tw:p-8">
+              <video
+                src="/manim/AgentArchitecture.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="tw:rounded-2xl tw:max-h-[75vh] tw:max-w-[85vw]"
+              />
+            </div>
+            <aside className="notes">Notes: Agent Architecture</aside>
+          </section>
+
           <section id="thank-you">
             <div className="container tw:justify-center tw:items-center">
               <h1>Thank you</h1>

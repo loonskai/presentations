@@ -19,6 +19,7 @@ if [ -z "$SCENE_NAME" ]; then
     echo "  - SoundVisualization"
     echo "  - PhaseCancellation"
     echo "  - SetupArchitecture"
+    echo "  - AgentArchitecture"
     echo ""
     echo "Quality options:"
     echo "  l  - Low quality (480p)"
@@ -72,6 +73,9 @@ case "$SCENE_NAME" in
         ;;
     "SetupArchitecture")
         SCENE_FILE="scenes/setup_architecture.py"
+        ;;
+    "AgentArchitecture")
+        SCENE_FILE="scenes/agent_architecture.py"
         ;;
     "Filters")
         SCENE_FILE="scenes/filters.py"
