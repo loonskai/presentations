@@ -5,7 +5,11 @@ import images from "./images";
 import "./styles.css";
 
 export function LivecodingAgent() {
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const isMobile =
+    typeof window !== "undefined" &&
+    /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
 
   const { deckDivRef } = useDeckRef({
     transition: "slide",
