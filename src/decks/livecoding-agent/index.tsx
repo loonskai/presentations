@@ -150,7 +150,13 @@ export function LivecodingAgent() {
                 </h1>
               </div>
             </div>
-            <aside className="notes">Notes: Intro</aside>
+            <aside className="notes">
+              - We're in the AI hype era - music production is not an exception
+              - Big tech led generative music a couple of years ago, now new startups sprawling every week
+              - Suno is the most popular - impressive results but humans act as supervisors
+              - This is an example of text-to-music generation
+              - Another way is a more co-operative process around music creation - that's what I wanted to explore today
+            </aside>
           </section>
 
           <section id="daw">
@@ -164,7 +170,12 @@ export function LivecodingAgent() {
                 />
               </div>
             </div>
-            <aside className="notes">Notes: DAW</aside>
+            <aside className="notes">
+              - Modern music production is tightly coupled with Digital Audio Workstations
+              - Many options available - some free, some paid
+              - One of the main powers they provide: the ability to build sound
+              - To build something you need building blocks
+            </aside>
           </section>
 
           <section id="sampling">
@@ -183,7 +194,10 @@ export function LivecodingAgent() {
                 />
               </div>
             </div>
-            <aside className="notes">Notes: Sampling</aside>
+            <aside className="notes">
+              - We can build sound using samples
+              - The whole hip-hop industry is built on top of sampling techniques
+            </aside>
           </section>
 
           <section id="sound-synthesis">
@@ -202,7 +216,10 @@ export function LivecodingAgent() {
                 />
               </div>
             </div>
-            <aside className="notes">Notes: Sound Synthesis</aside>
+            <aside className="notes">
+              - Or we can build sound using sound synthesis
+              - We'll touch both techniques during our demo today, starting with sound synthesis
+            </aside>
           </section>
 
           <section id="sound-representations">
@@ -247,7 +264,11 @@ export function LivecodingAgent() {
                 </div>
               </div>
             </div>
-            <aside className="notes">Notes: Sound Representations</aside>
+            <aside className="notes">
+              - Many types of sound synthesis exist
+              - We can create any sound (in theory) by combining several sine waves
+              - This is called additive synthesis
+            </aside>
           </section>
 
           <section id="waveforms">
@@ -287,7 +308,11 @@ export function LivecodingAgent() {
                 </div>
               </div>
             </div>
-            <aside className="notes">Notes: Waveforms</aside>
+            <aside className="notes">
+              - However we can take richer sounds and by mixing them together and applying filters - get interesting results
+              - Here's how the simplest sound waveforms sound like
+              - Sawtooth sounds richer than sine waves - so we can probably make something interesting from it
+            </aside>
           </section>
 
           <section id="reese-bass">
@@ -306,7 +331,11 @@ export function LivecodingAgent() {
                 />
               </div>
             </div>
-            <aside className="notes">Notes: Reese Bass</aside>
+            <aside className="notes">
+              - A classic reese bass in its inceptional form sounded like this
+              - A wobbling bass with more aggressive character than a regular sub
+              - Let's try to recreate it from scratch
+            </aside>
           </section>
 
           <section id="code-as-synth">
@@ -320,7 +349,11 @@ export function LivecodingAgent() {
                 />
               </div>
             </div>
-            <aside className="notes">Notes: Code as Synth</aside>
+            <aside className="notes">
+              - DAWs have knobs and sliders - everything to feel like working with real synthesizers or mixers
+              - On a low level we're still processing digital sound signals using code
+              - As many of us call ourselves software engineers, we shouldn't be scared of using code for this
+            </aside>
           </section>
 
           <section id="supercollider">
@@ -339,14 +372,29 @@ export function LivecodingAgent() {
                 />
               </div>
             </div>
-            <aside className="notes">Notes: SuperCollider</aside>
+            <aside className="notes">
+              - SuperCollider - a wonderful language made to work with audio
+              - Has a client-server architecture (using Open Sound Control protocol)
+              - Has its own IDE, but for this demo I'll use Flok - a web browser tool for livecoding
+              - For now let's focus on SuperCollider code - we'll look into the environment later
+            </aside>
           </section>
 
           <section id="demo">
             <div className="container tw:justify-center tw:items-center">
               <h1 className="tw:text-[8rem]! tw:font-bold">DEMO</h1>
             </div>
-            <aside className="notes">Notes: Demo 1</aside>
+            <aside className="notes">
+              - I just need a SuperCollider server running locally
+              - Start by defining a SynthDef - a definition of synth
+              - We can use a set of arguments
+              - SuperCollider has a huge standard library with hundreds of unit generators
+              - A unit in SuperCollider is a sample of sound produced by the server at different rates
+              - .ar (audio rate) works with machine audio rate - usually 41000 Hz or 48000 Hz
+              - .kr (control rate) typically calculated 64 times per second - friendlier to CPU, might be preliminary optimization but helpful for performance issues
+              - .ir (initialization rate) is calculated once when synth starts
+              - [Go through comments]
+            </aside>
           </section>
 
           <section id="phase-cancellation">
@@ -363,7 +411,10 @@ export function LivecodingAgent() {
                 />
               </div>
             </div>
-            <aside className="notes">Notes: Phase Cancellation</aside>
+            <aside className="notes">
+              - The wobbling effect is achieved thanks to the phase cancellation effect
+              - When you slightly detune the wave
+            </aside>
           </section>
 
           <section id="filter">
@@ -380,7 +431,10 @@ export function LivecodingAgent() {
                 />
               </div>
             </div>
-            <aside className="notes">Notes: Filter</aside>
+            <aside className="notes">
+              - The crucial part of subtractive synthesis are filters
+              - The idea is to control which frequencies you want to stay and which to shut down (or attenuate)
+            </aside>
           </section>
 
           <section id="livecoding-environment">
@@ -426,7 +480,14 @@ export function LivecodingAgent() {
                 </div>
               </div>
             </div>
-            <aside className="notes">Notes: Livecoding Environment</aside>
+            <aside className="notes">
+              - As we finished designing the bass sound, it's time to move on and compose some music
+              - In 99% of cases there is no music without rhythm - we need a sequencer
+              - Because SuperCollider is powerful, with power comes complexity
+              - For sequencing I'll use Strudel - a JS library built on top of TidalCycles Haskell library
+              - Specializes in building patterns - Warsaw.JS, we have some JS here!
+              - Flok allows different tools in one place
+            </aside>
           </section>
 
           <section id="setup">
@@ -440,7 +501,12 @@ export function LivecodingAgent() {
                 className="tw:rounded-2xl tw:max-h-[75vh] tw:max-w-[85vw]"
               />
             </div>
-            <aside className="notes">Notes: Setup</aside>
+            <aside className="notes">
+              - Let's build some track
+              - Using samples from GitHub
+              - Using locally defined SuperCollider synths - with OSC messages
+              - Using MIDI - Inter-Application Communication between our browser and any DAW
+            </aside>
           </section>
 
           <section id="percussions">
@@ -460,7 +526,10 @@ export function LivecodingAgent() {
                   />
                 </div>
               </div>
-              <aside className="notes">Notes: Percussions Video</aside>
+              <aside className="notes">
+                - Using samples - particularly percussion
+                - We can slice any sample and define a custom message format sent from Strudel to any OSC-friendly receiver
+              </aside>
             </section>
             <section>
               <div className="container tw:justify-center">
@@ -511,7 +580,10 @@ export function LivecodingAgent() {
                   </div>
                 </div>
               </div>
-              <aside className="notes">Notes: Percussions Tools</aside>
+              <aside className="notes">
+                - I used FluCoMa tools to slice the sample into meaningful pieces
+                - Attached some comments and a link to the tutorial if you're interested
+              </aside>
             </section>
           </section>
 
@@ -520,7 +592,9 @@ export function LivecodingAgent() {
               <div className="container tw:justify-center tw:items-center">
                 <h1 className="tw:text-[8rem]! tw:font-bold">DEMO</h1>
               </div>
-              <aside className="notes">Notes: Demo 2</aside>
+              <aside className="notes">
+                - DEMO (uncomment part by part)
+              </aside>
             </section>
             <section>
               <div className="container tw:justify-center tw:items-center">
@@ -535,7 +609,9 @@ export function LivecodingAgent() {
                   allowFullScreen
                 />
               </div>
-              <aside className="notes">Notes: Demo 2 Video</aside>
+              <aside className="notes">
+                - Demo 2 backup video
+              </aside>
             </section>
           </section>
 
@@ -588,7 +664,13 @@ export function LivecodingAgent() {
               </div>
             </div>
             <aside className="notes">
-              Notes: Livecoding Environment + Claude
+              - Where is AI? You promised some AI!
+              - While experimenting with livecoding I decided why not have LLM help during the session
+              - We can ask for ideas, start drafts, run the performance in collaboration with AI
+              - I prepared a prototype of a custom Flok pane with LLM chat
+              - Currently working on my machine only and with Claude only
+              - With additional tools we could enrich our composition - let's try it out
+              - [BACK TO DEMO]
             </aside>
           </section>
 
@@ -603,7 +685,9 @@ export function LivecodingAgent() {
                 className="tw:rounded-2xl tw:max-h-[75vh] tw:max-w-[85vw]"
               />
             </div>
-            <aside className="notes">Notes: Agent Architecture</aside>
+            <aside className="notes">
+              - Agent architecture diagram
+            </aside>
           </section>
 
           <section id="thank-you">
@@ -625,7 +709,12 @@ export function LivecodingAgent() {
                 </a>
               </div>
             </div>
-            <aside className="notes">Notes: Thank you</aside>
+            <aside className="notes">
+              - I hope you enjoyed this quick exploration of AI in livecoding experience
+              - This may be an interesting form of creative process where humans will still lead
+              - We can ask for ideas, inspiration, but it will be up to us to decide what to use when
+              - So we can leave fully AI-generated music for something less interesting, like error logging
+            </aside>
           </section>
 
           <section id="bonus">
@@ -660,7 +749,9 @@ export function LivecodingAgent() {
                 </div>
               </div>
             </div>
-            <aside className="notes">Notes: Bonus</aside>
+            <aside className="notes">
+              - Error logging music example
+            </aside>
           </section>
 
           <section id="end" data-visibility="hidden"></section>
